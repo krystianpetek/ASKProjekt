@@ -360,5 +360,38 @@ namespace Intel8086
             else
                 movLabel.Text = "";
         }
+
+        private void buttonRANDOM_Click(object sender, EventArgs e)
+        {
+            // ASCII + losowanie
+
+            string[] tab = new string[16];
+            int y = 0;
+            for (int i = 48; i <= 57; i++)
+            {
+                tab[y] += Convert.ToChar(i).ToString();
+                y++;
+            }
+
+            for (int i = 65; i <= 70; i++)
+            {
+                tab[y] = Convert.ToChar(i).ToString();
+                y++;
+            }
+                        
+            Random losowanie = new Random();
+            char[] ilosc = new char[16];
+            string los;
+            for(int i = 0;i<tab.Length;i++)
+            {
+                los = tab[losowanie.Next(0, tab.Length)];
+                ilosc[i] = Convert.ToChar(los);
+            }
+            axView.Text = ilosc[0].ToString() + ilosc[1].ToString() + ilosc[2].ToString() + ilosc[3].ToString();
+            bxView.Text = ilosc[4].ToString() + ilosc[5].ToString() + ilosc[6].ToString() + ilosc[7].ToString();
+            cxView.Text = ilosc[8].ToString() + ilosc[9].ToString() + ilosc[10].ToString() + ilosc[11].ToString();
+            dxView.Text = ilosc[12].ToString() + ilosc[13].ToString() + ilosc[14].ToString() + ilosc[15].ToString();
+
+        }
     }
 }

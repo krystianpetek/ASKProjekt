@@ -49,6 +49,7 @@ namespace Intel8086
             this.buttonXCHG = new System.Windows.Forms.Button();
             this.title = new System.Windows.Forms.Label();
             this.buttonRANDOM = new System.Windows.Forms.Button();
+            this.labelAutor = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // axLabel
@@ -268,6 +269,19 @@ namespace Intel8086
             this.buttonRANDOM.TabIndex = 19;
             this.buttonRANDOM.Text = "RANDOM";
             this.buttonRANDOM.UseVisualStyleBackColor = true;
+            this.buttonRANDOM.Click += new System.EventHandler(this.buttonRANDOM_Click);
+            // 
+            // labelAutor
+            // 
+            this.labelAutor.AutoSize = true;
+            this.labelAutor.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelAutor.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.labelAutor.Location = new System.Drawing.Point(707, 426);
+            this.labelAutor.Name = "labelAutor";
+            this.labelAutor.Size = new System.Drawing.Size(80, 16);
+            this.labelAutor.TabIndex = 20;
+            this.labelAutor.Text = "Krystian Petek";
+            this.labelAutor.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // Form1
             // 
@@ -275,6 +289,7 @@ namespace Intel8086
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.labelAutor);
             this.Controls.Add(this.buttonRANDOM);
             this.Controls.Add(this.title);
             this.Controls.Add(this.buttonXCHG);
@@ -324,6 +339,7 @@ namespace Intel8086
         private System.Windows.Forms.Button buttonXCHG;
         private System.Windows.Forms.Button buttonMOV;
         private System.Windows.Forms.Button buttonRANDOM;
+        private System.Windows.Forms.Label labelAutor;
     }
 }
 
