@@ -41,11 +41,14 @@ namespace Intel8086
             this.cxText = new System.Windows.Forms.TextBox();
             this.bxText = new System.Windows.Forms.TextBox();
             this.axText = new System.Windows.Forms.TextBox();
-            this.buttonOk = new System.Windows.Forms.Button();
-            this.comboBoxFROM = new System.Windows.Forms.ComboBox();
+            this.buttonMOV = new System.Windows.Forms.Button();
             this.comboBoxTO = new System.Windows.Forms.ComboBox();
+            this.comboBoxFROM = new System.Windows.Forms.ComboBox();
             this.movLabel = new System.Windows.Forms.Label();
-            this.buttonClear = new System.Windows.Forms.Button();
+            this.buttonCLEAR = new System.Windows.Forms.Button();
+            this.buttonXCHG = new System.Windows.Forms.Button();
+            this.title = new System.Windows.Forms.Label();
+            this.buttonRANDOM = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // axLabel
@@ -54,7 +57,7 @@ namespace Intel8086
             this.axLabel.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.axLabel.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.axLabel.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.axLabel.Location = new System.Drawing.Point(22, 13);
+            this.axLabel.Location = new System.Drawing.Point(18, 82);
             this.axLabel.Name = "axLabel";
             this.axLabel.Size = new System.Drawing.Size(22, 18);
             this.axLabel.TabIndex = 0;
@@ -66,7 +69,7 @@ namespace Intel8086
             this.bxLabel.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.bxLabel.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.bxLabel.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.bxLabel.Location = new System.Drawing.Point(22, 39);
+            this.bxLabel.Location = new System.Drawing.Point(18, 108);
             this.bxLabel.Name = "bxLabel";
             this.bxLabel.Size = new System.Drawing.Size(22, 18);
             this.bxLabel.TabIndex = 1;
@@ -78,7 +81,7 @@ namespace Intel8086
             this.cxLabel.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.cxLabel.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cxLabel.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.cxLabel.Location = new System.Drawing.Point(22, 65);
+            this.cxLabel.Location = new System.Drawing.Point(18, 134);
             this.cxLabel.Name = "cxLabel";
             this.cxLabel.Size = new System.Drawing.Size(22, 18);
             this.cxLabel.TabIndex = 2;
@@ -90,7 +93,7 @@ namespace Intel8086
             this.dxLabel.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.dxLabel.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.dxLabel.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.dxLabel.Location = new System.Drawing.Point(22, 91);
+            this.dxLabel.Location = new System.Drawing.Point(18, 160);
             this.dxLabel.Name = "dxLabel";
             this.dxLabel.Size = new System.Drawing.Size(22, 18);
             this.dxLabel.TabIndex = 3;
@@ -99,7 +102,7 @@ namespace Intel8086
             // axView
             // 
             this.axView.Enabled = false;
-            this.axView.Location = new System.Drawing.Point(50, 10);
+            this.axView.Location = new System.Drawing.Point(46, 77);
             this.axView.Name = "axView";
             this.axView.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.axView.Size = new System.Drawing.Size(54, 23);
@@ -109,7 +112,7 @@ namespace Intel8086
             // bxView
             // 
             this.bxView.Enabled = false;
-            this.bxView.Location = new System.Drawing.Point(50, 36);
+            this.bxView.Location = new System.Drawing.Point(46, 103);
             this.bxView.Name = "bxView";
             this.bxView.Size = new System.Drawing.Size(54, 23);
             this.bxView.TabIndex = 5;
@@ -118,7 +121,7 @@ namespace Intel8086
             // cxView
             // 
             this.cxView.Enabled = false;
-            this.cxView.Location = new System.Drawing.Point(50, 62);
+            this.cxView.Location = new System.Drawing.Point(46, 129);
             this.cxView.Name = "cxView";
             this.cxView.Size = new System.Drawing.Size(54, 23);
             this.cxView.TabIndex = 6;
@@ -127,7 +130,7 @@ namespace Intel8086
             // dxView
             // 
             this.dxView.Enabled = false;
-            this.dxView.Location = new System.Drawing.Point(50, 88);
+            this.dxView.Location = new System.Drawing.Point(46, 155);
             this.dxView.Name = "dxView";
             this.dxView.Size = new System.Drawing.Size(54, 23);
             this.dxView.TabIndex = 7;
@@ -135,7 +138,7 @@ namespace Intel8086
             // 
             // dxText
             // 
-            this.dxText.Location = new System.Drawing.Point(110, 88);
+            this.dxText.Location = new System.Drawing.Point(106, 155);
             this.dxText.MaxLength = 4;
             this.dxText.Name = "dxText";
             this.dxText.Size = new System.Drawing.Size(54, 23);
@@ -144,7 +147,7 @@ namespace Intel8086
             // 
             // cxText
             // 
-            this.cxText.Location = new System.Drawing.Point(110, 62);
+            this.cxText.Location = new System.Drawing.Point(106, 129);
             this.cxText.MaxLength = 4;
             this.cxText.Name = "cxText";
             this.cxText.Size = new System.Drawing.Size(54, 23);
@@ -153,7 +156,7 @@ namespace Intel8086
             // 
             // bxText
             // 
-            this.bxText.Location = new System.Drawing.Point(110, 36);
+            this.bxText.Location = new System.Drawing.Point(106, 103);
             this.bxText.MaxLength = 4;
             this.bxText.Name = "bxText";
             this.bxText.Size = new System.Drawing.Size(54, 23);
@@ -162,7 +165,7 @@ namespace Intel8086
             // 
             // axText
             // 
-            this.axText.Location = new System.Drawing.Point(110, 10);
+            this.axText.Location = new System.Drawing.Point(106, 77);
             this.axText.MaxLength = 4;
             this.axText.Name = "axText";
             this.axText.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -170,35 +173,20 @@ namespace Intel8086
             this.axText.TabIndex = 8;
             this.axText.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // buttonOk
+            // buttonMOV
             // 
-            this.buttonOk.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonOk.Location = new System.Drawing.Point(189, 13);
-            this.buttonOk.Name = "buttonOk";
-            this.buttonOk.Size = new System.Drawing.Size(114, 23);
-            this.buttonOk.TabIndex = 12;
-            this.buttonOk.Text = "PRZYPISZ";
-            this.buttonOk.UseVisualStyleBackColor = true;
-            this.buttonOk.Click += new System.EventHandler(this.buttonOk_Click);
-            // 
-            // comboBoxFROM
-            // 
-            this.comboBoxFROM.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.comboBoxFROM.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxFROM.FormattingEnabled = true;
-            this.comboBoxFROM.Items.AddRange(new object[] {
-            "AX",
-            "BX",
-            "CX",
-            "DX"});
-            this.comboBoxFROM.Location = new System.Drawing.Point(50, 130);
-            this.comboBoxFROM.Name = "comboBoxFROM";
-            this.comboBoxFROM.Size = new System.Drawing.Size(54, 23);
-            this.comboBoxFROM.TabIndex = 13;
-            this.comboBoxFROM.SelectedIndexChanged += new System.EventHandler(this.comboBoxFROM_SelectedIndexChanged);
+            this.buttonMOV.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonMOV.Location = new System.Drawing.Point(175, 77);
+            this.buttonMOV.Name = "buttonMOV";
+            this.buttonMOV.Size = new System.Drawing.Size(84, 23);
+            this.buttonMOV.TabIndex = 12;
+            this.buttonMOV.Text = "MOV";
+            this.buttonMOV.UseVisualStyleBackColor = true;
+            this.buttonMOV.Click += new System.EventHandler(this.buttonMOV_Click);
             // 
             // comboBoxTO
             // 
+            this.comboBoxTO.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.comboBoxTO.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxTO.FormattingEnabled = true;
             this.comboBoxTO.Items.AddRange(new object[] {
@@ -206,33 +194,80 @@ namespace Intel8086
             "BX",
             "CX",
             "DX"});
-            this.comboBoxTO.Location = new System.Drawing.Point(110, 130);
+            this.comboBoxTO.Location = new System.Drawing.Point(106, 199);
             this.comboBoxTO.Name = "comboBoxTO";
             this.comboBoxTO.Size = new System.Drawing.Size(54, 23);
-            this.comboBoxTO.TabIndex = 14;
+            this.comboBoxTO.TabIndex = 13;
             this.comboBoxTO.SelectedIndexChanged += new System.EventHandler(this.comboBoxTO_SelectedIndexChanged);
+            // 
+            // comboBoxFROM
+            // 
+            this.comboBoxFROM.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxFROM.FormattingEnabled = true;
+            this.comboBoxFROM.Items.AddRange(new object[] {
+            "AX",
+            "BX",
+            "CX",
+            "DX"});
+            this.comboBoxFROM.Location = new System.Drawing.Point(46, 199);
+            this.comboBoxFROM.Name = "comboBoxFROM";
+            this.comboBoxFROM.Size = new System.Drawing.Size(54, 23);
+            this.comboBoxFROM.TabIndex = 14;
+            this.comboBoxFROM.SelectedIndexChanged += new System.EventHandler(this.comboBoxFROM_SelectedIndexChanged);
             // 
             // movLabel
             // 
             this.movLabel.AutoSize = true;
             this.movLabel.Font = new System.Drawing.Font("Trebuchet MS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.movLabel.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.movLabel.Location = new System.Drawing.Point(50, 167);
+            this.movLabel.Location = new System.Drawing.Point(46, 236);
             this.movLabel.Name = "movLabel";
             this.movLabel.Size = new System.Drawing.Size(0, 20);
             this.movLabel.TabIndex = 15;
             this.movLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // buttonClear
+            // buttonCLEAR
             // 
-            this.buttonClear.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonClear.Location = new System.Drawing.Point(189, 39);
-            this.buttonClear.Name = "buttonClear";
-            this.buttonClear.Size = new System.Drawing.Size(114, 23);
-            this.buttonClear.TabIndex = 16;
-            this.buttonClear.Text = "WYCZYŚĆ";
-            this.buttonClear.UseVisualStyleBackColor = true;
-            this.buttonClear.Click += new System.EventHandler(this.buttonClear_Click);
+            this.buttonCLEAR.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonCLEAR.Location = new System.Drawing.Point(175, 129);
+            this.buttonCLEAR.Name = "buttonCLEAR";
+            this.buttonCLEAR.Size = new System.Drawing.Size(84, 23);
+            this.buttonCLEAR.TabIndex = 16;
+            this.buttonCLEAR.Text = "WYCZYŚĆ";
+            this.buttonCLEAR.UseVisualStyleBackColor = true;
+            this.buttonCLEAR.Click += new System.EventHandler(this.buttonCLEAR_Click);
+            // 
+            // buttonXCHG
+            // 
+            this.buttonXCHG.Location = new System.Drawing.Point(175, 103);
+            this.buttonXCHG.Name = "buttonXCHG";
+            this.buttonXCHG.Size = new System.Drawing.Size(84, 23);
+            this.buttonXCHG.TabIndex = 17;
+            this.buttonXCHG.Text = "XCHG";
+            this.buttonXCHG.UseVisualStyleBackColor = true;
+            this.buttonXCHG.Click += new System.EventHandler(this.buttonXCHG_Click);
+            // 
+            // title
+            // 
+            this.title.AutoSize = true;
+            this.title.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.title.Font = new System.Drawing.Font("Trebuchet MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.title.ForeColor = System.Drawing.SystemColors.MenuBar;
+            this.title.Location = new System.Drawing.Point(219, 9);
+            this.title.Name = "title";
+            this.title.Size = new System.Drawing.Size(406, 27);
+            this.title.TabIndex = 18;
+            this.title.Text = "Symulator rozkazów procesora INTEL 8086";
+            this.title.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // buttonRANDOM
+            // 
+            this.buttonRANDOM.Location = new System.Drawing.Point(175, 155);
+            this.buttonRANDOM.Name = "buttonRANDOM";
+            this.buttonRANDOM.Size = new System.Drawing.Size(84, 23);
+            this.buttonRANDOM.TabIndex = 19;
+            this.buttonRANDOM.Text = "RANDOM";
+            this.buttonRANDOM.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -240,11 +275,14 @@ namespace Intel8086
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.buttonClear);
+            this.Controls.Add(this.buttonRANDOM);
+            this.Controls.Add(this.title);
+            this.Controls.Add(this.buttonXCHG);
+            this.Controls.Add(this.buttonCLEAR);
             this.Controls.Add(this.movLabel);
-            this.Controls.Add(this.comboBoxTO);
             this.Controls.Add(this.comboBoxFROM);
-            this.Controls.Add(this.buttonOk);
+            this.Controls.Add(this.comboBoxTO);
+            this.Controls.Add(this.buttonMOV);
             this.Controls.Add(this.dxText);
             this.Controls.Add(this.cxText);
             this.Controls.Add(this.bxText);
@@ -259,7 +297,6 @@ namespace Intel8086
             this.Controls.Add(this.axLabel);
             this.Name = "Form1";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -279,11 +316,14 @@ namespace Intel8086
         private System.Windows.Forms.TextBox axText;
         private System.Windows.Forms.TextBox bxText;
         private System.Windows.Forms.TextBox cxText;
-        private System.Windows.Forms.Button buttonOk;
         private System.Windows.Forms.ComboBox comboBoxFROM;
         private System.Windows.Forms.ComboBox comboBoxTO;
         private System.Windows.Forms.Label movLabel;
-        private System.Windows.Forms.Button buttonClear;
+        private System.Windows.Forms.Label title;
+        private System.Windows.Forms.Button buttonCLEAR;
+        private System.Windows.Forms.Button buttonXCHG;
+        private System.Windows.Forms.Button buttonMOV;
+        private System.Windows.Forms.Button buttonRANDOM;
     }
 }
 
