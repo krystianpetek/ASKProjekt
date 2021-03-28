@@ -230,7 +230,7 @@ namespace Intel8086
             // buttonCLEAR
             // 
             this.buttonCLEAR.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonCLEAR.Location = new System.Drawing.Point(175, 129);
+            this.buttonCLEAR.Location = new System.Drawing.Point(175, 155);
             this.buttonCLEAR.Name = "buttonCLEAR";
             this.buttonCLEAR.Size = new System.Drawing.Size(84, 23);
             this.buttonCLEAR.TabIndex = 16;
@@ -254,7 +254,7 @@ namespace Intel8086
             this.title.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.title.Font = new System.Drawing.Font("Trebuchet MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.title.ForeColor = System.Drawing.SystemColors.MenuBar;
-            this.title.Location = new System.Drawing.Point(219, 9);
+            this.title.Location = new System.Drawing.Point(210, 9);
             this.title.Name = "title";
             this.title.Size = new System.Drawing.Size(406, 27);
             this.title.TabIndex = 18;
@@ -263,9 +263,9 @@ namespace Intel8086
             // 
             // buttonRANDOM
             // 
-            this.buttonRANDOM.Location = new System.Drawing.Point(175, 155);
+            this.buttonRANDOM.Location = new System.Drawing.Point(175, 128);
             this.buttonRANDOM.Name = "buttonRANDOM";
-            this.buttonRANDOM.Size = new System.Drawing.Size(84, 23);
+            this.buttonRANDOM.Size = new System.Drawing.Size(84, 24);
             this.buttonRANDOM.TabIndex = 19;
             this.buttonRANDOM.Text = "RANDOM";
             this.buttonRANDOM.UseVisualStyleBackColor = true;
@@ -311,7 +311,7 @@ namespace Intel8086
             this.Controls.Add(this.bxLabel);
             this.Controls.Add(this.axLabel);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Projekt ASK Krystian Petek";
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -39,7 +39,7 @@ namespace Intel8086
             dxText.Text = dx;
         }
 
-        /* Po kliknięciu klawisza PRZYPISZ */
+        /* Po kliknięciu klawisza MOV*/
         private void buttonMOV_Click(object sender, EventArgs e)
         {
             // ZLE TO JESZCZE DZIALA if (axText.Text.Length == 4 || bxText.Text.Length == 4 || cxText.Text.Length == 4 || dxText.Text.Length == 4)
@@ -218,7 +218,7 @@ namespace Intel8086
             cxText.Text = "";
             dxText.Text = "";
         }
-
+        // ZAMIANA danych instrukcja XCHG
         private void buttonXCHG_Click(object sender, EventArgs e)
         {
             switch (comboBoxFROM.Text)
