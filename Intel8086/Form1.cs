@@ -46,10 +46,10 @@ namespace Intel8086
             if (comboBoxFROM.Text.Length > 0 && comboBoxTO.Text.Length > 0)
             {
                 if (axText.Text.Length == 4 || bxText.Text.Length == 4 || cxText.Text.Length == 4 || dxText.Text.Length == 4)
-                    movLabel.Text = $"MOV {pierwszy}, {drugi}";
+                    movLabel.Text = $"MOV {drugi}, {pierwszy}";
             }
             else if (comboBoxFROM.Text.Length > 0)
-                movLabel.Text = $"MOV {pierwszy}";
+                movLabel.Text = $"MOV {drugi}";
             else
                 movLabel.Text = "";
 
@@ -391,6 +391,16 @@ namespace Intel8086
             bxView.Text = ilosc[4].ToString() + ilosc[5].ToString() + ilosc[6].ToString() + ilosc[7].ToString();
             cxView.Text = ilosc[8].ToString() + ilosc[9].ToString() + ilosc[10].ToString() + ilosc[11].ToString();
             dxView.Text = ilosc[12].ToString() + ilosc[13].ToString() + ilosc[14].ToString() + ilosc[15].ToString();
+
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radioPamiecRejestr_CheckedChanged(object sender, EventArgs e)
+        {
 
         }
     }

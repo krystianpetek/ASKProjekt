@@ -50,6 +50,9 @@ namespace Intel8086
             this.title = new System.Windows.Forms.Label();
             this.buttonRANDOM = new System.Windows.Forms.Button();
             this.labelAutor = new System.Windows.Forms.Label();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.radioRejestrPamiec = new System.Windows.Forms.RadioButton();
+            this.radioPamiecRejestr = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // axLabel
@@ -195,7 +198,7 @@ namespace Intel8086
             "BX",
             "CX",
             "DX"});
-            this.comboBoxTO.Location = new System.Drawing.Point(106, 199);
+            this.comboBoxTO.Location = new System.Drawing.Point(46, 199);
             this.comboBoxTO.Name = "comboBoxTO";
             this.comboBoxTO.Size = new System.Drawing.Size(54, 23);
             this.comboBoxTO.TabIndex = 13;
@@ -210,7 +213,7 @@ namespace Intel8086
             "BX",
             "CX",
             "DX"});
-            this.comboBoxFROM.Location = new System.Drawing.Point(46, 199);
+            this.comboBoxFROM.Location = new System.Drawing.Point(106, 199);
             this.comboBoxFROM.Name = "comboBoxFROM";
             this.comboBoxFROM.Size = new System.Drawing.Size(54, 23);
             this.comboBoxFROM.TabIndex = 14;
@@ -283,12 +286,49 @@ namespace Intel8086
             this.labelAutor.Text = "Krystian Petek";
             this.labelAutor.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 15;
+            this.listBox1.Location = new System.Drawing.Point(418, 264);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(120, 94);
+            this.listBox1.TabIndex = 22;
+            // 
+            // radioRejestrPamiec
+            // 
+            this.radioRejestrPamiec.AutoSize = true;
+            this.radioRejestrPamiec.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.radioRejestrPamiec.Location = new System.Drawing.Point(285, 77);
+            this.radioRejestrPamiec.Name = "radioRejestrPamiec";
+            this.radioRejestrPamiec.Size = new System.Drawing.Size(134, 19);
+            this.radioRejestrPamiec.TabIndex = 21;
+            this.radioRejestrPamiec.TabStop = true;
+            this.radioRejestrPamiec.Text = "z rejestru do pamięci";
+            this.radioRejestrPamiec.UseVisualStyleBackColor = true;
+            this.radioRejestrPamiec.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            // 
+            // radioPamiecRejestr
+            // 
+            this.radioPamiecRejestr.AutoSize = true;
+            this.radioPamiecRejestr.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.radioPamiecRejestr.Location = new System.Drawing.Point(285, 103);
+            this.radioPamiecRejestr.Name = "radioPamiecRejestr";
+            this.radioPamiecRejestr.Size = new System.Drawing.Size(134, 19);
+            this.radioPamiecRejestr.TabIndex = 22;
+            this.radioPamiecRejestr.TabStop = true;
+            this.radioPamiecRejestr.Text = "z pamięci do rejestru";
+            this.radioPamiecRejestr.UseVisualStyleBackColor = true;
+            this.radioPamiecRejestr.CheckedChanged += new System.EventHandler(this.radioPamiecRejestr_CheckedChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.radioPamiecRejestr);
+            this.Controls.Add(this.radioRejestrPamiec);
             this.Controls.Add(this.labelAutor);
             this.Controls.Add(this.buttonRANDOM);
             this.Controls.Add(this.title);
@@ -340,6 +380,10 @@ namespace Intel8086
         private System.Windows.Forms.Button buttonMOV;
         private System.Windows.Forms.Button buttonRANDOM;
         private System.Windows.Forms.Label labelAutor;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.RadioButton radioRejestrPamiec;
+        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton radioPamiecRejestr;
     }
 }
 
