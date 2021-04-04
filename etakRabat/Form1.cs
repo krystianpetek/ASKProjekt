@@ -15,8 +15,9 @@ namespace etakRabat
         
         string oblicz;
         string wejscie;
+        string wejscie2;
         double kwota;
-        int rabatView = 20;
+        double rabatView = 20;
 
         public Form1()
         {
@@ -42,23 +43,24 @@ namespace etakRabat
         {
             if (richTextBoxKwota.Text.Length == 0)
             {
-
+                return;
             }
             else
             {
                 wejscie = richTextBoxKwota.Text;
                 if (wejscie.Contains(','))
-                {
                     wejscie = wejscie.Replace(',','.');
-                }
                 kwota = Convert.ToDouble(wejscie);
-                rabatView = (Convert.ToInt32(richTextBoxRabat.Text.TrimEnd('%')));
-                int obliczenia = 100 - rabatView;
+
+
+                wejscie2 = richTextBoxRabat.Text;
+                if (wejscie2.Contains(','))
+                    wejscie2 = wejscie2.Replace(',', '.');
+                rabatView = (Convert.ToDouble(wejscie2.TrimEnd('%')));
+
+                double obliczenia = 100 - rabatView;
                 double rabat = (Convert.ToDouble(obliczenia)/100);
-                if (kwota.ToString().Contains(","))
-                {
-                    
-                }
+                
                 oblicz = richTextBoxOblicz.Text.ToString();
                 oblicz = (kwota * rabat).ToString("0.00");
                 richTextBoxOblicz.Text = oblicz.ToString();
@@ -76,5 +78,6 @@ namespace etakRabat
         {
 
         }
+
     }
 }

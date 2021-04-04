@@ -61,6 +61,7 @@ namespace etakRabat
             // 
             // richTextBoxKwota
             // 
+            this.richTextBoxKwota.AcceptsTab = true;
             this.richTextBoxKwota.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.richTextBoxKwota.Location = new System.Drawing.Point(98, 46);
             this.richTextBoxKwota.Name = "richTextBoxKwota";
@@ -147,11 +148,8 @@ namespace etakRabat
         private System.Windows.Forms.RichTextBox richTextBoxKwota;
         private System.Windows.Forms.Label labelKwota;
         private System.Windows.Forms.Label labelETAK;
-        private System.Windows.Forms.Label RABAT;
         private System.Windows.Forms.Label labelOblicz;
         private System.Windows.Forms.RichTextBox richTextBoxOblicz;
-        private System.Windows.Forms.Label el;
-        private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.RichTextBox richTextBoxRabat;
     }
 }
