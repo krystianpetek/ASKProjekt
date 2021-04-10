@@ -12,16 +12,13 @@ namespace Intel8086
 {
     public partial class Form1 : Form
     {
-        string ax;
-        string bx;
-        string cx;
-        string dx;
+        string ax, bx, cx, dx;
+        string si, di, bp, disp;
 
         string pierwszy;
         string drugi;
         string zamiana;
 
-        /*  */
         public Form1()
         {
             InitializeComponent();
@@ -29,6 +26,10 @@ namespace Intel8086
             bx = "0000";
             cx = "0000";
             dx = "0000";
+            si = "0000";
+            di = "0000";
+            bp = "0000";
+            disp = "0000";
             axView.Text = ax;
             axText.Text = ax;
             bxView.Text = bx;
@@ -37,12 +38,27 @@ namespace Intel8086
             cxText.Text = cx;
             dxView.Text = dx;
             dxText.Text = dx;
+
+            siView.Text = si;
+            siText.Text = si;
+            diView.Text = di;
+            diText.Text = di;
+            bpView.Text = bp;
+            bpText.Text = bp;
+            dispView.Text = disp;
+            dispText.Text = disp;
+
+            comboBoxBazowy.Visible = false;
+            comboBoxIndeksowy.Visible = false;
+            comboBoxIB.Visible = false;
+
+            comboBoxKierunek.SelectedIndex = 0;
         }
 
         /* Po kliknięciu klawisza MOV*/
         private void buttonMOV_Click(object sender, EventArgs e)
         {
-            // ZLE TO JESZCZE DZIALA if (axText.Text.Length == 4 || bxText.Text.Length == 4 || cxText.Text.Length == 4 || dxText.Text.Length == 4)
+
             if (comboBoxFROM.Text.Length > 0 && comboBoxTO.Text.Length > 0)
             {
                 if (axText.Text.Length == 4 || bxText.Text.Length == 4 || cxText.Text.Length == 4 || dxText.Text.Length == 4)
@@ -393,13 +409,120 @@ namespace Intel8086
             dxView.Text = ilosc[12].ToString() + ilosc[13].ToString() + ilosc[14].ToString() + ilosc[15].ToString();
 
         }
+        
+        private void siText_TextChanged(object sender, EventArgs e)
+        {
 
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        }
+
+        private void axText_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonPrzypisz_Click(object sender, EventArgs e)
+        {
+            if (siText.Text.Length == 4)
+                siView.Text = siText.Text.ToUpper();
+            if (diText.Text.Length == 4)
+                diView.Text = diText.Text.ToUpper();
+            if (bpText.Text.Length == 4)
+                bpView.Text = bpText.Text.ToUpper();
+            if (dispText.Text.Length == 4)
+                dispView.Text = dispText.Text.ToUpper();
+        }
+
+        private void label1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonCLEAR2_Click(object sender, EventArgs e)
+        {
+            siText.Text = "";
+            diText.Text = "";
+            bpText.Text = "";
+            dispText.Text = "";
+        }
+
+        private void buttonMOV2_Click(object sender, EventArgs e)
+        {
+            if(comboBoxKierunek.SelectedIndex == 0)
+            {
+
+            }
+        }
+
+        private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radioButtonINDEKSOWY_CheckedChanged_1(object sender, EventArgs e)
+        {
+            if (radioButtonINDEKSOWY.Checked)
+            {
+                comboBoxBazowy.Visible = false;
+                comboBoxIndeksowy.Visible = true;
+                comboBoxIB.Visible = false;
+            }
+        }
+
+        private void radioButtonIB_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButtonIB.Checked)
+            {
+                comboBoxBazowy.Visible = false;
+                comboBoxIndeksowy.Visible = false;
+                comboBoxIB.Visible = true;
+            }
+        }
+
+        private void radioButtonBAZOWY_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButtonBAZOWY.Checked)
+            {
+                comboBoxBazowy.Visible = true;
+                comboBoxIndeksowy.Visible = false;
+                comboBoxIB.Visible = false;
+            }
+        
+        }
+
+        private void label1_Click_2(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
         {
 
         }
 
         private void radioPamiecRejestr_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonRESET_Click(object sender, EventArgs e)
+        {
+            axView.Text = "0000";
+            bxView.Text = "0000";
+            cxView.Text = "0000";
+            dxView.Text = "0000";
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void siView_TextChanged(object sender, EventArgs e)
         {
 
         }
