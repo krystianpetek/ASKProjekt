@@ -596,21 +596,22 @@ namespace Intel8086
                         int dispDec = int.Parse(dispView.Text, System.Globalization.NumberStyles.HexNumber);
                         int sumDec = (siDec + dispDec);
 
+                        string odczyt = TABLICA[sumDec+1] + TABLICA[sumDec] ;
                         string sumHex = sumDec.ToString("X");
 
                         switch (comboBoxPOLACZENIE.Text)
                         {
                             case "AX":
-                                axView.Text = sumHex;
+                                axView.Text = odczyt;
                                 break;
                             case "BX":
-                                bxView.Text = sumHex;
+                                bxView.Text = odczyt;
                                 break;
                             case "CX":
-                                cxView.Text = sumHex;
+                                cxView.Text = odczyt;
                                 break;
                             case "DX":
-                                dxView.Text = sumHex;
+                                dxView.Text = odczyt;
                                 break;
                         }
 
