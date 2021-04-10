@@ -77,6 +77,7 @@ namespace Intel8086
             this.comboBoxIB = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBoxKierunek = new System.Windows.Forms.ComboBox();
+            this.comboBoxPOLACZENIE = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // axLabel
@@ -129,6 +130,7 @@ namespace Intel8086
             // 
             // axView
             // 
+            this.axView.Cursor = System.Windows.Forms.Cursors.Default;
             this.axView.Enabled = false;
             this.axView.Location = new System.Drawing.Point(42, 96);
             this.axView.Name = "axView";
@@ -139,6 +141,7 @@ namespace Intel8086
             // 
             // bxView
             // 
+            this.bxView.Cursor = System.Windows.Forms.Cursors.Default;
             this.bxView.Enabled = false;
             this.bxView.Location = new System.Drawing.Point(42, 122);
             this.bxView.Name = "bxView";
@@ -148,6 +151,7 @@ namespace Intel8086
             // 
             // cxView
             // 
+            this.cxView.Cursor = System.Windows.Forms.Cursors.Default;
             this.cxView.Enabled = false;
             this.cxView.Location = new System.Drawing.Point(42, 148);
             this.cxView.Name = "cxView";
@@ -157,6 +161,7 @@ namespace Intel8086
             // 
             // dxView
             // 
+            this.dxView.Cursor = System.Windows.Forms.Cursors.Default;
             this.dxView.Enabled = false;
             this.dxView.Location = new System.Drawing.Point(42, 174);
             this.dxView.Name = "dxView";
@@ -204,6 +209,7 @@ namespace Intel8086
             // 
             // buttonMOV
             // 
+            this.buttonMOV.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonMOV.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonMOV.Location = new System.Drawing.Point(171, 96);
             this.buttonMOV.Name = "buttonMOV";
@@ -215,7 +221,7 @@ namespace Intel8086
             // 
             // comboBoxTO
             // 
-            this.comboBoxTO.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.comboBoxTO.Cursor = System.Windows.Forms.Cursors.Hand;
             this.comboBoxTO.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxTO.FormattingEnabled = true;
             this.comboBoxTO.Items.AddRange(new object[] {
@@ -231,6 +237,7 @@ namespace Intel8086
             // 
             // comboBoxFROM
             // 
+            this.comboBoxFROM.Cursor = System.Windows.Forms.Cursors.Hand;
             this.comboBoxFROM.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxFROM.FormattingEnabled = true;
             this.comboBoxFROM.Items.AddRange(new object[] {
@@ -257,6 +264,7 @@ namespace Intel8086
             // 
             // buttonCLEAR
             // 
+            this.buttonCLEAR.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonCLEAR.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonCLEAR.Location = new System.Drawing.Point(171, 174);
             this.buttonCLEAR.Name = "buttonCLEAR";
@@ -268,6 +276,7 @@ namespace Intel8086
             // 
             // buttonXCHG
             // 
+            this.buttonXCHG.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonXCHG.Location = new System.Drawing.Point(171, 122);
             this.buttonXCHG.Name = "buttonXCHG";
             this.buttonXCHG.Size = new System.Drawing.Size(84, 23);
@@ -291,6 +300,7 @@ namespace Intel8086
             // 
             // buttonRANDOM
             // 
+            this.buttonRANDOM.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonRANDOM.Location = new System.Drawing.Point(171, 147);
             this.buttonRANDOM.Name = "buttonRANDOM";
             this.buttonRANDOM.Size = new System.Drawing.Size(84, 24);
@@ -322,6 +332,7 @@ namespace Intel8086
             // 
             // buttonRESET
             // 
+            this.buttonRESET.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonRESET.Location = new System.Drawing.Point(42, 60);
             this.buttonRESET.Name = "buttonRESET";
             this.buttonRESET.Size = new System.Drawing.Size(114, 23);
@@ -332,6 +343,7 @@ namespace Intel8086
             // 
             // siView
             // 
+            this.siView.Cursor = System.Windows.Forms.Cursors.Default;
             this.siView.Enabled = false;
             this.siView.Location = new System.Drawing.Point(589, 114);
             this.siView.Name = "siView";
@@ -366,6 +378,7 @@ namespace Intel8086
             // 
             // diView
             // 
+            this.diView.Cursor = System.Windows.Forms.Cursors.Default;
             this.diView.Enabled = false;
             this.diView.Location = new System.Drawing.Point(589, 140);
             this.diView.Name = "diView";
@@ -398,6 +411,7 @@ namespace Intel8086
             // 
             // bpView
             // 
+            this.bpView.Cursor = System.Windows.Forms.Cursors.Default;
             this.bpView.Enabled = false;
             this.bpView.Location = new System.Drawing.Point(589, 166);
             this.bpView.Name = "bpView";
@@ -420,6 +434,7 @@ namespace Intel8086
             // 
             // buttonPrzypisz
             // 
+            this.buttonPrzypisz.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonPrzypisz.Location = new System.Drawing.Point(589, 78);
             this.buttonPrzypisz.Name = "buttonPrzypisz";
             this.buttonPrzypisz.Size = new System.Drawing.Size(114, 23);
@@ -440,6 +455,7 @@ namespace Intel8086
             // 
             // dispView
             // 
+            this.dispView.Cursor = System.Windows.Forms.Cursors.Default;
             this.dispView.Enabled = false;
             this.dispView.Location = new System.Drawing.Point(589, 218);
             this.dispView.Name = "dispView";
@@ -474,6 +490,7 @@ namespace Intel8086
             // 
             // buttonXCHG2
             // 
+            this.buttonXCHG2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonXCHG2.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonXCHG2.Location = new System.Drawing.Point(718, 140);
             this.buttonXCHG2.Name = "buttonXCHG2";
@@ -484,6 +501,7 @@ namespace Intel8086
             // 
             // buttonCLEAR2
             // 
+            this.buttonCLEAR2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonCLEAR2.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonCLEAR2.Location = new System.Drawing.Point(718, 166);
             this.buttonCLEAR2.Name = "buttonCLEAR2";
@@ -495,6 +513,7 @@ namespace Intel8086
             // 
             // buttonMOV2
             // 
+            this.buttonMOV2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonMOV2.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonMOV2.Location = new System.Drawing.Point(718, 114);
             this.buttonMOV2.Name = "buttonMOV2";
@@ -515,7 +534,7 @@ namespace Intel8086
             this.radioButtonINDEKSOWY.TabStop = true;
             this.radioButtonINDEKSOWY.Text = "indeksowy";
             this.radioButtonINDEKSOWY.UseVisualStyleBackColor = true;
-            this.radioButtonINDEKSOWY.CheckedChanged += new System.EventHandler(this.radioButtonINDEKSOWY_CheckedChanged_1);
+            this.radioButtonINDEKSOWY.CheckedChanged += new System.EventHandler(this.radioButtonINDEKSOWY_CheckedChanged);
             // 
             // radioButtonBAZOWY
             // 
@@ -557,6 +576,7 @@ namespace Intel8086
             // 
             // comboBoxIndeksowy
             // 
+            this.comboBoxIndeksowy.Cursor = System.Windows.Forms.Cursors.Hand;
             this.comboBoxIndeksowy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxIndeksowy.FormattingEnabled = true;
             this.comboBoxIndeksowy.Items.AddRange(new object[] {
@@ -564,11 +584,12 @@ namespace Intel8086
             "DI"});
             this.comboBoxIndeksowy.Location = new System.Drawing.Point(314, 218);
             this.comboBoxIndeksowy.Name = "comboBoxIndeksowy";
-            this.comboBoxIndeksowy.Size = new System.Drawing.Size(121, 23);
+            this.comboBoxIndeksowy.Size = new System.Drawing.Size(95, 23);
             this.comboBoxIndeksowy.TabIndex = 45;
             // 
             // comboBoxBazowy
             // 
+            this.comboBoxBazowy.Cursor = System.Windows.Forms.Cursors.Hand;
             this.comboBoxBazowy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxBazowy.FormattingEnabled = true;
             this.comboBoxBazowy.Items.AddRange(new object[] {
@@ -576,13 +597,14 @@ namespace Intel8086
             "BP"});
             this.comboBoxBazowy.Location = new System.Drawing.Point(314, 218);
             this.comboBoxBazowy.Name = "comboBoxBazowy";
-            this.comboBoxBazowy.Size = new System.Drawing.Size(121, 23);
+            this.comboBoxBazowy.Size = new System.Drawing.Size(95, 23);
             this.comboBoxBazowy.TabIndex = 46;
             // 
             // comboBoxIB
             // 
             this.comboBoxIB.AutoCompleteCustomSource.AddRange(new string[] {
             "SI + BX"});
+            this.comboBoxIB.Cursor = System.Windows.Forms.Cursors.Hand;
             this.comboBoxIB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxIB.FormattingEnabled = true;
             this.comboBoxIB.Items.AddRange(new object[] {
@@ -592,7 +614,7 @@ namespace Intel8086
             "DI + BP"});
             this.comboBoxIB.Location = new System.Drawing.Point(314, 218);
             this.comboBoxIB.Name = "comboBoxIB";
-            this.comboBoxIB.Size = new System.Drawing.Size(121, 23);
+            this.comboBoxIB.Size = new System.Drawing.Size(95, 23);
             this.comboBoxIB.TabIndex = 47;
             // 
             // label1
@@ -610,6 +632,7 @@ namespace Intel8086
             // 
             // comboBoxKierunek
             // 
+            this.comboBoxKierunek.Cursor = System.Windows.Forms.Cursors.Hand;
             this.comboBoxKierunek.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxKierunek.FormattingEnabled = true;
             this.comboBoxKierunek.Items.AddRange(new object[] {
@@ -620,12 +643,29 @@ namespace Intel8086
             this.comboBoxKierunek.Size = new System.Drawing.Size(138, 23);
             this.comboBoxKierunek.TabIndex = 49;
             // 
+            // comboBoxPOLACZENIE
+            // 
+            this.comboBoxPOLACZENIE.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.comboBoxPOLACZENIE.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxPOLACZENIE.FormattingEnabled = true;
+            this.comboBoxPOLACZENIE.Items.AddRange(new object[] {
+            "AX",
+            "BX",
+            "CX",
+            "DX"});
+            this.comboBoxPOLACZENIE.Location = new System.Drawing.Point(415, 218);
+            this.comboBoxPOLACZENIE.Name = "comboBoxPOLACZENIE";
+            this.comboBoxPOLACZENIE.Size = new System.Drawing.Size(54, 23);
+            this.comboBoxPOLACZENIE.TabIndex = 50;
+            this.comboBoxPOLACZENIE.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged_1);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.ClientSize = new System.Drawing.Size(816, 450);
+            this.Controls.Add(this.comboBoxPOLACZENIE);
             this.Controls.Add(this.comboBoxKierunek);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboBoxIB);
@@ -705,41 +745,23 @@ namespace Intel8086
         private System.Windows.Forms.Button buttonRANDOM;
         private System.Windows.Forms.Label labelAutor;
         private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox siView;
         private System.Windows.Forms.Label siLabel;
         private System.Windows.Forms.TextBox diText;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label diLabel;
         private System.Windows.Forms.Label bpLabel;
         private System.Windows.Forms.TextBox diView;
         private System.Windows.Forms.TextBox bpView;
         private System.Windows.Forms.TextBox bpText;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button PRZYPISZ;
         private System.Windows.Forms.Button buttonRESET;
         private System.Windows.Forms.Button buttonPrzypisz;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label label;
         private System.Windows.Forms.Label labelDISP;
         private System.Windows.Forms.TextBox dispView;
         private System.Windows.Forms.TextBox dispText;
         private System.Windows.Forms.TextBox siText;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button buttonXCHG2;
         private System.Windows.Forms.Button buttonCLEAR2;
         private System.Windows.Forms.Button buttonMOV2;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButtonB;
-        private System.Windows.Forms.RadioButton radioButtonI;
         private System.Windows.Forms.RadioButton radioButtonINDEKSOWY;
         private System.Windows.Forms.RadioButton radioButtonBAZOWY;
         private System.Windows.Forms.RadioButton radioButtonIB;
@@ -748,9 +770,8 @@ namespace Intel8086
         private System.Windows.Forms.ComboBox comboBoxBazowy;
         private System.Windows.Forms.ComboBox comboBoxIB;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox omb;
-        private System.Windows.Forms.ComboBox c;
         private System.Windows.Forms.ComboBox comboBoxKierunek;
+        private System.Windows.Forms.ComboBox comboBoxPOLACZENIE;
     }
 }
 

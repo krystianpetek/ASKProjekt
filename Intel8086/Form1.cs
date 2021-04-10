@@ -8,8 +8,33 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using System.Text.RegularExpressions;
+
 namespace Intel8086
 {
+    public static class StringExtensions
+    {
+        public static bool IsHexString(this string str)
+        {
+            foreach (var c in str)
+            {
+                var isHex = ((c >= '0' && c <= '9') || (c >= 'a' && c <= 'f') || (c >= 'A' && c <= 'F'));
+
+                if (!isHex)
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        //bonus, verify whether a string can be parsed as byte[]
+        public static bool IsParseableToByteArray(this string str)
+        {
+            return IsHexString(str) && str.Length % 2 == 0;
+        }
+    }
     public partial class Form1 : Form
     {
         string ax, bx, cx, dx;
@@ -19,9 +44,12 @@ namespace Intel8086
         string drugi;
         string zamiana;
 
+        string[] TABLICA = new string[65536];
+
         public Form1()
         {
             InitializeComponent();
+            
             ax = "0000";
             bx = "0000";
             cx = "0000";
@@ -51,13 +79,31 @@ namespace Intel8086
             comboBoxBazowy.Visible = false;
             comboBoxIndeksowy.Visible = false;
             comboBoxIB.Visible = false;
+            comboBoxPOLACZENIE.Visible = false;
 
             comboBoxKierunek.SelectedIndex = 0;
-        }
 
+        }
+        
         /* Po kliknięciu klawisza MOV*/
         private void buttonMOV_Click(object sender, EventArgs e)
         {
+            if(axText.Text.IsHexString() != true)
+            {
+                return;
+            }
+            if(bxText.Text.IsHexString() != true)
+            {
+                return;
+            }
+            if(cxText.Text.IsHexString() != true)
+            {
+                return;
+            }
+            if(dxText.Text.IsHexString() != true)
+            {
+                return;
+            }
 
             if (comboBoxFROM.Text.Length > 0 && comboBoxTO.Text.Length > 0)
             {
@@ -394,11 +440,11 @@ namespace Intel8086
                 tab[y] = Convert.ToChar(i).ToString();
                 y++;
             }
-                        
+
             Random losowanie = new Random();
             char[] ilosc = new char[16];
             string los;
-            for(int i = 0;i<tab.Length;i++)
+            for (int i = 0; i < tab.Length; i++)
             {
                 los = tab[losowanie.Next(0, tab.Length)];
                 ilosc[i] = Convert.ToChar(los);
@@ -409,7 +455,7 @@ namespace Intel8086
             dxView.Text = ilosc[12].ToString() + ilosc[13].ToString() + ilosc[14].ToString() + ilosc[15].ToString();
 
         }
-        
+
         private void siText_TextChanged(object sender, EventArgs e)
         {
 
@@ -422,6 +468,23 @@ namespace Intel8086
 
         private void buttonPrzypisz_Click(object sender, EventArgs e)
         {
+            if (siText.Text.IsHexString() != true)
+            {
+                return;
+            }
+            if (diText.Text.IsHexString() != true)
+            {
+                return;
+            }
+            if (bpText.Text.IsHexString() != true)
+            {
+                return;
+            }
+            if (dispText.Text.IsHexString() != true)
+            {
+                return;
+            }
+
             if (siText.Text.Length == 4)
                 siView.Text = siText.Text.ToUpper();
             if (diText.Text.Length == 4)
@@ -447,9 +510,151 @@ namespace Intel8086
 
         private void buttonMOV2_Click(object sender, EventArgs e)
         {
-            if(comboBoxKierunek.SelectedIndex == 0)
+            string pobierz = "";
+            switch (comboBoxPOLACZENIE.Text)
             {
+                case "AX":
+                    pobierz = axView.Text;
+                    break;
+                case "BX":
+                    pobierz = bxView.Text;
+                    break;
+                case "CX":
+                    pobierz = cxView.Text;
+                    break;
+                case "DX":
+                    pobierz = dxView.Text;
+                    break;
+            }
 
+            if (comboBoxKierunek.SelectedIndex == 0) // z rejestru do pamięci
+            {
+                if (radioButtonINDEKSOWY.Checked == true)
+                {
+                    if (comboBoxIndeksowy.SelectedIndex == 0) // SI
+                    {
+                        string starszy = pobierz.Substring(0, 2);
+                        string mlodszy  = pobierz.Substring(2, 2);
+                        int siDec = int.Parse(siView.Text, System.Globalization.NumberStyles.HexNumber);
+                        int dispDec = int.Parse(dispView.Text, System.Globalization.NumberStyles.HexNumber);
+                        int sumDec = (siDec + dispDec);
+
+                        TABLICA[sumDec] = mlodszy;
+                        TABLICA[sumDec + 1] = starszy;
+
+                        labelAutor.Text = "nr. Indeksu" + sumDec + " " + TABLICA[siDec + dispDec]; //+ mlodszy + starszy
+                    }
+                    else // DI
+                    {
+                        string starszy = pobierz.Substring(0, 2);
+                        string mlodszy = pobierz.Substring(2, 2);
+                    }
+                }
+                else if (radioButtonBAZOWY.Checked == true)
+                {
+                    if (comboBoxBazowy.SelectedIndex == 0) // BX
+                    {
+
+                    }
+                    else // BP
+                    {
+
+                    }
+                }
+                else if (radioButtonIB.Checked == true)
+                {
+                    if (comboBoxIB.SelectedIndex == 0) // SI + BX
+                    {
+
+                    }
+                    else if (comboBoxIB.SelectedIndex == 1) // SI + BP
+                    {
+
+                    }
+                    else if (comboBoxIB.SelectedIndex == 2) // DI + BX
+                    {
+
+                    }
+                    else // DI + BP
+                    {
+
+                    }
+                }
+                else
+                {
+                    return;
+                }
+            }
+            else // z pamięci do rejestru
+            {
+                if (radioButtonINDEKSOWY.Checked == true)
+                {
+                    if (comboBoxIndeksowy.SelectedIndex == 0) // SI
+                    {
+
+                        int siDec = int.Parse(siView.Text, System.Globalization.NumberStyles.HexNumber);
+                        int dispDec = int.Parse(dispView.Text, System.Globalization.NumberStyles.HexNumber);
+                        int sumDec = (siDec + dispDec);
+
+                        string sumHex = sumDec.ToString("X");
+
+                        switch (comboBoxPOLACZENIE.Text)
+                        {
+                            case "AX":
+                                axView.Text = sumHex;
+                                break;
+                            case "BX":
+                                bxView.Text = sumHex;
+                                break;
+                            case "CX":
+                                cxView.Text = sumHex;
+                                break;
+                            case "DX":
+                                dxView.Text = sumHex;
+                                break;
+                        }
+
+                        labelAutor.Text = sumHex; //+ mlodszy + starszy
+                    }
+                    else // DI
+                    {
+
+                    }
+                }
+                else if (radioButtonBAZOWY.Checked == true)
+                {
+                    if (comboBoxBazowy.SelectedIndex == 0) // BX
+                    {
+
+                    }
+                    else // BP
+                    {
+
+                    }
+                }
+                else if (radioButtonIB.Checked == true)
+                {
+                    if (comboBoxIB.SelectedIndex == 0) // SI + BX
+                    {
+
+                    }
+                    else if (comboBoxIB.SelectedIndex == 1) // SI + BP
+                    {
+
+                    }
+                    else if (comboBoxIB.SelectedIndex == 2) // DI + BX
+                    {
+
+                    }
+                    else // DI + BP
+                    {
+
+                    }
+                }
+                else
+                {
+                    return;
+                }
             }
         }
 
@@ -458,13 +663,14 @@ namespace Intel8086
 
         }
 
-        private void radioButtonINDEKSOWY_CheckedChanged_1(object sender, EventArgs e)
+        private void radioButtonINDEKSOWY_CheckedChanged(object sender, EventArgs e)
         {
             if (radioButtonINDEKSOWY.Checked)
             {
                 comboBoxBazowy.Visible = false;
                 comboBoxIndeksowy.Visible = true;
                 comboBoxIB.Visible = false;
+                comboBoxPOLACZENIE.Visible = true;
             }
         }
 
@@ -475,6 +681,8 @@ namespace Intel8086
                 comboBoxBazowy.Visible = false;
                 comboBoxIndeksowy.Visible = false;
                 comboBoxIB.Visible = true;
+                comboBoxPOLACZENIE.Visible = true;
+
             }
         }
 
@@ -485,11 +693,18 @@ namespace Intel8086
                 comboBoxBazowy.Visible = true;
                 comboBoxIndeksowy.Visible = false;
                 comboBoxIB.Visible = false;
+                comboBoxPOLACZENIE.Visible = true;
+
             }
-        
+
         }
 
         private void label1_Click_2(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
         {
 
         }
