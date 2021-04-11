@@ -18,22 +18,15 @@ namespace Intel8086
         string ax, bx, cx, dx;
         string si, di, bp, disp;
         string XCHG;
-
         string[] TABLICA = new string[65536];
-
-
-        string starszyAdres;
-        string mlodszyAdres;
-
+        string starszyAdres, mlodszyAdres;
         int siDec, diDec, dispDec, sumDec;
         int bxDec, bpDec;
-
         string sumHex, pobierz, odczyt;
 
         public Form1()
         {
             InitializeComponent();
-
             ax = "0000";
             axView.Text = ax;
             axText.Text = ax;
@@ -61,7 +54,7 @@ namespace Intel8086
 
             comboBoxBazowy.Visible = false;
             comboBoxIndeksowy.Visible = false;
-            comboBoxIB.Visible = false;
+            comboBoxIndeksowoBazowy.Visible = false;
             comboBoxPOLACZENIE.Visible = false;
 
             comboBoxKierunek.SelectedIndex = 0;
@@ -71,12 +64,113 @@ namespace Intel8086
             {
                 TABLICA[i] = "00";
             }
+
             axView.ReadOnly = true;
             bxView.ReadOnly = true;
             cxView.ReadOnly = true;
             dxView.ReadOnly = true;
         }
 
+        private void labelTryb_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+        // 1. PRZYCISK PRZYPISZ
+        private void buttonPrzypisz_Click(object sender, EventArgs e)
+        {
+            if (axText.Text.IsHexString() != true)
+                return;
+            if (bxText.Text.IsHexString() != true)
+                return;
+            if (cxText.Text.IsHexString() != true)
+                return;
+            if (dxText.Text.IsHexString() != true)
+                return;
+
+            if (axText.Text.Length == 4 && axText.Text.ToUpper() != axView.Text)
+            {
+                axView.Text = axText.Text.ToUpper();
+                listBoxRejestrOperacji.Items.Insert(0, $"MOV AX, {axText.Text.ToUpper()}                     PRZYPISZ");
+            }
+            if (bxText.Text.Length == 4 && bxText.Text.ToUpper() != bxView.Text)
+            {
+                bxView.Text = bxText.Text.ToUpper();
+                listBoxRejestrOperacji.Items.Insert(0, $"MOV BX, {bxText.Text.ToUpper()}                     PRZYPISZ");
+            }
+            if (cxText.Text.Length == 4 && cxText.Text.ToUpper() != cxView.Text)
+            {
+                cxView.Text = cxText.Text.ToUpper();
+                listBoxRejestrOperacji.Items.Insert(0, $"MOV CX, {cxText.Text.ToUpper()}                     PRZYPISZ");
+            }
+            if (dxText.Text.Length == 4 && dxText.Text.ToUpper() != dxView.Text)
+            {
+                dxView.Text = dxText.Text.ToUpper();
+                listBoxRejestrOperacji.Items.Insert(0, $"MOV DX, {dxText.Text.ToUpper()}                     PRZYPISZ");
+            }
+        }
+        // 2. PRZYCISK WYCZYŚĆ
+        private void buttonWyczysc_Click(object sender, EventArgs e)
+        {
+            axText.Text = "";
+            bxText.Text = "";
+            cxText.Text = "";
+            dxText.Text = "";
+        }
+        // 3. PRZYCISK RANDOM
+        private void buttonRandom_Click(object sender, EventArgs e)
+        {
+            string[] tablicaLiczbLosowych = new string[16];
+            int y = 0;
+            for (int i = 48; i <= 57; i++)
+            {
+                tablicaLiczbLosowych[y] += Convert.ToChar(i).ToString();
+                y++;
+            }
+
+            for (int i = 65; i <= 70; i++)
+            {
+                tablicaLiczbLosowych[y] = Convert.ToChar(i).ToString();
+                y++;
+            }
+
+            Random losowanie = new Random();
+            char[] ilosc = new char[16];
+            string los;
+            for (int i = 0; i < tablicaLiczbLosowych.Length; i++)
+            {
+                los = tablicaLiczbLosowych[losowanie.Next(0, tablicaLiczbLosowych.Length)];
+                ilosc[i] = Convert.ToChar(los);
+            }
+            axView.Text = ilosc[0].ToString() + ilosc[1].ToString() + ilosc[2].ToString() + ilosc[3].ToString();
+            bxView.Text = ilosc[4].ToString() + ilosc[5].ToString() + ilosc[6].ToString() + ilosc[7].ToString();
+            cxView.Text = ilosc[8].ToString() + ilosc[9].ToString() + ilosc[10].ToString() + ilosc[11].ToString();
+            dxView.Text = ilosc[12].ToString() + ilosc[13].ToString() + ilosc[14].ToString() + ilosc[15].ToString();
+
+            listBoxRejestrOperacji.Items.Insert(0, $"MOV AX, {axView.Text}                     RANDOM");
+            listBoxRejestrOperacji.Items.Insert(0, $"MOV BX, {bxView.Text}                     RANDOM");
+            listBoxRejestrOperacji.Items.Insert(0, $"MOV CX, {cxView.Text}                     RANDOM");
+            listBoxRejestrOperacji.Items.Insert(0, $"MOV DX, {dxView.Text}                     RANDOM");
+        }
+        // 4. PRZYCISK RESET
+        private void buttonReset_Click(object sender, EventArgs e)
+        {
+            if (axView.Text != "0000")
+                listBoxRejestrOperacji.Items.Insert(0, $"MOV AX, 0000                            RESET");
+            if (bxView.Text != "0000")
+                listBoxRejestrOperacji.Items.Insert(0, $"MOV BX, 0000                            RESET");
+            if (cxView.Text != "0000")
+                listBoxRejestrOperacji.Items.Insert(0, $"MOV CX, 0000                            RESET");
+            if (dxView.Text != "0000")
+                listBoxRejestrOperacji.Items.Insert(0, $"MOV DX, 0000                            RESET");
+
+            axView.Text = "0000";
+            bxView.Text = "0000";
+            cxView.Text = "0000";
+            dxView.Text = "0000";
+        }
+        // 5. PRZYCISK MOV
         private void buttonMOV_Click(object sender, EventArgs e)
         {
             switch (comboBoxFROM.Text)
@@ -90,21 +184,21 @@ namespace Intel8086
                             if (bxView.Text != axView.Text)
                             {
                                 bxView.Text = axView.Text;
-                                listBoxRejestrOperacji.Items.Insert(0, $"MOV BX, AX              MOV");
+                                listBoxRejestrOperacji.Items.Insert(0, $"MOV BX, AX                               MOV");
                             }
                             break;
                         case "CX":
                             if (cxView.Text != axView.Text)
                             {
                                 cxView.Text = axView.Text;
-                                listBoxRejestrOperacji.Items.Insert(0, $"MOV CX, AX              MOV");
+                                listBoxRejestrOperacji.Items.Insert(0, $"MOV CX, AX                               MOV");
                             }
                             break;
                         case "DX":
                             if (dxView.Text != axView.Text)
                             {
                                 dxView.Text = axView.Text;
-                                listBoxRejestrOperacji.Items.Insert(0, $"MOV DX, AX              MOV");
+                                listBoxRejestrOperacji.Items.Insert(0, $"MOV DX, AX                               MOV");
                             }
                             break;
                     }
@@ -116,7 +210,7 @@ namespace Intel8086
                             if (axView.Text != bxView.Text)
                             {
                                 axView.Text = bxView.Text;
-                                listBoxRejestrOperacji.Items.Insert(0, $"MOV AX, BX              MOV");
+                                listBoxRejestrOperacji.Items.Insert(0, $"MOV AX, BX                               MOV");
                             }
                             break;
                         case "BX":
@@ -125,14 +219,14 @@ namespace Intel8086
                             if (cxView.Text != bxView.Text)
                             {
                                 cxView.Text = bxView.Text;
-                                listBoxRejestrOperacji.Items.Insert(0, $"MOV CX, BX              MOV");
+                                listBoxRejestrOperacji.Items.Insert(0, $"MOV CX, BX                               MOV");
                             }
                             break;
                         case "DX":
                             if (dxView.Text != bxView.Text)
                             {
                                 dxView.Text = bxView.Text;
-                                listBoxRejestrOperacji.Items.Insert(0, $"MOV DX, BX              MOV");
+                                listBoxRejestrOperacji.Items.Insert(0, $"MOV DX, BX                               MOV");
                             }
                             break;
                     }
@@ -144,14 +238,14 @@ namespace Intel8086
                             if (axView.Text != cxView.Text)
                             {
                                 axView.Text = cxView.Text;
-                                listBoxRejestrOperacji.Items.Insert(0, $"MOV AX, CX              MOV");
+                                listBoxRejestrOperacji.Items.Insert(0, $"MOV AX, CX                               MOV");
                             }
                             break;
                         case "BX":
                             if (bxView.Text != cxView.Text)
                             {
                                 bxView.Text = cxView.Text;
-                                listBoxRejestrOperacji.Items.Insert(0, $"MOV BX, CX              MOV");
+                                listBoxRejestrOperacji.Items.Insert(0, $"MOV BX, CX                               MOV");
                             }
                             break;
                         case "CX":
@@ -160,7 +254,7 @@ namespace Intel8086
                             if (dxView.Text != cxView.Text)
                             {
                                 dxView.Text = cxView.Text;
-                                listBoxRejestrOperacji.Items.Insert(0, $"MOV DX, CX              MOV");
+                                listBoxRejestrOperacji.Items.Insert(0, $"MOV DX, CX                               MOV");
                             }
                             break;
                     }
@@ -171,42 +265,31 @@ namespace Intel8086
                         case "AX":
                             if (axView.Text != dxView.Text)
                             {
-                                axView.Text = dxView.Text; 
-                                listBoxRejestrOperacji.Items.Insert(0, $"MOV AX, DX              MOV");
+                                axView.Text = dxView.Text;
+                                listBoxRejestrOperacji.Items.Insert(0, $"MOV AX, DX                               MOV");
                             }
                             break;
                         case "BX":
                             if (bxView.Text != dxView.Text)
                             {
                                 bxView.Text = dxView.Text;
-                                listBoxRejestrOperacji.Items.Insert(0, $"MOV BX, DX              MOV");
+                                listBoxRejestrOperacji.Items.Insert(0, $"MOV BX, DX                               MOV");
                             }
                             break;
                         case "CX":
                             if (cxView.Text != dxView.Text)
                             {
                                 cxView.Text = dxView.Text;
-                            listBoxRejestrOperacji.Items.Insert(0, $"MOV CX, DX              MOV");
-                    }
-                    break;
+                                listBoxRejestrOperacji.Items.Insert(0, $"MOV CX, DX                               MOV");
+                            }
+                            break;
                         case "DX":
                             break;
                     }
                     break;
-
-
             }
         }
-
-        private void buttonWyczysc_Click(object sender, EventArgs e)
-        {
-            axText.Text = "";
-            bxText.Text = "";
-            cxText.Text = "";
-            dxText.Text = "";
-        }
-
-
+        // 6. PRZYCISK XCHG
         private void buttonXCHG_Click(object sender, EventArgs e)
         {
             switch (comboBoxFROM.Text)
@@ -216,14 +299,13 @@ namespace Intel8086
                         switch (comboBoxTO.Text)
                         {
                             case "AX":
-                                {
-                                    break;
-                                }
+                                break;
                             case "BX":
                                 {
                                     XCHG = axView.Text;
                                     axView.Text = bxView.Text;
                                     bxView.Text = XCHG;
+                                    listBoxRejestrOperacji.Items.Insert(0, $"XCHG BX, AX                              XCHG");
                                     break;
                                 }
                             case "CX":
@@ -231,6 +313,7 @@ namespace Intel8086
                                     XCHG = axView.Text;
                                     axView.Text = cxView.Text;
                                     cxView.Text = XCHG;
+                                    listBoxRejestrOperacji.Items.Insert(0, $"XCHG CX, AX                              XCHG");
                                     break;
                                 }
                             case "DX":
@@ -238,6 +321,7 @@ namespace Intel8086
                                     XCHG = axView.Text;
                                     axView.Text = dxView.Text;
                                     dxView.Text = XCHG;
+                                    listBoxRejestrOperacji.Items.Insert(0, $"XCHG DX, AX                              XCHG");
                                     break;
                                 }
                         }
@@ -252,17 +336,17 @@ namespace Intel8086
                                     XCHG = bxView.Text;
                                     bxView.Text = axView.Text;
                                     axView.Text = XCHG;
+                                    listBoxRejestrOperacji.Items.Insert(0, $"XCHG AX, BX                              XCHG");
                                     break;
                                 }
                             case "BX":
-                                {
-                                    break;
-                                }
+                                break;
                             case "CX":
                                 {
                                     XCHG = bxView.Text;
                                     bxView.Text = cxView.Text;
                                     cxView.Text = XCHG;
+                                    listBoxRejestrOperacji.Items.Insert(0, $"XCHG CX, BX                              XCHG");
                                     break;
                                 }
                             case "DX":
@@ -270,6 +354,7 @@ namespace Intel8086
                                     XCHG = bxView.Text;
                                     bxView.Text = dxView.Text;
                                     dxView.Text = XCHG;
+                                    listBoxRejestrOperacji.Items.Insert(0, $"XCHG DX, BX                              XCHG");
                                     break;
                                 }
                         }
@@ -284,6 +369,7 @@ namespace Intel8086
                                     XCHG = cxView.Text;
                                     cxView.Text = axView.Text;
                                     axView.Text = XCHG;
+                                    listBoxRejestrOperacji.Items.Insert(0, $"XCHG AX, CX                              XCHG");
                                     break;
                                 }
                             case "BX":
@@ -291,17 +377,17 @@ namespace Intel8086
                                     XCHG = cxView.Text;
                                     cxView.Text = bxView.Text;
                                     bxView.Text = XCHG;
+                                    listBoxRejestrOperacji.Items.Insert(0, $"XCHG BX, CX                              XCHG");
                                     break;
                                 }
                             case "CX":
-                                {
-                                    break;
-                                }
+                                break;
                             case "DX":
                                 {
                                     XCHG = cxView.Text;
                                     cxView.Text = dxView.Text;
                                     dxView.Text = XCHG;
+                                    listBoxRejestrOperacji.Items.Insert(0, $"XCHG DX, CX                              XCHG");
                                     break;
                                 }
                         }
@@ -316,6 +402,7 @@ namespace Intel8086
                                     XCHG = dxView.Text;
                                     dxView.Text = axView.Text;
                                     axView.Text = XCHG;
+                                    listBoxRejestrOperacji.Items.Insert(0, $"XCHG AX, DX                              XCHG");
                                     break;
                                 }
                             case "BX":
@@ -323,6 +410,7 @@ namespace Intel8086
                                     XCHG = dxView.Text;
                                     dxView.Text = bxView.Text;
                                     bxView.Text = XCHG;
+                                    listBoxRejestrOperacji.Items.Insert(0, $"XCHG BX, DX                              XCHG");
                                     break;
                                 }
                             case "CX":
@@ -330,98 +418,19 @@ namespace Intel8086
                                     XCHG = dxView.Text;
                                     dxView.Text = cxView.Text;
                                     cxView.Text = XCHG;
+                                    listBoxRejestrOperacji.Items.Insert(0, $"XCHG CX, DX                              XCHG");
                                     break;
                                 }
                             case "DX":
-                                {
-                                    break;
-                                }
+                                break;
                         }
                         break;
                     }
             }
         }
 
-        private void buttonRandom_Click(object sender, EventArgs e)
-        {
-            // ASCII + losowanie
 
-            string[] tab = new string[16];
-            int y = 0;
-            for (int i = 48; i <= 57; i++)
-            {
-                tab[y] += Convert.ToChar(i).ToString();
-                y++;
-            }
-
-            for (int i = 65; i <= 70; i++)
-            {
-                tab[y] = Convert.ToChar(i).ToString();
-                y++;
-            }
-
-            Random losowanie = new Random();
-            char[] ilosc = new char[16];
-            string los;
-            for (int i = 0; i < tab.Length; i++)
-            {
-                los = tab[losowanie.Next(0, tab.Length)];
-                ilosc[i] = Convert.ToChar(los);
-            }
-            axView.Text = ilosc[0].ToString() + ilosc[1].ToString() + ilosc[2].ToString() + ilosc[3].ToString();
-            bxView.Text = ilosc[4].ToString() + ilosc[5].ToString() + ilosc[6].ToString() + ilosc[7].ToString();
-            cxView.Text = ilosc[8].ToString() + ilosc[9].ToString() + ilosc[10].ToString() + ilosc[11].ToString();
-            dxView.Text = ilosc[12].ToString() + ilosc[13].ToString() + ilosc[14].ToString() + ilosc[15].ToString();
-
-
-            listBoxRejestrOperacji.Items.Insert(0, $"MOV AX, {axView.Text}          RANDOM");
-            listBoxRejestrOperacji.Items.Insert(0, $"MOV BX, {bxView.Text}          RANDOM");
-            listBoxRejestrOperacji.Items.Insert(0, $"MOV CX, {cxView.Text}          RANDOM");
-            listBoxRejestrOperacji.Items.Insert(0, $"MOV DX, {dxView.Text}          RANDOM");
-
-        }
-
-        private void buttonPrzypisz_Click(object sender, EventArgs e)
-        {
-            if (axText.Text.IsHexString() != true)
-            {
-                return;
-            }
-            if (bxText.Text.IsHexString() != true)
-            {
-                return;
-            }
-            if (cxText.Text.IsHexString() != true)
-            {
-                return;
-            }
-            if (dxText.Text.IsHexString() != true)
-            {
-                return;
-            }
-
-            if (axText.Text.Length == 4 && axText.Text.ToUpper() != axView.Text)
-            {
-                axView.Text = axText.Text.ToUpper();
-                listBoxRejestrOperacji.Items.Insert(0, $"MOV AX, {axText.Text.ToUpper()}          PRZYPISZ");
-            }
-            if (bxText.Text.Length == 4 && bxText.Text.ToUpper() != bxView.Text)
-            {
-                bxView.Text = bxText.Text.ToUpper();
-                listBoxRejestrOperacji.Items.Insert(0, $"MOV BX, {bxText.Text.ToUpper()}          PRZYPISZ");
-            }
-            if (cxText.Text.Length == 4 && cxText.Text.ToUpper() != cxView.Text)
-            {
-                cxView.Text = cxText.Text.ToUpper();
-                listBoxRejestrOperacji.Items.Insert(0, $"MOV CX, {cxText.Text.ToUpper()}          PRZYPISZ");
-            }
-            if (dxText.Text.Length == 4 && dxText.Text.ToUpper() != dxView.Text)
-            {
-                dxView.Text = dxText.Text.ToUpper();
-                listBoxRejestrOperacji.Items.Insert(0, $"MOV DX, {dxText.Text.ToUpper()}          PRZYPISZ");
-            }
-        }
-
+        // 
         private void buttonPrzypisz1_Click(object sender, EventArgs e)
         {
             if (siText.Text.IsHexString() != true)
@@ -479,7 +488,7 @@ namespace Intel8086
 
             if (comboBoxKierunek.SelectedIndex == 0) // z rejestru do pamięci
             {
-                if (radioButtonINDEKSOWY.Checked == true)
+                if (radioButtonIndeksowy.Checked == true)
                 {
                     if (comboBoxIndeksowy.SelectedIndex == 0) // SI
                     {
@@ -542,9 +551,9 @@ namespace Intel8086
                         return;
                     }
                 }
-                else if (radioButtonIB.Checked == true)
+                else if (radioButtonIndeksowoBazowy.Checked == true)
                 {
-                    if (comboBoxIB.SelectedIndex == 0) // SI + BX
+                    if (comboBoxIndeksowoBazowy.SelectedIndex == 0) // SI + BX
                     {
                         starszyAdres = pobierz.Substring(0, 2);
                         mlodszyAdres = pobierz.Substring(2, 2);
@@ -557,7 +566,7 @@ namespace Intel8086
                         TABLICA[sumDec] = mlodszyAdres;
                         TABLICA[sumDec + 1] = starszyAdres;
                     }
-                    else if (comboBoxIB.SelectedIndex == 1) // SI + BP
+                    else if (comboBoxIndeksowoBazowy.SelectedIndex == 1) // SI + BP
                     {
                         starszyAdres = pobierz.Substring(0, 2);
                         mlodszyAdres = pobierz.Substring(2, 2);
@@ -570,7 +579,7 @@ namespace Intel8086
                         TABLICA[sumDec] = mlodszyAdres;
                         TABLICA[sumDec + 1] = starszyAdres;
                     }
-                    else if (comboBoxIB.SelectedIndex == 2) // DI + BX
+                    else if (comboBoxIndeksowoBazowy.SelectedIndex == 2) // DI + BX
                     {
                         starszyAdres = pobierz.Substring(0, 2);
                         mlodszyAdres = pobierz.Substring(2, 2);
@@ -583,7 +592,7 @@ namespace Intel8086
                         TABLICA[sumDec] = mlodszyAdres;
                         TABLICA[sumDec + 1] = starszyAdres;
                     }
-                    else if (comboBoxIB.SelectedIndex == 3) // DI + BP
+                    else if (comboBoxIndeksowoBazowy.SelectedIndex == 3) // DI + BP
                     {
                         starszyAdres = pobierz.Substring(0, 2);
                         mlodszyAdres = pobierz.Substring(2, 2);
@@ -608,7 +617,7 @@ namespace Intel8086
             }
             else // z pamięci do rejestru
             {
-                if (radioButtonINDEKSOWY.Checked == true)
+                if (radioButtonIndeksowy.Checked == true)
                 {
                     if (comboBoxIndeksowy.SelectedIndex == 0) // SI
                     {
@@ -673,17 +682,17 @@ namespace Intel8086
 
                     }
                 }
-                else if (radioButtonIB.Checked == true)
+                else if (radioButtonIndeksowoBazowy.Checked == true)
                 {
-                    if (comboBoxIB.SelectedIndex == 0) // SI + BX
+                    if (comboBoxIndeksowoBazowy.SelectedIndex == 0) // SI + BX
                     {
 
                     }
-                    else if (comboBoxIB.SelectedIndex == 1) // SI + BP
+                    else if (comboBoxIndeksowoBazowy.SelectedIndex == 1) // SI + BP
                     {
 
                     }
-                    else if (comboBoxIB.SelectedIndex == 2) // DI + BX
+                    else if (comboBoxIndeksowoBazowy.SelectedIndex == 2) // DI + BX
                     {
 
                     }
@@ -698,31 +707,38 @@ namespace Intel8086
                 }
             }
         }
-
-        private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void radioButtonIndeksowy_CheckedChanged(object sender, EventArgs e)
         {
-
-        }
-
-        private void radioButtonINDEKSOWY_CheckedChanged(object sender, EventArgs e)
-        {
-            if (radioButtonINDEKSOWY.Checked)
+            if (radioButtonIndeksowy.Checked)
             {
                 comboBoxBazowy.Visible = false;
                 comboBoxIndeksowy.Visible = true;
-                comboBoxIB.Visible = false;
+                comboBoxIndeksowoBazowy.Visible = false;
                 comboBoxPOLACZENIE.Visible = true;
+                labelAdresowanie.Text = "Adresowanie indeksowe";
             }
-        }
 
-        private void radioButtonIB_CheckedChanged(object sender, EventArgs e)
+        }
+        private void radioButtonBAZOWY_CheckedChanged(object sender, EventArgs e)
+                {
+                    if (radioButtonBAZOWY.Checked)
+                    {
+                        comboBoxBazowy.Visible = true;
+                        comboBoxIndeksowy.Visible = false;
+                        comboBoxIndeksowoBazowy.Visible = false;
+                        comboBoxPOLACZENIE.Visible = true;
+                    }
+
+                }
+        private void radioButtonIndeksowoBazowy_CheckedChanged(object sender, EventArgs e)
         {
-            if (radioButtonIB.Checked)
+            if (radioButtonIndeksowoBazowy.Checked)
             {
                 comboBoxBazowy.Visible = false;
                 comboBoxIndeksowy.Visible = false;
-                comboBoxIB.Visible = true;
+                comboBoxIndeksowoBazowy.Visible = true;
                 comboBoxPOLACZENIE.Visible = true;
+                labelAdresowanie.Text = "Adresowanie indeksowo\n                          bazowe";
             }
         }
 
@@ -737,33 +753,8 @@ namespace Intel8086
             }
         }
 
-        private void radioButtonBAZOWY_CheckedChanged(object sender, EventArgs e)
-        {
-            if (radioButtonBAZOWY.Checked)
-            {
-                comboBoxBazowy.Visible = true;
-                comboBoxIndeksowy.Visible = false;
-                comboBoxIB.Visible = false;
-                comboBoxPOLACZENIE.Visible = true;
-            }
+        
 
-        }
-        private void buttonReset_Click(object sender, EventArgs e)
-        {
-
-            if (axView.Text != "0000")
-                listBoxRejestrOperacji.Items.Insert(0, $"MOV AX, 0000          RESET");
-            if (bxView.Text != "0000")
-                listBoxRejestrOperacji.Items.Insert(0, $"MOV BX, 0000          RESET");
-            if (cxView.Text != "0000")
-                listBoxRejestrOperacji.Items.Insert(0, $"MOV CX, 0000          RESET");
-            if (dxView.Text != "0000")
-                listBoxRejestrOperacji.Items.Insert(0, $"MOV DX, 0000          RESET");
-            axView.Text = "0000";
-            bxView.Text = "0000";
-            cxView.Text = "0000";
-            dxView.Text = "0000";
-        }
 
     }
     public static class StringExtensions
