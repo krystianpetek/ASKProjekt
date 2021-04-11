@@ -321,7 +321,7 @@ namespace Intel8086
             this.title.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.title.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.title.ForeColor = System.Drawing.SystemColors.MenuBar;
-            this.title.Location = new System.Drawing.Point(287, 26);
+            this.title.Location = new System.Drawing.Point(371, 27);
             this.title.Name = "title";
             this.title.Size = new System.Drawing.Size(384, 28);
             this.title.TabIndex = 18;
