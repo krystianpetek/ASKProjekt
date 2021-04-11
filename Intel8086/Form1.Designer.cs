@@ -149,7 +149,7 @@ namespace Intel8086
             this.axView.BackColor = System.Drawing.SystemColors.Window;
             this.axView.Cursor = System.Windows.Forms.Cursors.Default;
             this.axView.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.axView.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.axView.ForeColor = System.Drawing.Color.Red;
             this.axView.Location = new System.Drawing.Point(73, 244);
             this.axView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.axView.Name = "axView";
@@ -163,7 +163,7 @@ namespace Intel8086
             this.bxView.BackColor = System.Drawing.SystemColors.Window;
             this.bxView.Cursor = System.Windows.Forms.Cursors.Default;
             this.bxView.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.bxView.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.bxView.ForeColor = System.Drawing.Color.Red;
             this.bxView.Location = new System.Drawing.Point(133, 244);
             this.bxView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.bxView.Name = "bxView";
@@ -176,7 +176,7 @@ namespace Intel8086
             this.cxView.BackColor = System.Drawing.SystemColors.Window;
             this.cxView.Cursor = System.Windows.Forms.Cursors.Default;
             this.cxView.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.cxView.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.cxView.ForeColor = System.Drawing.Color.Red;
             this.cxView.Location = new System.Drawing.Point(193, 244);
             this.cxView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cxView.Name = "cxView";
@@ -189,7 +189,7 @@ namespace Intel8086
             this.dxView.BackColor = System.Drawing.SystemColors.Window;
             this.dxView.Cursor = System.Windows.Forms.Cursors.Default;
             this.dxView.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.dxView.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.dxView.ForeColor = System.Drawing.Color.Red;
             this.dxView.Location = new System.Drawing.Point(253, 244);
             this.dxView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dxView.Name = "dxView";
@@ -902,7 +902,7 @@ namespace Intel8086
             this.listBoxRejestrOperacji.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.listBoxRejestrOperacji.FormattingEnabled = true;
             this.listBoxRejestrOperacji.ItemHeight = 15;
-            this.listBoxRejestrOperacji.Location = new System.Drawing.Point(119, 533);
+            this.listBoxRejestrOperacji.Location = new System.Drawing.Point(119, 540);
             this.listBoxRejestrOperacji.Name = "listBoxRejestrOperacji";
             this.listBoxRejestrOperacji.Size = new System.Drawing.Size(188, 124);
             this.listBoxRejestrOperacji.TabIndex = 67;
@@ -912,11 +912,11 @@ namespace Intel8086
             this.labelRejestrOperacji.AutoSize = true;
             this.labelRejestrOperacji.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelRejestrOperacji.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.labelRejestrOperacji.Location = new System.Drawing.Point(38, 506);
+            this.labelRejestrOperacji.Location = new System.Drawing.Point(38, 513);
             this.labelRejestrOperacji.Name = "labelRejestrOperacji";
-            this.labelRejestrOperacji.Size = new System.Drawing.Size(87, 15);
+            this.labelRejestrOperacji.Size = new System.Drawing.Size(149, 15);
             this.labelRejestrOperacji.TabIndex = 68;
-            this.labelRejestrOperacji.Text = "Rejestr operacji";
+            this.labelRejestrOperacji.Text = "Rejestr operacji symulatora";
             // 
             // Form1
             // 
