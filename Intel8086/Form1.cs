@@ -67,7 +67,8 @@ namespace Intel8086
             comboBoxIndeksowoBazowy.SelectedIndex = 0;
             comboBoxWymiana.SelectedIndex = 0;
 
-
+            this.MaximumSize = this.Size;
+            this.MinimumSize = this.Size;
 
             for (int i = 0; i < TABLICA.Length; i++)
             {
@@ -126,6 +127,7 @@ namespace Intel8086
             cxText.Text = "";
             dxText.Text = "";
         }
+
         // 3. PRZYCISK RANDOM
         private void buttonRandom_Click(object sender, EventArgs e)
         {
@@ -560,7 +562,6 @@ namespace Intel8086
         // 14. BUTTON MOV 2
         private void buttonMOV2_Click(object sender, EventArgs e)
         {
-            string sklejone;
             switch (comboBoxWymiana.Text)
             {
                 case "AX":
@@ -606,6 +607,8 @@ namespace Intel8086
 
                         TABLICA[sumDec] = mlodszyAdres;
                         TABLICA[sumDec + 1] = starszyAdres;
+
+                        listBoxRejestrOperacji.Items.Insert(0, $"MOV [DI+{dispView.Text}], {comboBoxWymiana.Text}                      MOV");
                     }
                     else
                     {
@@ -625,6 +628,8 @@ namespace Intel8086
 
                         TABLICA[sumDec] = mlodszyAdres;
                         TABLICA[sumDec + 1] = starszyAdres;
+
+                        listBoxRejestrOperacji.Items.Insert(0, $"MOV [BX+{dispView.Text}], {comboBoxWymiana.Text}                      MOV");
                     }
                     else if (comboBoxBazowy.SelectedIndex == 1) // BP
                     {
@@ -637,6 +642,8 @@ namespace Intel8086
 
                         TABLICA[sumDec] = mlodszyAdres;
                         TABLICA[sumDec + 1] = starszyAdres;
+
+                        listBoxRejestrOperacji.Items.Insert(0, $"MOV [BP+{dispView.Text}], {comboBoxWymiana.Text}                      MOV");
                     }
                     else
                     {
@@ -657,6 +664,8 @@ namespace Intel8086
 
                         TABLICA[sumDec] = mlodszyAdres;
                         TABLICA[sumDec + 1] = starszyAdres;
+
+                        listBoxRejestrOperacji.Items.Insert(0, $"MOV [SI+BX+{dispView.Text}], {comboBoxWymiana.Text}                    MOV");
                     }
                     else if (comboBoxIndeksowoBazowy.SelectedIndex == 1) // SI + BP
                     {
@@ -670,6 +679,7 @@ namespace Intel8086
 
                         TABLICA[sumDec] = mlodszyAdres;
                         TABLICA[sumDec + 1] = starszyAdres;
+                        listBoxRejestrOperacji.Items.Insert(0, $"MOV [SI+BP+{dispView.Text}], {comboBoxWymiana.Text}                    MOV");
                     }
                     else if (comboBoxIndeksowoBazowy.SelectedIndex == 2) // DI + BX
                     {
@@ -683,6 +693,8 @@ namespace Intel8086
 
                         TABLICA[sumDec] = mlodszyAdres;
                         TABLICA[sumDec + 1] = starszyAdres;
+
+                        listBoxRejestrOperacji.Items.Insert(0, $"MOV [DI+BX+{dispView.Text}], {comboBoxWymiana.Text}                    MOV");
                     }
                     else if (comboBoxIndeksowoBazowy.SelectedIndex == 3) // DI + BP
                     {
@@ -696,6 +708,8 @@ namespace Intel8086
 
                         TABLICA[sumDec] = mlodszyAdres;
                         TABLICA[sumDec + 1] = starszyAdres;
+
+                        listBoxRejestrOperacji.Items.Insert(0, $"MOV [SI+BP+{dispView.Text}], {comboBoxWymiana.Text}                    MOV");
                     }
                     else
                     {
@@ -797,18 +811,36 @@ namespace Intel8086
                 {
                     return;
                 }
+
+
+               
             }
+            if (!listBoxRejestZapisu.Items.Contains($"{sumDec.ToString("X")}: {TABLICA[sumDec]}"))
+                listBoxRejestZapisu.Items.Insert(0, $"{sumDec.ToString("X")}: {TABLICA[sumDec]}");
+
+            if (!listBoxRejestZapisu.Items.Contains($"{(sumDec+1).ToString("X")}: {TABLICA[sumDec+1]}"))
+                listBoxRejestZapisu.Items.Insert(1, $"{(sumDec+1).ToString("X")}: {TABLICA[sumDec+1]}");
         }
 
 
         private void button1_Click(object sender, EventArgs e)
-        {
+        {            
+            if (textBoxWyswietlOd.Text.IsHexString() != true && textBoxWyswietlOd.Text.Length != 4)
+                return;
+            if (textBoxWyswietlDo.Text.IsHexString() != true && textBoxWyswietlDo.Text.Length != 4)
+                return;
 
-            listBox2.Items.Clear();
-            for (int i = sumDec; i < sumDec + 10; i++)
+            int wyswietlOd = 0, wyswietlDo = 0;
+            if (textBoxWyswietlOd.Text != "" && textBoxWyswietlDo.Text != "")
             {
+                wyswietlOd = int.Parse(textBoxWyswietlOd.Text);
+                wyswietlDo = int.Parse(textBoxWyswietlDo.Text);
+            }
 
-                listBox2.Items.Add($"{i.ToString("X")}: {TABLICA[i]}");
+            listBoxPodgladPamieci.Items.Clear();
+            for (int i = wyswietlOd; i < wyswietlDo; i++)
+            {
+                listBoxPodgladPamieci.Items.Add($"{i.ToString("X")}: {TABLICA[i]}");
             }
         }
 

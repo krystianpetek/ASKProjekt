@@ -78,7 +78,7 @@ namespace Intel8086
             this.labelKierunek = new System.Windows.Forms.Label();
             this.comboBoxKierunek = new System.Windows.Forms.ComboBox();
             this.comboBoxWymiana = new System.Windows.Forms.ComboBox();
-            this.listBox2 = new System.Windows.Forms.ListBox();
+            this.listBoxPodgladPamieci = new System.Windows.Forms.ListBox();
             this.buttonPOKAZ = new System.Windows.Forms.Button();
             this.labelZRejestru = new System.Windows.Forms.Label();
             this.labelDoRejestru = new System.Windows.Forms.Label();
@@ -104,16 +104,26 @@ namespace Intel8086
             this.labelWyczysc2 = new System.Windows.Forms.Label();
             this.buttonWyczysc2 = new System.Windows.Forms.Button();
             this.labelReset2 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panelPierwszy = new System.Windows.Forms.Panel();
+            this.panelDrugi = new System.Windows.Forms.Panel();
+            this.panelTrzeci = new System.Windows.Forms.Panel();
+            this.listBoxRejestZapisu = new System.Windows.Forms.ListBox();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.textBoxWyswietlOd = new System.Windows.Forms.TextBox();
+            this.textBoxWyswietlDo = new System.Windows.Forms.TextBox();
+            this.panelPierwszy.SuspendLayout();
+            this.panelDrugi.SuspendLayout();
+            this.panelTrzeci.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // axLabel
             // 
             this.axLabel.AutoSize = true;
-            this.axLabel.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.axLabel.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.axLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.axLabel.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.axLabel.Location = new System.Drawing.Point(72, 226);
+            this.axLabel.Location = new System.Drawing.Point(55, 144);
             this.axLabel.Name = "axLabel";
             this.axLabel.Size = new System.Drawing.Size(22, 15);
             this.axLabel.TabIndex = 0;
@@ -122,10 +132,10 @@ namespace Intel8086
             // bxLabel
             // 
             this.bxLabel.AutoSize = true;
-            this.bxLabel.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.bxLabel.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.bxLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.bxLabel.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.bxLabel.Location = new System.Drawing.Point(131, 226);
+            this.bxLabel.Location = new System.Drawing.Point(114, 144);
             this.bxLabel.Name = "bxLabel";
             this.bxLabel.Size = new System.Drawing.Size(21, 15);
             this.bxLabel.TabIndex = 1;
@@ -134,10 +144,10 @@ namespace Intel8086
             // cxLabel
             // 
             this.cxLabel.AutoSize = true;
-            this.cxLabel.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.cxLabel.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.cxLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cxLabel.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.cxLabel.Location = new System.Drawing.Point(191, 226);
+            this.cxLabel.Location = new System.Drawing.Point(174, 144);
             this.cxLabel.Name = "cxLabel";
             this.cxLabel.Size = new System.Drawing.Size(22, 15);
             this.cxLabel.TabIndex = 2;
@@ -146,10 +156,10 @@ namespace Intel8086
             // dxLabel
             // 
             this.dxLabel.AutoSize = true;
-            this.dxLabel.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.dxLabel.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.dxLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.dxLabel.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.dxLabel.Location = new System.Drawing.Point(251, 226);
+            this.dxLabel.Location = new System.Drawing.Point(234, 144);
             this.dxLabel.Name = "dxLabel";
             this.dxLabel.Size = new System.Drawing.Size(22, 15);
             this.dxLabel.TabIndex = 3;
@@ -161,7 +171,7 @@ namespace Intel8086
             this.axView.Cursor = System.Windows.Forms.Cursors.Default;
             this.axView.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.axView.ForeColor = System.Drawing.Color.Red;
-            this.axView.Location = new System.Drawing.Point(56, 244);
+            this.axView.Location = new System.Drawing.Point(39, 162);
             this.axView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.axView.Name = "axView";
             this.axView.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -175,7 +185,7 @@ namespace Intel8086
             this.bxView.Cursor = System.Windows.Forms.Cursors.Default;
             this.bxView.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.bxView.ForeColor = System.Drawing.Color.Red;
-            this.bxView.Location = new System.Drawing.Point(116, 244);
+            this.bxView.Location = new System.Drawing.Point(99, 162);
             this.bxView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.bxView.Name = "bxView";
             this.bxView.Size = new System.Drawing.Size(54, 23);
@@ -188,7 +198,7 @@ namespace Intel8086
             this.cxView.Cursor = System.Windows.Forms.Cursors.Default;
             this.cxView.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.cxView.ForeColor = System.Drawing.Color.Red;
-            this.cxView.Location = new System.Drawing.Point(176, 244);
+            this.cxView.Location = new System.Drawing.Point(159, 162);
             this.cxView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cxView.Name = "cxView";
             this.cxView.Size = new System.Drawing.Size(54, 23);
@@ -201,7 +211,7 @@ namespace Intel8086
             this.dxView.Cursor = System.Windows.Forms.Cursors.Default;
             this.dxView.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.dxView.ForeColor = System.Drawing.Color.Red;
-            this.dxView.Location = new System.Drawing.Point(236, 244);
+            this.dxView.Location = new System.Drawing.Point(219, 162);
             this.dxView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dxView.Name = "dxView";
             this.dxView.Size = new System.Drawing.Size(54, 23);
@@ -211,7 +221,7 @@ namespace Intel8086
             // dxText
             // 
             this.dxText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.dxText.Location = new System.Drawing.Point(236, 103);
+            this.dxText.Location = new System.Drawing.Point(219, 21);
             this.dxText.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dxText.MaxLength = 4;
             this.dxText.Name = "dxText";
@@ -222,7 +232,7 @@ namespace Intel8086
             // cxText
             // 
             this.cxText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.cxText.Location = new System.Drawing.Point(176, 103);
+            this.cxText.Location = new System.Drawing.Point(159, 21);
             this.cxText.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cxText.MaxLength = 4;
             this.cxText.Name = "cxText";
@@ -233,7 +243,7 @@ namespace Intel8086
             // bxText
             // 
             this.bxText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.bxText.Location = new System.Drawing.Point(116, 103);
+            this.bxText.Location = new System.Drawing.Point(99, 21);
             this.bxText.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.bxText.MaxLength = 4;
             this.bxText.Name = "bxText";
@@ -244,7 +254,7 @@ namespace Intel8086
             // axText
             // 
             this.axText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.axText.Location = new System.Drawing.Point(56, 103);
+            this.axText.Location = new System.Drawing.Point(39, 21);
             this.axText.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.axText.MaxLength = 4;
             this.axText.Name = "axText";
@@ -257,7 +267,7 @@ namespace Intel8086
             // 
             this.buttonMOV.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonMOV.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonMOV.Location = new System.Drawing.Point(212, 378);
+            this.buttonMOV.Location = new System.Drawing.Point(195, 296);
             this.buttonMOV.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonMOV.Name = "buttonMOV";
             this.buttonMOV.Size = new System.Drawing.Size(78, 34);
@@ -277,7 +287,7 @@ namespace Intel8086
             "BX",
             "CX",
             "DX"});
-            this.comboBoxTO.Location = new System.Drawing.Point(236, 457);
+            this.comboBoxTO.Location = new System.Drawing.Point(219, 375);
             this.comboBoxTO.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboBoxTO.Name = "comboBoxTO";
             this.comboBoxTO.Size = new System.Drawing.Size(54, 23);
@@ -294,7 +304,7 @@ namespace Intel8086
             "BX",
             "CX",
             "DX"});
-            this.comboBoxFROM.Location = new System.Drawing.Point(102, 457);
+            this.comboBoxFROM.Location = new System.Drawing.Point(85, 375);
             this.comboBoxFROM.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboBoxFROM.Name = "comboBoxFROM";
             this.comboBoxFROM.Size = new System.Drawing.Size(54, 23);
@@ -304,7 +314,7 @@ namespace Intel8086
             // 
             this.buttonWyczysc.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonWyczysc.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonWyczysc.Location = new System.Drawing.Point(212, 179);
+            this.buttonWyczysc.Location = new System.Drawing.Point(195, 97);
             this.buttonWyczysc.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonWyczysc.Name = "buttonWyczysc";
             this.buttonWyczysc.Size = new System.Drawing.Size(78, 34);
@@ -317,7 +327,7 @@ namespace Intel8086
             // 
             this.buttonXCHG.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonXCHG.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonXCHG.Location = new System.Drawing.Point(212, 415);
+            this.buttonXCHG.Location = new System.Drawing.Point(195, 333);
             this.buttonXCHG.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonXCHG.Name = "buttonXCHG";
             this.buttonXCHG.Size = new System.Drawing.Size(78, 34);
@@ -332,7 +342,7 @@ namespace Intel8086
             this.title.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.title.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.title.ForeColor = System.Drawing.SystemColors.MenuBar;
-            this.title.Location = new System.Drawing.Point(284, 27);
+            this.title.Location = new System.Drawing.Point(381, 9);
             this.title.Name = "title";
             this.title.Size = new System.Drawing.Size(384, 28);
             this.title.TabIndex = 18;
@@ -343,7 +353,7 @@ namespace Intel8086
             // 
             this.buttonRandom.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonRandom.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonRandom.Location = new System.Drawing.Point(212, 282);
+            this.buttonRandom.Location = new System.Drawing.Point(195, 200);
             this.buttonRandom.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonRandom.Name = "buttonRandom";
             this.buttonRandom.Size = new System.Drawing.Size(78, 34);
@@ -357,7 +367,7 @@ namespace Intel8086
             this.labelAutor.AutoSize = true;
             this.labelAutor.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelAutor.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.labelAutor.Location = new System.Drawing.Point(1022, 394);
+            this.labelAutor.Location = new System.Drawing.Point(1067, 9);
             this.labelAutor.Name = "labelAutor";
             this.labelAutor.Size = new System.Drawing.Size(81, 15);
             this.labelAutor.TabIndex = 20;
@@ -378,7 +388,7 @@ namespace Intel8086
             // 
             this.buttonReset.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonReset.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonReset.Location = new System.Drawing.Point(212, 318);
+            this.buttonReset.Location = new System.Drawing.Point(195, 236);
             this.buttonReset.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonReset.Name = "buttonReset";
             this.buttonReset.Size = new System.Drawing.Size(78, 34);
@@ -393,7 +403,7 @@ namespace Intel8086
             this.siView.Cursor = System.Windows.Forms.Cursors.Default;
             this.siView.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.siView.ForeColor = System.Drawing.Color.Blue;
-            this.siView.Location = new System.Drawing.Point(328, 240);
+            this.siView.Location = new System.Drawing.Point(7, 158);
             this.siView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.siView.Name = "siView";
             this.siView.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -404,10 +414,10 @@ namespace Intel8086
             // siLabel
             // 
             this.siLabel.AutoSize = true;
-            this.siLabel.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.siLabel.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.siLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.siLabel.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.siLabel.Location = new System.Drawing.Point(348, 222);
+            this.siLabel.Location = new System.Drawing.Point(27, 140);
             this.siLabel.Name = "siLabel";
             this.siLabel.Size = new System.Drawing.Size(16, 15);
             this.siLabel.TabIndex = 23;
@@ -416,7 +426,7 @@ namespace Intel8086
             // diText
             // 
             this.diText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.diText.Location = new System.Drawing.Point(388, 103);
+            this.diText.Location = new System.Drawing.Point(67, 21);
             this.diText.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.diText.MaxLength = 4;
             this.diText.Name = "diText";
@@ -431,7 +441,7 @@ namespace Intel8086
             this.diView.Cursor = System.Windows.Forms.Cursors.Default;
             this.diView.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.diView.ForeColor = System.Drawing.Color.Blue;
-            this.diView.Location = new System.Drawing.Point(388, 240);
+            this.diView.Location = new System.Drawing.Point(67, 158);
             this.diView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.diView.Name = "diView";
             this.diView.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -442,10 +452,10 @@ namespace Intel8086
             // diLabel
             // 
             this.diLabel.AutoSize = true;
-            this.diLabel.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.diLabel.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.diLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.diLabel.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.diLabel.Location = new System.Drawing.Point(406, 222);
+            this.diLabel.Location = new System.Drawing.Point(85, 140);
             this.diLabel.Name = "diLabel";
             this.diLabel.Size = new System.Drawing.Size(18, 15);
             this.diLabel.TabIndex = 26;
@@ -454,7 +464,7 @@ namespace Intel8086
             // bpText
             // 
             this.bpText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.bpText.Location = new System.Drawing.Point(448, 103);
+            this.bpText.Location = new System.Drawing.Point(127, 21);
             this.bpText.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.bpText.MaxLength = 4;
             this.bpText.Name = "bpText";
@@ -469,7 +479,7 @@ namespace Intel8086
             this.bpView.Cursor = System.Windows.Forms.Cursors.Default;
             this.bpView.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.bpView.ForeColor = System.Drawing.Color.Blue;
-            this.bpView.Location = new System.Drawing.Point(448, 240);
+            this.bpView.Location = new System.Drawing.Point(127, 158);
             this.bpView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.bpView.Name = "bpView";
             this.bpView.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -480,10 +490,10 @@ namespace Intel8086
             // bpLabel
             // 
             this.bpLabel.AutoSize = true;
-            this.bpLabel.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.bpLabel.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.bpLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.bpLabel.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.bpLabel.Location = new System.Drawing.Point(464, 222);
+            this.bpLabel.Location = new System.Drawing.Point(143, 140);
             this.bpLabel.Name = "bpLabel";
             this.bpLabel.Size = new System.Drawing.Size(21, 15);
             this.bpLabel.TabIndex = 29;
@@ -493,7 +503,7 @@ namespace Intel8086
             // 
             this.buttonPrzypisz2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonPrzypisz2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonPrzypisz2.Location = new System.Drawing.Point(507, 141);
+            this.buttonPrzypisz2.Location = new System.Drawing.Point(186, 59);
             this.buttonPrzypisz2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonPrzypisz2.Name = "buttonPrzypisz2";
             this.buttonPrzypisz2.Size = new System.Drawing.Size(78, 34);
@@ -509,7 +519,7 @@ namespace Intel8086
             this.buttonPrzypisz.CausesValidation = false;
             this.buttonPrzypisz.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonPrzypisz.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonPrzypisz.Location = new System.Drawing.Point(212, 142);
+            this.buttonPrzypisz.Location = new System.Drawing.Point(195, 60);
             this.buttonPrzypisz.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonPrzypisz.Name = "buttonPrzypisz";
             this.buttonPrzypisz.Size = new System.Drawing.Size(78, 34);
@@ -521,7 +531,7 @@ namespace Intel8086
             // dispText
             // 
             this.dispText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.dispText.Location = new System.Drawing.Point(531, 103);
+            this.dispText.Location = new System.Drawing.Point(210, 21);
             this.dispText.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dispText.MaxLength = 4;
             this.dispText.Name = "dispText";
@@ -535,7 +545,7 @@ namespace Intel8086
             this.dispView.Cursor = System.Windows.Forms.Cursors.Default;
             this.dispView.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.dispView.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.dispView.Location = new System.Drawing.Point(531, 240);
+            this.dispView.Location = new System.Drawing.Point(210, 158);
             this.dispView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dispView.Name = "dispView";
             this.dispView.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -546,10 +556,10 @@ namespace Intel8086
             // dispLabel
             // 
             this.dispLabel.AutoSize = true;
-            this.dispLabel.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.dispLabel.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.dispLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.dispLabel.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.dispLabel.Location = new System.Drawing.Point(542, 221);
+            this.dispLabel.Location = new System.Drawing.Point(221, 139);
             this.dispLabel.Name = "dispLabel";
             this.dispLabel.Size = new System.Drawing.Size(31, 15);
             this.dispLabel.TabIndex = 33;
@@ -558,7 +568,7 @@ namespace Intel8086
             // siText
             // 
             this.siText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.siText.Location = new System.Drawing.Point(328, 103);
+            this.siText.Location = new System.Drawing.Point(7, 21);
             this.siText.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.siText.MaxLength = 4;
             this.siText.Name = "siText";
@@ -571,7 +581,7 @@ namespace Intel8086
             // 
             this.buttonXCHG2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonXCHG2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonXCHG2.Location = new System.Drawing.Point(760, 275);
+            this.buttonXCHG2.Location = new System.Drawing.Point(137, 193);
             this.buttonXCHG2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonXCHG2.Name = "buttonXCHG2";
             this.buttonXCHG2.Size = new System.Drawing.Size(78, 34);
@@ -583,7 +593,7 @@ namespace Intel8086
             // 
             this.buttonReset2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonReset2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonReset2.Location = new System.Drawing.Point(507, 275);
+            this.buttonReset2.Location = new System.Drawing.Point(186, 193);
             this.buttonReset2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonReset2.Name = "buttonReset2";
             this.buttonReset2.Size = new System.Drawing.Size(78, 34);
@@ -596,7 +606,7 @@ namespace Intel8086
             // 
             this.buttonMOV2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonMOV2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonMOV2.Location = new System.Drawing.Point(676, 275);
+            this.buttonMOV2.Location = new System.Drawing.Point(53, 193);
             this.buttonMOV2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonMOV2.Name = "buttonMOV2";
             this.buttonMOV2.Size = new System.Drawing.Size(78, 34);
@@ -610,7 +620,7 @@ namespace Intel8086
             this.radioButtonIndeksowy.AutoSize = true;
             this.radioButtonIndeksowy.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.radioButtonIndeksowy.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.radioButtonIndeksowy.Location = new System.Drawing.Point(757, 135);
+            this.radioButtonIndeksowy.Location = new System.Drawing.Point(134, 53);
             this.radioButtonIndeksowy.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.radioButtonIndeksowy.Name = "radioButtonIndeksowy";
             this.radioButtonIndeksowy.Size = new System.Drawing.Size(81, 19);
@@ -625,7 +635,7 @@ namespace Intel8086
             this.radioButtonBazowy.AutoSize = true;
             this.radioButtonBazowy.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.radioButtonBazowy.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.radioButtonBazowy.Location = new System.Drawing.Point(757, 152);
+            this.radioButtonBazowy.Location = new System.Drawing.Point(134, 70);
             this.radioButtonBazowy.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.radioButtonBazowy.Name = "radioButtonBazowy";
             this.radioButtonBazowy.Size = new System.Drawing.Size(65, 19);
@@ -640,7 +650,7 @@ namespace Intel8086
             this.radioButtonIndeksowoBazowy.AutoSize = true;
             this.radioButtonIndeksowoBazowy.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.radioButtonIndeksowoBazowy.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.radioButtonIndeksowoBazowy.Location = new System.Drawing.Point(757, 170);
+            this.radioButtonIndeksowoBazowy.Location = new System.Drawing.Point(134, 88);
             this.radioButtonIndeksowoBazowy.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.radioButtonIndeksowoBazowy.Name = "radioButtonIndeksowoBazowy";
             this.radioButtonIndeksowoBazowy.Size = new System.Drawing.Size(127, 19);
@@ -653,10 +663,10 @@ namespace Intel8086
             // labelTryb
             // 
             this.labelTryb.AutoSize = true;
-            this.labelTryb.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.labelTryb.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.labelTryb.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelTryb.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.labelTryb.Location = new System.Drawing.Point(627, 154);
+            this.labelTryb.Location = new System.Drawing.Point(4, 72);
             this.labelTryb.Name = "labelTryb";
             this.labelTryb.Size = new System.Drawing.Size(101, 15);
             this.labelTryb.TabIndex = 44;
@@ -671,7 +681,7 @@ namespace Intel8086
             this.comboBoxIndeksowy.Items.AddRange(new object[] {
             "SI",
             "DI"});
-            this.comboBoxIndeksowy.Location = new System.Drawing.Point(827, 230);
+            this.comboBoxIndeksowy.Location = new System.Drawing.Point(208, 148);
             this.comboBoxIndeksowy.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboBoxIndeksowy.Name = "comboBoxIndeksowy";
             this.comboBoxIndeksowy.Size = new System.Drawing.Size(57, 23);
@@ -686,7 +696,7 @@ namespace Intel8086
             this.comboBoxBazowy.Items.AddRange(new object[] {
             "BX",
             "BP"});
-            this.comboBoxBazowy.Location = new System.Drawing.Point(827, 230);
+            this.comboBoxBazowy.Location = new System.Drawing.Point(208, 148);
             this.comboBoxBazowy.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboBoxBazowy.Name = "comboBoxBazowy";
             this.comboBoxBazowy.Size = new System.Drawing.Size(57, 23);
@@ -705,7 +715,7 @@ namespace Intel8086
             "SI+BP",
             "DI+BX",
             "DI+BP"});
-            this.comboBoxIndeksowoBazowy.Location = new System.Drawing.Point(827, 230);
+            this.comboBoxIndeksowoBazowy.Location = new System.Drawing.Point(208, 148);
             this.comboBoxIndeksowoBazowy.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboBoxIndeksowoBazowy.Name = "comboBoxIndeksowoBazowy";
             this.comboBoxIndeksowoBazowy.Size = new System.Drawing.Size(57, 23);
@@ -714,10 +724,10 @@ namespace Intel8086
             // labelKierunek
             // 
             this.labelKierunek.AutoSize = true;
-            this.labelKierunek.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.labelKierunek.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.labelKierunek.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelKierunek.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.labelKierunek.Location = new System.Drawing.Point(627, 86);
+            this.labelKierunek.Location = new System.Drawing.Point(4, 4);
             this.labelKierunek.Name = "labelKierunek";
             this.labelKierunek.Size = new System.Drawing.Size(149, 15);
             this.labelKierunek.TabIndex = 48;
@@ -732,7 +742,7 @@ namespace Intel8086
             this.comboBoxKierunek.Items.AddRange(new object[] {
             "Z rejestru do pamięci",
             "Z pamięci do rejestru"});
-            this.comboBoxKierunek.Location = new System.Drawing.Point(738, 105);
+            this.comboBoxKierunek.Location = new System.Drawing.Point(119, 23);
             this.comboBoxKierunek.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboBoxKierunek.Name = "comboBoxKierunek";
             this.comboBoxKierunek.Size = new System.Drawing.Size(146, 23);
@@ -750,30 +760,30 @@ namespace Intel8086
             "BX",
             "CX",
             "DX"});
-            this.comboBoxWymiana.Location = new System.Drawing.Point(827, 201);
+            this.comboBoxWymiana.Location = new System.Drawing.Point(208, 119);
             this.comboBoxWymiana.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboBoxWymiana.Name = "comboBoxWymiana";
             this.comboBoxWymiana.Size = new System.Drawing.Size(57, 23);
             this.comboBoxWymiana.TabIndex = 50;
             // 
-            // listBox2
+            // listBoxPodgladPamieci
             // 
-            this.listBox2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.ItemHeight = 15;
-            this.listBox2.Location = new System.Drawing.Point(902, 367);
-            this.listBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(114, 154);
-            this.listBox2.TabIndex = 51;
+            this.listBoxPodgladPamieci.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.listBoxPodgladPamieci.FormattingEnabled = true;
+            this.listBoxPodgladPamieci.ItemHeight = 15;
+            this.listBoxPodgladPamieci.Location = new System.Drawing.Point(11, 12);
+            this.listBoxPodgladPamieci.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.listBoxPodgladPamieci.Name = "listBoxPodgladPamieci";
+            this.listBoxPodgladPamieci.Size = new System.Drawing.Size(84, 169);
+            this.listBoxPodgladPamieci.TabIndex = 51;
             // 
             // buttonPOKAZ
             // 
             this.buttonPOKAZ.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonPOKAZ.Location = new System.Drawing.Point(807, 453);
+            this.buttonPOKAZ.Location = new System.Drawing.Point(194, 200);
             this.buttonPOKAZ.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonPOKAZ.Name = "buttonPOKAZ";
-            this.buttonPOKAZ.Size = new System.Drawing.Size(78, 34);
+            this.buttonPOKAZ.Size = new System.Drawing.Size(84, 34);
             this.buttonPOKAZ.TabIndex = 52;
             this.buttonPOKAZ.Text = "POKAŻ";
             this.buttonPOKAZ.UseVisualStyleBackColor = true;
@@ -784,7 +794,7 @@ namespace Intel8086
             this.labelZRejestru.AutoSize = true;
             this.labelZRejestru.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelZRejestru.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.labelZRejestru.Location = new System.Drawing.Point(42, 461);
+            this.labelZRejestru.Location = new System.Drawing.Point(25, 379);
             this.labelZRejestru.Name = "labelZRejestru";
             this.labelZRejestru.Size = new System.Drawing.Size(54, 15);
             this.labelZRejestru.TabIndex = 55;
@@ -795,7 +805,7 @@ namespace Intel8086
             this.labelDoRejestru.AutoSize = true;
             this.labelDoRejestru.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelDoRejestru.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.labelDoRejestru.Location = new System.Drawing.Point(167, 461);
+            this.labelDoRejestru.Location = new System.Drawing.Point(150, 379);
             this.labelDoRejestru.Name = "labelDoRejestru";
             this.labelDoRejestru.Size = new System.Drawing.Size(63, 15);
             this.labelDoRejestru.TabIndex = 56;
@@ -806,7 +816,7 @@ namespace Intel8086
             this.labelRandom.AutoSize = true;
             this.labelRandom.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelRandom.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.labelRandom.Location = new System.Drawing.Point(21, 292);
+            this.labelRandom.Location = new System.Drawing.Point(4, 210);
             this.labelRandom.Name = "labelRandom";
             this.labelRandom.Size = new System.Drawing.Size(189, 15);
             this.labelRandom.TabIndex = 57;
@@ -817,7 +827,7 @@ namespace Intel8086
             this.labelReset.AutoSize = true;
             this.labelReset.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelReset.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.labelReset.Location = new System.Drawing.Point(21, 325);
+            this.labelReset.Location = new System.Drawing.Point(4, 243);
             this.labelReset.Name = "labelReset";
             this.labelReset.Size = new System.Drawing.Size(84, 15);
             this.labelReset.TabIndex = 58;
@@ -828,7 +838,7 @@ namespace Intel8086
             this.labelMOV.AutoSize = true;
             this.labelMOV.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelMOV.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.labelMOV.Location = new System.Drawing.Point(21, 388);
+            this.labelMOV.Location = new System.Drawing.Point(4, 306);
             this.labelMOV.Name = "labelMOV";
             this.labelMOV.Size = new System.Drawing.Size(97, 15);
             this.labelMOV.TabIndex = 59;
@@ -839,7 +849,7 @@ namespace Intel8086
             this.labelXCHG.AutoSize = true;
             this.labelXCHG.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelXCHG.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.labelXCHG.Location = new System.Drawing.Point(21, 424);
+            this.labelXCHG.Location = new System.Drawing.Point(4, 342);
             this.labelXCHG.Name = "labelXCHG";
             this.labelXCHG.Size = new System.Drawing.Size(94, 15);
             this.labelXCHG.TabIndex = 60;
@@ -848,10 +858,10 @@ namespace Intel8086
             // dxLabel2
             // 
             this.dxLabel2.AutoSize = true;
-            this.dxLabel2.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.dxLabel2.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.dxLabel2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.dxLabel2.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.dxLabel2.Location = new System.Drawing.Point(251, 84);
+            this.dxLabel2.Location = new System.Drawing.Point(234, 2);
             this.dxLabel2.Name = "dxLabel2";
             this.dxLabel2.Size = new System.Drawing.Size(22, 15);
             this.dxLabel2.TabIndex = 64;
@@ -860,10 +870,10 @@ namespace Intel8086
             // cxLabel2
             // 
             this.cxLabel2.AutoSize = true;
-            this.cxLabel2.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.cxLabel2.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.cxLabel2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cxLabel2.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.cxLabel2.Location = new System.Drawing.Point(191, 84);
+            this.cxLabel2.Location = new System.Drawing.Point(174, 2);
             this.cxLabel2.Name = "cxLabel2";
             this.cxLabel2.Size = new System.Drawing.Size(22, 15);
             this.cxLabel2.TabIndex = 63;
@@ -872,10 +882,10 @@ namespace Intel8086
             // bxLabel2
             // 
             this.bxLabel2.AutoSize = true;
-            this.bxLabel2.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.bxLabel2.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.bxLabel2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.bxLabel2.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.bxLabel2.Location = new System.Drawing.Point(131, 84);
+            this.bxLabel2.Location = new System.Drawing.Point(114, 2);
             this.bxLabel2.Name = "bxLabel2";
             this.bxLabel2.Size = new System.Drawing.Size(21, 15);
             this.bxLabel2.TabIndex = 62;
@@ -884,10 +894,10 @@ namespace Intel8086
             // axLabel2
             // 
             this.axLabel2.AutoSize = true;
-            this.axLabel2.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.axLabel2.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.axLabel2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.axLabel2.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.axLabel2.Location = new System.Drawing.Point(72, 84);
+            this.axLabel2.Location = new System.Drawing.Point(55, 2);
             this.axLabel2.Name = "axLabel2";
             this.axLabel2.Size = new System.Drawing.Size(22, 15);
             this.axLabel2.TabIndex = 61;
@@ -898,7 +908,7 @@ namespace Intel8086
             this.labelPrzypisz.AutoSize = true;
             this.labelPrzypisz.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelPrzypisz.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.labelPrzypisz.Location = new System.Drawing.Point(21, 152);
+            this.labelPrzypisz.Location = new System.Drawing.Point(4, 70);
             this.labelPrzypisz.Name = "labelPrzypisz";
             this.labelPrzypisz.Size = new System.Drawing.Size(155, 15);
             this.labelPrzypisz.TabIndex = 65;
@@ -909,7 +919,7 @@ namespace Intel8086
             this.labelWyczysc.AutoSize = true;
             this.labelWyczysc.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelWyczysc.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.labelWyczysc.Location = new System.Drawing.Point(21, 189);
+            this.labelWyczysc.Location = new System.Drawing.Point(4, 107);
             this.labelWyczysc.Name = "labelWyczysc";
             this.labelWyczysc.Size = new System.Drawing.Size(125, 15);
             this.labelWyczysc.TabIndex = 66;
@@ -921,7 +931,7 @@ namespace Intel8086
             this.listBoxRejestrOperacji.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.listBoxRejestrOperacji.FormattingEnabled = true;
             this.listBoxRejestrOperacji.ItemHeight = 15;
-            this.listBoxRejestrOperacji.Location = new System.Drawing.Point(358, 356);
+            this.listBoxRejestrOperacji.Location = new System.Drawing.Point(28, 274);
             this.listBoxRejestrOperacji.Name = "listBoxRejestrOperacji";
             this.listBoxRejestrOperacji.ScrollAlwaysVisible = true;
             this.listBoxRejestrOperacji.Size = new System.Drawing.Size(227, 124);
@@ -932,7 +942,7 @@ namespace Intel8086
             this.labelRejestrOperacji.AutoSize = true;
             this.labelRejestrOperacji.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelRejestrOperacji.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.labelRejestrOperacji.Location = new System.Drawing.Point(328, 337);
+            this.labelRejestrOperacji.Location = new System.Drawing.Point(67, 255);
             this.labelRejestrOperacji.Name = "labelRejestrOperacji";
             this.labelRejestrOperacji.Size = new System.Drawing.Size(149, 15);
             this.labelRejestrOperacji.TabIndex = 68;
@@ -943,7 +953,7 @@ namespace Intel8086
             this.labelAdresowanie.AutoSize = true;
             this.labelAdresowanie.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelAdresowanie.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.labelAdresowanie.Location = new System.Drawing.Point(627, 204);
+            this.labelAdresowanie.Location = new System.Drawing.Point(4, 122);
             this.labelAdresowanie.Name = "labelAdresowanie";
             this.labelAdresowanie.Size = new System.Drawing.Size(129, 15);
             this.labelAdresowanie.TabIndex = 1004;
@@ -952,10 +962,10 @@ namespace Intel8086
             // dispLabel2
             // 
             this.dispLabel2.AutoSize = true;
-            this.dispLabel2.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.dispLabel2.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.dispLabel2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.dispLabel2.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.dispLabel2.Location = new System.Drawing.Point(542, 84);
+            this.dispLabel2.Location = new System.Drawing.Point(221, 2);
             this.dispLabel2.Name = "dispLabel2";
             this.dispLabel2.Size = new System.Drawing.Size(31, 15);
             this.dispLabel2.TabIndex = 1008;
@@ -964,10 +974,10 @@ namespace Intel8086
             // bpLabel2
             // 
             this.bpLabel2.AutoSize = true;
-            this.bpLabel2.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.bpLabel2.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.bpLabel2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.bpLabel2.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.bpLabel2.Location = new System.Drawing.Point(464, 86);
+            this.bpLabel2.Location = new System.Drawing.Point(143, 4);
             this.bpLabel2.Name = "bpLabel2";
             this.bpLabel2.Size = new System.Drawing.Size(21, 15);
             this.bpLabel2.TabIndex = 1007;
@@ -976,10 +986,10 @@ namespace Intel8086
             // diLabel2
             // 
             this.diLabel2.AutoSize = true;
-            this.diLabel2.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.diLabel2.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.diLabel2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.diLabel2.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.diLabel2.Location = new System.Drawing.Point(406, 86);
+            this.diLabel2.Location = new System.Drawing.Point(85, 4);
             this.diLabel2.Name = "diLabel2";
             this.diLabel2.Size = new System.Drawing.Size(18, 15);
             this.diLabel2.TabIndex = 1006;
@@ -988,10 +998,10 @@ namespace Intel8086
             // siLabel2
             // 
             this.siLabel2.AutoSize = true;
-            this.siLabel2.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.siLabel2.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.siLabel2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.siLabel2.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.siLabel2.Location = new System.Drawing.Point(348, 86);
+            this.siLabel2.Location = new System.Drawing.Point(27, 4);
             this.siLabel2.Name = "siLabel2";
             this.siLabel2.Size = new System.Drawing.Size(16, 15);
             this.siLabel2.TabIndex = 1005;
@@ -1002,7 +1012,7 @@ namespace Intel8086
             this.labelPrzesuniecie.AutoSize = true;
             this.labelPrzesuniecie.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelPrzesuniecie.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.labelPrzesuniecie.Location = new System.Drawing.Point(628, 233);
+            this.labelPrzesuniecie.Location = new System.Drawing.Point(5, 151);
             this.labelPrzesuniecie.Name = "labelPrzesuniecie";
             this.labelPrzesuniecie.Size = new System.Drawing.Size(171, 15);
             this.labelPrzesuniecie.TabIndex = 1009;
@@ -1013,7 +1023,7 @@ namespace Intel8086
             this.labelPrzypisz2.AutoSize = true;
             this.labelPrzypisz2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelPrzypisz2.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.labelPrzypisz2.Location = new System.Drawing.Point(328, 151);
+            this.labelPrzypisz2.Location = new System.Drawing.Point(7, 69);
             this.labelPrzypisz2.Name = "labelPrzypisz2";
             this.labelPrzypisz2.Size = new System.Drawing.Size(155, 15);
             this.labelPrzypisz2.TabIndex = 1010;
@@ -1024,7 +1034,7 @@ namespace Intel8086
             this.labelWyczysc2.AutoSize = true;
             this.labelWyczysc2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelWyczysc2.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.labelWyczysc2.Location = new System.Drawing.Point(329, 188);
+            this.labelWyczysc2.Location = new System.Drawing.Point(8, 106);
             this.labelWyczysc2.Name = "labelWyczysc2";
             this.labelWyczysc2.Size = new System.Drawing.Size(125, 15);
             this.labelWyczysc2.TabIndex = 1012;
@@ -1034,7 +1044,7 @@ namespace Intel8086
             // 
             this.buttonWyczysc2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonWyczysc2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonWyczysc2.Location = new System.Drawing.Point(507, 178);
+            this.buttonWyczysc2.Location = new System.Drawing.Point(186, 96);
             this.buttonWyczysc2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonWyczysc2.Name = "buttonWyczysc2";
             this.buttonWyczysc2.Size = new System.Drawing.Size(78, 34);
@@ -1048,104 +1058,171 @@ namespace Intel8086
             this.labelReset2.AutoSize = true;
             this.labelReset2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelReset2.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.labelReset2.Location = new System.Drawing.Point(328, 285);
+            this.labelReset2.Location = new System.Drawing.Point(7, 203);
             this.labelReset2.Name = "labelReset2";
             this.labelReset2.Size = new System.Drawing.Size(84, 15);
             this.labelReset2.TabIndex = 1013;
             this.labelReset2.Text = "Wyzeruj rejestr";
             // 
-            // panel1
+            // panelPierwszy
             // 
-            this.panel1.Location = new System.Drawing.Point(1146, 84);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(367, 498);
-            this.panel1.TabIndex = 1014;
+            this.panelPierwszy.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.panelPierwszy.Controls.Add(this.axText);
+            this.panelPierwszy.Controls.Add(this.axLabel);
+            this.panelPierwszy.Controls.Add(this.bxLabel);
+            this.panelPierwszy.Controls.Add(this.cxLabel);
+            this.panelPierwszy.Controls.Add(this.dxLabel);
+            this.panelPierwszy.Controls.Add(this.axView);
+            this.panelPierwszy.Controls.Add(this.bxView);
+            this.panelPierwszy.Controls.Add(this.cxView);
+            this.panelPierwszy.Controls.Add(this.dxView);
+            this.panelPierwszy.Controls.Add(this.bxText);
+            this.panelPierwszy.Controls.Add(this.cxText);
+            this.panelPierwszy.Controls.Add(this.dxText);
+            this.panelPierwszy.Controls.Add(this.buttonMOV);
+            this.panelPierwszy.Controls.Add(this.labelWyczysc);
+            this.panelPierwszy.Controls.Add(this.comboBoxTO);
+            this.panelPierwszy.Controls.Add(this.labelPrzypisz);
+            this.panelPierwszy.Controls.Add(this.comboBoxFROM);
+            this.panelPierwszy.Controls.Add(this.dxLabel2);
+            this.panelPierwszy.Controls.Add(this.buttonWyczysc);
+            this.panelPierwszy.Controls.Add(this.cxLabel2);
+            this.panelPierwszy.Controls.Add(this.buttonXCHG);
+            this.panelPierwszy.Controls.Add(this.bxLabel2);
+            this.panelPierwszy.Controls.Add(this.buttonRandom);
+            this.panelPierwszy.Controls.Add(this.axLabel2);
+            this.panelPierwszy.Controls.Add(this.buttonReset);
+            this.panelPierwszy.Controls.Add(this.labelXCHG);
+            this.panelPierwszy.Controls.Add(this.buttonPrzypisz);
+            this.panelPierwszy.Controls.Add(this.labelMOV);
+            this.panelPierwszy.Controls.Add(this.labelZRejestru);
+            this.panelPierwszy.Controls.Add(this.labelReset);
+            this.panelPierwszy.Controls.Add(this.labelDoRejestru);
+            this.panelPierwszy.Controls.Add(this.labelRandom);
+            this.panelPierwszy.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.panelPierwszy.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.panelPierwszy.Location = new System.Drawing.Point(10, 51);
+            this.panelPierwszy.Name = "panelPierwszy";
+            this.panelPierwszy.Size = new System.Drawing.Size(280, 427);
+            this.panelPierwszy.TabIndex = 1014;
+            // 
+            // panelDrugi
+            // 
+            this.panelDrugi.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.panelDrugi.Controls.Add(this.siLabel2);
+            this.panelDrugi.Controls.Add(this.siLabel);
+            this.panelDrugi.Controls.Add(this.labelReset2);
+            this.panelDrugi.Controls.Add(this.siView);
+            this.panelDrugi.Controls.Add(this.labelWyczysc2);
+            this.panelDrugi.Controls.Add(this.siText);
+            this.panelDrugi.Controls.Add(this.buttonWyczysc2);
+            this.panelDrugi.Controls.Add(this.diLabel);
+            this.panelDrugi.Controls.Add(this.labelPrzypisz2);
+            this.panelDrugi.Controls.Add(this.diView);
+            this.panelDrugi.Controls.Add(this.diText);
+            this.panelDrugi.Controls.Add(this.dispLabel2);
+            this.panelDrugi.Controls.Add(this.bpLabel);
+            this.panelDrugi.Controls.Add(this.bpLabel2);
+            this.panelDrugi.Controls.Add(this.bpView);
+            this.panelDrugi.Controls.Add(this.diLabel2);
+            this.panelDrugi.Controls.Add(this.bpText);
+            this.panelDrugi.Controls.Add(this.buttonPrzypisz2);
+            this.panelDrugi.Controls.Add(this.dispLabel);
+            this.panelDrugi.Controls.Add(this.labelRejestrOperacji);
+            this.panelDrugi.Controls.Add(this.dispView);
+            this.panelDrugi.Controls.Add(this.listBoxRejestrOperacji);
+            this.panelDrugi.Controls.Add(this.dispText);
+            this.panelDrugi.Controls.Add(this.buttonReset2);
+            this.panelDrugi.Location = new System.Drawing.Point(296, 51);
+            this.panelDrugi.Name = "panelDrugi";
+            this.panelDrugi.Size = new System.Drawing.Size(280, 427);
+            this.panelDrugi.TabIndex = 1015;
+            // 
+            // panelTrzeci
+            // 
+            this.panelTrzeci.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.panelTrzeci.Controls.Add(this.listBoxRejestZapisu);
+            this.panelTrzeci.Controls.Add(this.labelKierunek);
+            this.panelTrzeci.Controls.Add(this.buttonXCHG2);
+            this.panelTrzeci.Controls.Add(this.buttonMOV2);
+            this.panelTrzeci.Controls.Add(this.labelPrzesuniecie);
+            this.panelTrzeci.Controls.Add(this.radioButtonIndeksowy);
+            this.panelTrzeci.Controls.Add(this.labelAdresowanie);
+            this.panelTrzeci.Controls.Add(this.radioButtonBazowy);
+            this.panelTrzeci.Controls.Add(this.radioButtonIndeksowoBazowy);
+            this.panelTrzeci.Controls.Add(this.labelTryb);
+            this.panelTrzeci.Controls.Add(this.comboBoxWymiana);
+            this.panelTrzeci.Controls.Add(this.comboBoxIndeksowy);
+            this.panelTrzeci.Controls.Add(this.comboBoxKierunek);
+            this.panelTrzeci.Controls.Add(this.comboBoxBazowy);
+            this.panelTrzeci.Controls.Add(this.comboBoxIndeksowoBazowy);
+            this.panelTrzeci.Location = new System.Drawing.Point(582, 51);
+            this.panelTrzeci.Name = "panelTrzeci";
+            this.panelTrzeci.Size = new System.Drawing.Size(280, 427);
+            this.panelTrzeci.TabIndex = 1016;
+            // 
+            // listBoxRejestZapisu
+            // 
+            this.listBoxRejestZapisu.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.listBoxRejestZapisu.FormattingEnabled = true;
+            this.listBoxRejestZapisu.ItemHeight = 15;
+            this.listBoxRejestZapisu.Location = new System.Drawing.Point(24, 251);
+            this.listBoxRejestZapisu.Name = "listBoxRejestZapisu";
+            this.listBoxRejestZapisu.Size = new System.Drawing.Size(237, 94);
+            this.listBoxRejestZapisu.TabIndex = 1011;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.panel3.Controls.Add(this.textBoxWyswietlDo);
+            this.panel3.Controls.Add(this.textBoxWyswietlOd);
+            this.panel3.Controls.Add(this.listBoxPodgladPamieci);
+            this.panel3.Controls.Add(this.buttonPOKAZ);
+            this.panel3.Location = new System.Drawing.Point(868, 51);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(280, 427);
+            this.panel3.TabIndex = 1017;
+            // 
+            // textBoxWyswietlOd
+            // 
+            this.textBoxWyswietlOd.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBoxWyswietlOd.Location = new System.Drawing.Point(43, 274);
+            this.textBoxWyswietlOd.Name = "textBoxWyswietlOd";
+            this.textBoxWyswietlOd.Size = new System.Drawing.Size(54, 23);
+            this.textBoxWyswietlOd.TabIndex = 53;
+            // 
+            // textBoxWyswietlDo
+            // 
+            this.textBoxWyswietlDo.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBoxWyswietlDo.Location = new System.Drawing.Point(170, 274);
+            this.textBoxWyswietlDo.Name = "textBoxWyswietlDo";
+            this.textBoxWyswietlDo.Size = new System.Drawing.Size(54, 23);
+            this.textBoxWyswietlDo.TabIndex = 54;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.ClientSize = new System.Drawing.Size(1657, 682);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.labelReset2);
-            this.Controls.Add(this.labelWyczysc2);
-            this.Controls.Add(this.buttonWyczysc2);
-            this.Controls.Add(this.labelPrzypisz2);
-            this.Controls.Add(this.labelPrzesuniecie);
-            this.Controls.Add(this.dispLabel2);
-            this.Controls.Add(this.bpLabel2);
-            this.Controls.Add(this.diLabel2);
-            this.Controls.Add(this.siLabel2);
-            this.Controls.Add(this.labelAdresowanie);
-            this.Controls.Add(this.labelRejestrOperacji);
-            this.Controls.Add(this.listBoxRejestrOperacji);
-            this.Controls.Add(this.labelWyczysc);
-            this.Controls.Add(this.labelPrzypisz);
-            this.Controls.Add(this.dxLabel2);
-            this.Controls.Add(this.cxLabel2);
-            this.Controls.Add(this.bxLabel2);
-            this.Controls.Add(this.axLabel2);
-            this.Controls.Add(this.labelXCHG);
-            this.Controls.Add(this.labelMOV);
-            this.Controls.Add(this.labelReset);
-            this.Controls.Add(this.labelRandom);
-            this.Controls.Add(this.labelDoRejestru);
-            this.Controls.Add(this.labelZRejestru);
-            this.Controls.Add(this.buttonPOKAZ);
-            this.Controls.Add(this.listBox2);
-            this.Controls.Add(this.comboBoxWymiana);
-            this.Controls.Add(this.comboBoxKierunek);
-            this.Controls.Add(this.labelKierunek);
-            this.Controls.Add(this.comboBoxIndeksowoBazowy);
-            this.Controls.Add(this.comboBoxBazowy);
-            this.Controls.Add(this.comboBoxIndeksowy);
-            this.Controls.Add(this.labelTryb);
-            this.Controls.Add(this.radioButtonIndeksowoBazowy);
-            this.Controls.Add(this.radioButtonBazowy);
-            this.Controls.Add(this.radioButtonIndeksowy);
-            this.Controls.Add(this.buttonMOV2);
-            this.Controls.Add(this.buttonReset2);
-            this.Controls.Add(this.buttonXCHG2);
-            this.Controls.Add(this.dispText);
-            this.Controls.Add(this.dispView);
-            this.Controls.Add(this.dispLabel);
-            this.Controls.Add(this.buttonPrzypisz2);
-            this.Controls.Add(this.buttonPrzypisz);
-            this.Controls.Add(this.bpText);
-            this.Controls.Add(this.bpView);
-            this.Controls.Add(this.bpLabel);
-            this.Controls.Add(this.diText);
-            this.Controls.Add(this.diView);
-            this.Controls.Add(this.diLabel);
-            this.Controls.Add(this.siText);
-            this.Controls.Add(this.siView);
-            this.Controls.Add(this.siLabel);
-            this.Controls.Add(this.buttonReset);
+            this.ClientSize = new System.Drawing.Size(1158, 485);
+            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.panelTrzeci);
+            this.Controls.Add(this.panelDrugi);
+            this.Controls.Add(this.panelPierwszy);
             this.Controls.Add(this.labelAutor);
-            this.Controls.Add(this.buttonRandom);
             this.Controls.Add(this.title);
-            this.Controls.Add(this.buttonXCHG);
-            this.Controls.Add(this.buttonWyczysc);
-            this.Controls.Add(this.comboBoxFROM);
-            this.Controls.Add(this.comboBoxTO);
-            this.Controls.Add(this.buttonMOV);
-            this.Controls.Add(this.dxText);
-            this.Controls.Add(this.cxText);
-            this.Controls.Add(this.bxText);
-            this.Controls.Add(this.axText);
-            this.Controls.Add(this.dxView);
-            this.Controls.Add(this.cxView);
-            this.Controls.Add(this.bxView);
-            this.Controls.Add(this.axView);
-            this.Controls.Add(this.dxLabel);
-            this.Controls.Add(this.cxLabel);
-            this.Controls.Add(this.bxLabel);
-            this.Controls.Add(this.axLabel);
             this.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.HelpButton = true;
             this.Name = "Form1";
             this.Text = "Projekt ASK Krystian Petek";
+            this.panelPierwszy.ResumeLayout(false);
+            this.panelPierwszy.PerformLayout();
+            this.panelDrugi.ResumeLayout(false);
+            this.panelDrugi.PerformLayout();
+            this.panelTrzeci.ResumeLayout(false);
+            this.panelTrzeci.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1234,7 +1311,18 @@ namespace Intel8086
         private System.Windows.Forms.Button buttonWyczysc2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label labelReset2;
+        private System.Windows.Forms.Panel panelPierwszy;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panelDrugi;
+        private System.Windows.Forms.Panel panelTrzeci;
+        private System.Windows.Forms.ListBox listBoxRejestZapisu;
+        private System.Windows.Forms.ListBox listBoxPodgladPamieci;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBoxW;
+        private System.Windows.Forms.TextBox textBoxWyswietlDo;
+        private System.Windows.Forms.TextBox textBoxWyswietlOd;
     }
 }
 
