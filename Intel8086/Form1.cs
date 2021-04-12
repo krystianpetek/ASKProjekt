@@ -55,10 +55,19 @@ namespace Intel8086
             comboBoxBazowy.Visible = false;
             comboBoxIndeksowy.Visible = false;
             comboBoxIndeksowoBazowy.Visible = false;
-            comboBoxPOLACZENIE.Visible = false;
+            comboBoxWymiana.Visible = false;
+            labelAdresowanie.Visible = false;
+            labelPrzesuniecie.Visible = false;
 
+            comboBoxFROM.SelectedIndex = 0;
+            comboBoxTO.SelectedIndex = 0;
             comboBoxKierunek.SelectedIndex = 0;
-            comboBoxPOLACZENIE.SelectedIndex = 0;
+            comboBoxIndeksowy.SelectedIndex = 0;
+            comboBoxBazowy.SelectedIndex = 0;
+            comboBoxIndeksowoBazowy.SelectedIndex = 0;
+            comboBoxWymiana.SelectedIndex = 0;
+
+
 
             for (int i = 0; i < TABLICA.Length; i++)
             {
@@ -69,13 +78,11 @@ namespace Intel8086
             bxView.ReadOnly = true;
             cxView.ReadOnly = true;
             dxView.ReadOnly = true;
+            siView.ReadOnly = true;
+            diView.ReadOnly = true;
+            bpView.ReadOnly = true;
+            dispView.ReadOnly = true;
         }
-
-        private void labelTryb_Click(object sender, EventArgs e)
-        {
-
-        }
-
 
         // 1. PRZYCISK PRZYPISZ
         private void buttonPrzypisz_Click(object sender, EventArgs e)
@@ -110,6 +117,7 @@ namespace Intel8086
                 listBoxRejestrOperacji.Items.Insert(0, $"MOV DX, {dxText.Text.ToUpper()}                     PRZYPISZ");
             }
         }
+
         // 2. PRZYCISK WYCZYŚĆ
         private void buttonWyczysc_Click(object sender, EventArgs e)
         {
@@ -428,49 +436,132 @@ namespace Intel8086
                     }
             }
         }
+        // 7. PRZYCISK RADIO INDEKSOWY
+        private void radioButtonIndeksowy_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButtonIndeksowy.Checked)
+            {
+                comboBoxBazowy.Visible = false;
+                comboBoxIndeksowy.Visible = true;
+                comboBoxIndeksowoBazowy.Visible = false;
+                comboBoxWymiana.Visible = true;
+                labelAdresowanie.Visible = true;
+                labelPrzesuniecie.Visible = true;
+                //labelAdresowanie.Text = "Adresowanie indeksowe";
+                //labelAdresowanie.Top = 206;
+            }
 
+        }
+        // 8. PRZYCISK RADIO BAZOWY
+        private void radioButtonBazowy_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButtonBazowy.Checked)
+            {
+                comboBoxBazowy.Visible = true;
+                comboBoxIndeksowy.Visible = false;
+                comboBoxIndeksowoBazowy.Visible = false;
+                comboBoxWymiana.Visible = true;
+                labelAdresowanie.Visible = true;
+                labelPrzesuniecie.Visible = true;
+                //labelAdresowanie.Text = "Adresowanie bazowe";
+                //labelAdresowanie.Top = 206;
+            }
 
-        // 
-        private void buttonPrzypisz1_Click(object sender, EventArgs e)
+        }
+        // 9. PRZYCISK RADIO INDEKSOWO-BAZOWY
+        private void radioButtonIndeksowoBazowy_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButtonIndeksowoBazowy.Checked)
+            {
+                comboBoxBazowy.Visible = false;
+                comboBoxIndeksowy.Visible = false;
+                comboBoxIndeksowoBazowy.Visible = true;
+                comboBoxWymiana.Visible = true;
+                labelAdresowanie.Visible = true;
+                labelPrzesuniecie.Visible = true;
+                //labelAdresowanie.Text = "Adresowanie indeksowo\n                          bazowe";
+                //labelAdresowanie.Top = 199;
+            }
+        }
+        // 10. COMBOBOX KIERUNEK
+        private void comboBoxKierunek_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxKierunek.SelectedIndex == 1)
+            {
+                labelAdresowanie.Text = "Przenieś dane z pamięci do rejestru";
+                labelPrzesuniecie.Text = "bazując na rejestrze";
+            }
+            if (comboBoxKierunek.SelectedIndex == 0)
+            {
+                labelAdresowanie.Text = "Przenieś dane z rejestru";
+                labelPrzesuniecie.Text = "do pamięci bazując na rejestrze";
+            }
+        }
+        // 11. BUTTON PRZYPISZ 2
+        private void buttonPrzypisz2_Click(object sender, EventArgs e)
         {
             if (siText.Text.IsHexString() != true)
-            {
                 return;
-            }
             if (diText.Text.IsHexString() != true)
-            {
                 return;
-            }
             if (bpText.Text.IsHexString() != true)
-            {
                 return;
-            }
             if (dispText.Text.IsHexString() != true)
-            {
                 return;
-            }
+            
 
-            if (siText.Text.Length == 4)
+            if (siText.Text.Length == 4 && siText.Text.ToUpper() != siView.Text)
+            {
                 siView.Text = siText.Text.ToUpper();
-            if (diText.Text.Length == 4)
+                listBoxRejestrOperacji.Items.Insert(0, $"MOV SI, {siText.Text.ToUpper()}                     PRZYPISZ");
+            }
+            if (diText.Text.Length == 4 && diText.Text.ToUpper() != diView.Text)
+            {
                 diView.Text = diText.Text.ToUpper();
-            if (bpText.Text.Length == 4)
+                listBoxRejestrOperacji.Items.Insert(0, $"MOV DI, {diText.Text.ToUpper()}                     PRZYPISZ");
+            }
+            if (bpText.Text.Length == 4 && bpText.Text.ToUpper() != bpView.Text)
+            {
                 bpView.Text = bpText.Text.ToUpper();
-            if (dispText.Text.Length == 4)
+                listBoxRejestrOperacji.Items.Insert(0, $"MOV BP, {bpText.Text.ToUpper()}                     PRZYPISZ");
+            }
+            if (dispText.Text.Length == 4 && dispText.Text.ToUpper() != dispView.Text)
+            {
                 dispView.Text = dispText.Text.ToUpper();
+                listBoxRejestrOperacji.Items.Insert(0, $"MOV DISP, {dispText.Text.ToUpper()}                 PRZYPISZ");
+            }
         }
-        private void buttonCLEAR2_Click(object sender, EventArgs e)
+        // 12. BUTTON WYCZYSC 2
+        private void buttonWyczysc2_Click(object sender, EventArgs e)
         {
             siText.Text = "";
             diText.Text = "";
             bpText.Text = "";
             dispText.Text = "";
-            Array.Clear(TABLICA, 0, TABLICA.Length - 1);
         }
-
+        
+        // 13. BUTTON RESET 2
+        private void buttonReset2_Click(object sender, EventArgs e)
+        {
+            if (siView.Text != "0000")
+                listBoxRejestrOperacji.Items.Insert(0, $"MOV SI, 0000                            RESET");
+            if (diView.Text != "0000")
+                listBoxRejestrOperacji.Items.Insert(0, $"MOV DI, 0000                            RESET");
+            if (bpView.Text != "0000")
+                listBoxRejestrOperacji.Items.Insert(0, $"MOV BP, 0000                            RESET");
+            if (dispView.Text != "0000")
+                listBoxRejestrOperacji.Items.Insert(0, $"MOV DISP, 0000                         RESET"); 
+            
+            siView.Text = "0000";
+            diView.Text = "0000";
+            bpView.Text = "0000";
+            dispView.Text = "0000";
+        }
+        // 14. BUTTON MOV 2
         private void buttonMOV2_Click(object sender, EventArgs e)
         {
-            switch (comboBoxPOLACZENIE.Text)
+            string sklejone;
+            switch (comboBoxWymiana.Text)
             {
                 case "AX":
                     pobierz = axView.Text;
@@ -486,7 +577,7 @@ namespace Intel8086
                     break;
             }
 
-            if (comboBoxKierunek.SelectedIndex == 0) // z rejestru do pamięci
+            if (comboBoxKierunek.SelectedIndex == 0) // Z REJESTRU DO PAMIECI
             {
                 if (radioButtonIndeksowy.Checked == true)
                 {
@@ -502,6 +593,7 @@ namespace Intel8086
                         TABLICA[sumDec] = mlodszyAdres;
                         TABLICA[sumDec + 1] = starszyAdres;
 
+                        listBoxRejestrOperacji.Items.Insert(0, $"MOV [SI+{dispView.Text}], {comboBoxWymiana.Text}                      MOV");
                     }
                     else if (comboBoxIndeksowy.SelectedIndex == 1) // DI
                     {
@@ -520,7 +612,7 @@ namespace Intel8086
                         return;
                     }
                 }
-                else if (radioButtonBAZOWY.Checked == true)
+                else if (radioButtonBazowy.Checked == true)
                 {
                     if (comboBoxBazowy.SelectedIndex == 0) // BX
                     {
@@ -629,7 +721,7 @@ namespace Intel8086
                         odczyt = TABLICA[sumDec + 1] + TABLICA[sumDec];
                         sumHex = sumDec.ToString("X");
                         if (odczyt.Length == 4)
-                            switch (comboBoxPOLACZENIE.Text)
+                            switch (comboBoxWymiana.Text)
                             {
                                 case "AX":
                                     axView.Text = odczyt;
@@ -654,7 +746,7 @@ namespace Intel8086
                         odczyt = TABLICA[sumDec + 1] + TABLICA[sumDec];
                         sumHex = sumDec.ToString("X");
                         if (odczyt.Length == 4)
-                            switch (comboBoxPOLACZENIE.Text)
+                            switch (comboBoxWymiana.Text)
                             {
                                 case "AX":
                                     axView.Text = odczyt;
@@ -671,7 +763,7 @@ namespace Intel8086
                             }
                     }
                 }
-                else if (radioButtonBAZOWY.Checked == true)
+                else if (radioButtonBazowy.Checked == true)
                 {
                     if (comboBoxBazowy.SelectedIndex == 0) // BX
                     {
@@ -707,40 +799,7 @@ namespace Intel8086
                 }
             }
         }
-        private void radioButtonIndeksowy_CheckedChanged(object sender, EventArgs e)
-        {
-            if (radioButtonIndeksowy.Checked)
-            {
-                comboBoxBazowy.Visible = false;
-                comboBoxIndeksowy.Visible = true;
-                comboBoxIndeksowoBazowy.Visible = false;
-                comboBoxPOLACZENIE.Visible = true;
-                labelAdresowanie.Text = "Adresowanie indeksowe";
-            }
 
-        }
-        private void radioButtonBAZOWY_CheckedChanged(object sender, EventArgs e)
-                {
-                    if (radioButtonBAZOWY.Checked)
-                    {
-                        comboBoxBazowy.Visible = true;
-                        comboBoxIndeksowy.Visible = false;
-                        comboBoxIndeksowoBazowy.Visible = false;
-                        comboBoxPOLACZENIE.Visible = true;
-                    }
-
-                }
-        private void radioButtonIndeksowoBazowy_CheckedChanged(object sender, EventArgs e)
-        {
-            if (radioButtonIndeksowoBazowy.Checked)
-            {
-                comboBoxBazowy.Visible = false;
-                comboBoxIndeksowy.Visible = false;
-                comboBoxIndeksowoBazowy.Visible = true;
-                comboBoxPOLACZENIE.Visible = true;
-                labelAdresowanie.Text = "Adresowanie indeksowo\n                          bazowe";
-            }
-        }
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -753,10 +812,18 @@ namespace Intel8086
             }
         }
 
-        
+
 
 
     }
+    /*private void buttonCLEAR2_Click(object sender, EventArgs e)
+        {
+            siText.Text = "";
+            diText.Text = "";
+            bpText.Text = "";
+            dispText.Text = "";
+            Array.Clear(TABLICA, 0, TABLICA.Length - 1);
+        }*/
     public static class StringExtensions
     {
         public static bool IsHexString(this string str)
