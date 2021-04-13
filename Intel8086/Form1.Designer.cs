@@ -112,8 +112,11 @@ namespace Intel8086
             this.listBoxRejestZapisu = new System.Windows.Forms.ListBox();
             this.labelMOV2 = new System.Windows.Forms.Label();
             this.panelCzwarty = new System.Windows.Forms.Panel();
-            this.textBoxWyswietlDo = new System.Windows.Forms.TextBox();
-            this.textBoxWyswietlOd = new System.Windows.Forms.TextBox();
+            this.spLabel = new System.Windows.Forms.Label();
+            this.buttonPop = new System.Windows.Forms.Button();
+            this.spView = new System.Windows.Forms.TextBox();
+            this.buttonPush = new System.Windows.Forms.Button();
+            this.comboBoxStos = new System.Windows.Forms.ComboBox();
             this.panelPierwszy.SuspendLayout();
             this.panelDrugi.SuspendLayout();
             this.panelTrzeci.SuspendLayout();
@@ -312,6 +315,7 @@ namespace Intel8086
             this.comboBoxFROM.Name = "comboBoxFROM";
             this.comboBoxFROM.Size = new System.Drawing.Size(54, 23);
             this.comboBoxFROM.TabIndex = 14;
+            this.comboBoxFROM.SelectedIndexChanged += new System.EventHandler(this.comboBoxFROM_SelectedIndexChanged);
             // 
             // buttonWyczysc
             // 
@@ -1215,30 +1219,87 @@ namespace Intel8086
             // panelCzwarty
             // 
             this.panelCzwarty.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.panelCzwarty.Controls.Add(this.textBoxWyswietlDo);
-            this.panelCzwarty.Controls.Add(this.textBoxWyswietlOd);
+            this.panelCzwarty.Controls.Add(this.spLabel);
+            this.panelCzwarty.Controls.Add(this.buttonPop);
+            this.panelCzwarty.Controls.Add(this.spView);
+            this.panelCzwarty.Controls.Add(this.buttonPush);
+            this.panelCzwarty.Controls.Add(this.comboBoxStos);
             this.panelCzwarty.Controls.Add(this.listBoxPodgladPamieci);
             this.panelCzwarty.Controls.Add(this.buttonPOKAZ);
             this.panelCzwarty.Location = new System.Drawing.Point(868, 51);
             this.panelCzwarty.Name = "panelCzwarty";
             this.panelCzwarty.Size = new System.Drawing.Size(280, 427);
             this.panelCzwarty.TabIndex = 1017;
+            this.panelCzwarty.Paint += new System.Windows.Forms.PaintEventHandler(this.panelCzwarty_Paint);
             // 
-            // textBoxWyswietlDo
+            // spLabel
             // 
-            this.textBoxWyswietlDo.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBoxWyswietlDo.Location = new System.Drawing.Point(226, 222);
-            this.textBoxWyswietlDo.Name = "textBoxWyswietlDo";
-            this.textBoxWyswietlDo.Size = new System.Drawing.Size(54, 23);
-            this.textBoxWyswietlDo.TabIndex = 54;
+            this.spLabel.AutoSize = true;
+            this.spLabel.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.spLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.spLabel.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.spLabel.Location = new System.Drawing.Point(28, 186);
+            this.spLabel.Name = "spLabel";
+            this.spLabel.Size = new System.Drawing.Size(20, 15);
+            this.spLabel.TabIndex = 1004;
+            this.spLabel.Text = "SP";
             // 
-            // textBoxWyswietlOd
+            // buttonPop
             // 
-            this.textBoxWyswietlOd.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBoxWyswietlOd.Location = new System.Drawing.Point(226, 255);
-            this.textBoxWyswietlOd.Name = "textBoxWyswietlOd";
-            this.textBoxWyswietlOd.Size = new System.Drawing.Size(54, 23);
-            this.textBoxWyswietlOd.TabIndex = 53;
+            this.buttonPop.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonPop.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonPop.Location = new System.Drawing.Point(12, 97);
+            this.buttonPop.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.buttonPop.Name = "buttonPop";
+            this.buttonPop.Size = new System.Drawing.Size(78, 34);
+            this.buttonPop.TabIndex = 1005;
+            this.buttonPop.Text = "POP";
+            this.buttonPop.UseVisualStyleBackColor = true;
+            this.buttonPop.Click += new System.EventHandler(this.buttonPop_Click);
+            // 
+            // spView
+            // 
+            this.spView.BackColor = System.Drawing.SystemColors.Window;
+            this.spView.Cursor = System.Windows.Forms.Cursors.Default;
+            this.spView.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.spView.ForeColor = System.Drawing.Color.Black;
+            this.spView.Location = new System.Drawing.Point(12, 204);
+            this.spView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.spView.Name = "spView";
+            this.spView.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.spView.Size = new System.Drawing.Size(54, 25);
+            this.spView.TabIndex = 1005;
+            this.spView.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // buttonPush
+            // 
+            this.buttonPush.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonPush.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonPush.Location = new System.Drawing.Point(12, 60);
+            this.buttonPush.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.buttonPush.Name = "buttonPush";
+            this.buttonPush.Size = new System.Drawing.Size(78, 34);
+            this.buttonPush.TabIndex = 1004;
+            this.buttonPush.Text = "PUSH";
+            this.buttonPush.UseVisualStyleBackColor = true;
+            this.buttonPush.Click += new System.EventHandler(this.buttonPush_Click);
+            // 
+            // comboBoxStos
+            // 
+            this.comboBoxStos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.comboBoxStos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxStos.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.comboBoxStos.FormattingEnabled = true;
+            this.comboBoxStos.Items.AddRange(new object[] {
+            "AX",
+            "BX",
+            "CX",
+            "DX"});
+            this.comboBoxStos.Location = new System.Drawing.Point(12, 23);
+            this.comboBoxStos.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.comboBoxStos.Name = "comboBoxStos";
+            this.comboBoxStos.Size = new System.Drawing.Size(54, 23);
+            this.comboBoxStos.TabIndex = 1004;
             // 
             // Form1
             // 
@@ -1351,13 +1412,18 @@ namespace Intel8086
         private System.Windows.Forms.ListBox listBoxRejestZapisu;
         private System.Windows.Forms.ListBox listBoxPodgladPamieci;
         private System.Windows.Forms.Panel panelCzwarty;
-        private System.Windows.Forms.TextBox textBoxWyswietlDo;
-        private System.Windows.Forms.TextBox textBoxWyswietlOd;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label labelMOV2;
         private System.Windows.Forms.Label labelXCHG2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label labelRejestrZapisu;
+        private System.Windows.Forms.ComboBox comboBoxStos;
+        private System.Windows.Forms.Button buttonPop;
+        private System.Windows.Forms.Button buttonPush;
+        private System.Windows.Forms.Label labelSP;
+        private System.Windows.Forms.TextBox spViewtextBox;
+        private System.Windows.Forms.Label spLabel;
+        private System.Windows.Forms.TextBox spView;
     }
 }
 

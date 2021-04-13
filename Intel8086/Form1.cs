@@ -24,6 +24,9 @@ namespace Intel8086
         int bxDec, bpDec;
         string sumHex, pobierz, odczyt, zamiana;
 
+        string[] STOS = new string[65536];
+        int wskaznikStosu = 0;
+
         public Form1()
         {
             InitializeComponent();
@@ -52,6 +55,8 @@ namespace Intel8086
             dispView.Text = disp;
             dispText.Text = disp;
 
+            spView.Text = "0";
+
             comboBoxBazowy.Visible = false;
             comboBoxIndeksowy.Visible = false;
             comboBoxIndeksowoBazowy.Visible = false;
@@ -72,6 +77,8 @@ namespace Intel8086
             comboBoxBazowy.SelectedIndex = 0;
             comboBoxIndeksowoBazowy.SelectedIndex = 0;
             comboBoxWymiana.SelectedIndex = 0;
+            comboBoxStos.SelectedIndex = 0;
+
 
             this.MaximumSize = this.Size;
             this.MinimumSize = this.Size;
@@ -206,6 +213,7 @@ namespace Intel8086
             listBoxRejestrOperacji.Items.Insert(0, $"MOV CX, {cxView.Text}                     RANDOM");
             listBoxRejestrOperacji.Items.Insert(0, $"MOV DX, {dxView.Text}                     RANDOM");
         }
+
         // 4. PRZYCISK RESET
         private void buttonReset_Click(object sender, EventArgs e)
         {
@@ -231,8 +239,6 @@ namespace Intel8086
                 case "AX":
                     switch (comboBoxTO.Text)
                     {
-                        case "AX":
-                            break;
                         case "BX":
                             if (bxView.Text != axView.Text)
                             {
@@ -265,8 +271,6 @@ namespace Intel8086
                                 axView.Text = bxView.Text;
                                 listBoxRejestrOperacji.Items.Insert(0, $"MOV AX, BX                               MOV");
                             }
-                            break;
-                        case "BX":
                             break;
                         case "CX":
                             if (cxView.Text != bxView.Text)
@@ -301,8 +305,6 @@ namespace Intel8086
                                 listBoxRejestrOperacji.Items.Insert(0, $"MOV BX, CX                               MOV");
                             }
                             break;
-                        case "CX":
-                            break;
                         case "DX":
                             if (dxView.Text != cxView.Text)
                             {
@@ -336,12 +338,16 @@ namespace Intel8086
                                 listBoxRejestrOperacji.Items.Insert(0, $"MOV CX, DX                               MOV");
                             }
                             break;
-                        case "DX":
-                            break;
                     }
                     break;
             }
         }
+
+        private void panelCzwarty_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
         // 6. PRZYCISK XCHG
         private void buttonXCHG_Click(object sender, EventArgs e)
         {
@@ -351,8 +357,6 @@ namespace Intel8086
                     {
                         switch (comboBoxTO.Text)
                         {
-                            case "AX":
-                                break;
                             case "BX":
                                 {
                                     XCHG = axView.Text;
@@ -392,8 +396,6 @@ namespace Intel8086
                                     listBoxRejestrOperacji.Items.Insert(0, $"XCHG AX, BX                              XCHG");
                                     break;
                                 }
-                            case "BX":
-                                break;
                             case "CX":
                                 {
                                     XCHG = bxView.Text;
@@ -433,8 +435,6 @@ namespace Intel8086
                                     listBoxRejestrOperacji.Items.Insert(0, $"XCHG BX, CX                              XCHG");
                                     break;
                                 }
-                            case "CX":
-                                break;
                             case "DX":
                                 {
                                     XCHG = cxView.Text;
@@ -474,8 +474,6 @@ namespace Intel8086
                                     listBoxRejestrOperacji.Items.Insert(0, $"XCHG CX, DX                              XCHG");
                                     break;
                                 }
-                            case "DX":
-                                break;
                         }
                         break;
                     }
@@ -1292,42 +1290,139 @@ namespace Intel8086
             else
                 return;
         }
-
+        // COMBO BOX TO
+        private void comboBoxFROM_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxFROM.Text == "AX")
+            {
+                comboBoxTO.Items.Clear();
+                comboBoxTO.Items.Add("BX");
+                comboBoxTO.Items.Add("CX");
+                comboBoxTO.Items.Add("DX");
+                comboBoxTO.SelectedIndex = 0;
+            }
+            else if (comboBoxFROM.Text == "BX")
+            {
+                comboBoxTO.Items.Clear();
+                comboBoxTO.Items.Add("AX");
+                comboBoxTO.Items.Add("CX");
+                comboBoxTO.Items.Add("DX");
+                comboBoxTO.SelectedIndex = 0;
+            }
+            else if (comboBoxFROM.Text == "CX")
+            {
+                comboBoxTO.Items.Clear();
+                comboBoxTO.Items.Add("AX");
+                comboBoxTO.Items.Add("BX");
+                comboBoxTO.Items.Add("DX");
+                comboBoxTO.SelectedIndex = 0;
+            }
+            else if (comboBoxFROM.Text == "DX")
+            {
+                comboBoxTO.Items.Clear();
+                comboBoxTO.Items.Add("AX");
+                comboBoxTO.Items.Add("BX");
+                comboBoxTO.Items.Add("CX");
+                comboBoxTO.SelectedIndex = 0;
+            }
+        }
         private void button1_Click(object sender, EventArgs e)
         {
-            int licznik = 0;
-            if (textBoxWyswietlOd.Text == null)
-            {
-
-            }
-            else
-            {
-                licznik = sumDec;
-            }
             listBoxPodgladPamieci.Items.Clear();
-            for (int i = licznik; i < licznik + 10; i++)
+            for (int i = 0; i < TABLICA.Length; i++)
             {
-                listBoxPodgladPamieci.Items.Add($"{i.ToString("X")}: {TABLICA[i]}");
+                if (TABLICA[i] != "00")
+                    listBoxPodgladPamieci.Items.Add($"{i.ToString("X")}: {TABLICA[i]}");
             }
-
-            if (textBoxWyswietlOd.Text.IsHexString() != true && textBoxWyswietlOd.Text.Length != 4)
-                return;
-            if (textBoxWyswietlDo.Text.IsHexString() != true && textBoxWyswietlDo.Text.Length != 4)
-                return;
-
-
-            //int wyswietlOd = 0, wyswietlDo = 0;
-            //if (textBoxWyswietlOd.Text != "" && textBoxWyswietlDo.Text != "")
-            //{
-            //    wyswietlOd = int.Parse(textBoxWyswietlOd.Text);
-            //    wyswietlDo = int.Parse(textBoxWyswietlDo.Text);
-            //    string wyswietlOdHex = wyswietlOd.ToString("X");
-            //    string wyswietlDoHex = wyswietlDo.ToString("X");
-            //}
-
-
         }
 
+
+        private void buttonPush_Click(object sender, EventArgs e)
+        {
+                if (comboBoxStos.SelectedIndex == 0)
+                {
+                    string pierwszaPolowa = axView.Text.Substring(0, 2);
+                    string drugaPolowa = axView.Text.Substring(2, 2);
+                    STOS[wskaznikStosu] = drugaPolowa;
+                    wskaznikStosu++;
+                    STOS[wskaznikStosu] = pierwszaPolowa;
+                    wskaznikStosu++;
+                    spView.Text = wskaznikStosu.ToString();
+                }
+                else if (comboBoxStos.SelectedIndex == 1)
+                {
+                    string pierwszaPolowa = bxView.Text.Substring(0, 2);
+                    string drugaPolowa = bxView.Text.Substring(2, 2);
+                    STOS[wskaznikStosu] = drugaPolowa;
+                    wskaznikStosu++;
+                    STOS[wskaznikStosu] = pierwszaPolowa;
+                    wskaznikStosu++;
+                    spView.Text = wskaznikStosu.ToString();
+                }
+                else if (comboBoxStos.SelectedIndex == 2)
+                {
+                    string pierwszaPolowa = cxView.Text.Substring(0, 2);
+                    string drugaPolowa = cxView.Text.Substring(2, 2);
+                    STOS[wskaznikStosu] = drugaPolowa;
+                    wskaznikStosu++;
+                    STOS[wskaznikStosu] = pierwszaPolowa;
+                    wskaznikStosu++;
+                    spView.Text = wskaznikStosu.ToString();
+                }
+                else
+                {
+                    string pierwszaPolowa = dxView.Text.Substring(0, 2);
+                    string drugaPolowa = dxView.Text.Substring(2, 2);
+                    STOS[wskaznikStosu] = drugaPolowa;
+                    wskaznikStosu++;
+                    STOS[wskaznikStosu] = pierwszaPolowa;
+                    wskaznikStosu++;
+                    spView.Text = wskaznikStosu.ToString();
+                }
+        }
+
+        private void buttonPop_Click(object sender, EventArgs e)
+        {
+            if (wskaznikStosu >= 2)
+                if (comboBoxStos.SelectedIndex == 0)
+                {
+                    wskaznikStosu--;
+                    string drugaPolowa = STOS[wskaznikStosu];
+                    wskaznikStosu--;
+                    string pierwszaPolowa = STOS[wskaznikStosu];
+                    axView.Text = drugaPolowa + pierwszaPolowa;
+                    spView.Text = wskaznikStosu.ToString();
+                }
+                else if (comboBoxStos.SelectedIndex == 1)
+                {
+                    wskaznikStosu--;
+                    string drugaPolowa = STOS[wskaznikStosu];
+                    wskaznikStosu--;
+                    string pierwszaPolowa = STOS[wskaznikStosu];
+                    bxView.Text = drugaPolowa + pierwszaPolowa;
+                    spView.Text = wskaznikStosu.ToString();
+                }
+                else if (comboBoxStos.SelectedIndex == 2)
+                {
+                    wskaznikStosu--;
+                    string drugaPolowa = STOS[wskaznikStosu];
+                    wskaznikStosu--;
+                    string pierwszaPolowa = STOS[wskaznikStosu];
+                    cxView.Text = drugaPolowa + pierwszaPolowa;
+                    spView.Text = wskaznikStosu.ToString();
+                }
+                else
+                {
+                    wskaznikStosu--;
+                    string drugaPolowa = STOS[wskaznikStosu];
+                    wskaznikStosu--;
+                    string pierwszaPolowa = STOS[wskaznikStosu];
+                    dxView.Text = drugaPolowa + pierwszaPolowa;
+                    spView.Text = wskaznikStosu.ToString();
+                }
+            else
+                return;        
+        }
 
 
 
