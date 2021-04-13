@@ -107,14 +107,17 @@ namespace Intel8086
             this.panelPierwszy = new System.Windows.Forms.Panel();
             this.panelDrugi = new System.Windows.Forms.Panel();
             this.panelTrzeci = new System.Windows.Forms.Panel();
+            this.labelRejestrZapisu = new System.Windows.Forms.Label();
+            this.labelXCHG2 = new System.Windows.Forms.Label();
             this.listBoxRejestZapisu = new System.Windows.Forms.ListBox();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.textBoxWyswietlOd = new System.Windows.Forms.TextBox();
+            this.labelMOV2 = new System.Windows.Forms.Label();
+            this.panelCzwarty = new System.Windows.Forms.Panel();
             this.textBoxWyswietlDo = new System.Windows.Forms.TextBox();
+            this.textBoxWyswietlOd = new System.Windows.Forms.TextBox();
             this.panelPierwszy.SuspendLayout();
             this.panelDrugi.SuspendLayout();
             this.panelTrzeci.SuspendLayout();
-            this.panel3.SuspendLayout();
+            this.panelCzwarty.SuspendLayout();
             this.SuspendLayout();
             // 
             // axLabel
@@ -581,13 +584,14 @@ namespace Intel8086
             // 
             this.buttonXCHG2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonXCHG2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonXCHG2.Location = new System.Drawing.Point(137, 193);
+            this.buttonXCHG2.Location = new System.Drawing.Point(187, 215);
             this.buttonXCHG2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonXCHG2.Name = "buttonXCHG2";
             this.buttonXCHG2.Size = new System.Drawing.Size(78, 34);
             this.buttonXCHG2.TabIndex = 38;
             this.buttonXCHG2.Text = "XCHG";
             this.buttonXCHG2.UseVisualStyleBackColor = true;
+            this.buttonXCHG2.Click += new System.EventHandler(this.buttonXCHG2_Click);
             // 
             // buttonReset2
             // 
@@ -606,7 +610,7 @@ namespace Intel8086
             // 
             this.buttonMOV2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonMOV2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonMOV2.Location = new System.Drawing.Point(53, 193);
+            this.buttonMOV2.Location = new System.Drawing.Point(187, 179);
             this.buttonMOV2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonMOV2.Name = "buttonMOV2";
             this.buttonMOV2.Size = new System.Drawing.Size(78, 34);
@@ -771,7 +775,7 @@ namespace Intel8086
             this.listBoxPodgladPamieci.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.listBoxPodgladPamieci.FormattingEnabled = true;
             this.listBoxPodgladPamieci.ItemHeight = 15;
-            this.listBoxPodgladPamieci.Location = new System.Drawing.Point(11, 12);
+            this.listBoxPodgladPamieci.Location = new System.Drawing.Point(194, 4);
             this.listBoxPodgladPamieci.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.listBoxPodgladPamieci.Name = "listBoxPodgladPamieci";
             this.listBoxPodgladPamieci.Size = new System.Drawing.Size(84, 169);
@@ -780,7 +784,7 @@ namespace Intel8086
             // buttonPOKAZ
             // 
             this.buttonPOKAZ.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonPOKAZ.Location = new System.Drawing.Point(194, 200);
+            this.buttonPOKAZ.Location = new System.Drawing.Point(194, 181);
             this.buttonPOKAZ.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonPOKAZ.Name = "buttonPOKAZ";
             this.buttonPOKAZ.Size = new System.Drawing.Size(84, 34);
@@ -1012,7 +1016,7 @@ namespace Intel8086
             this.labelPrzesuniecie.AutoSize = true;
             this.labelPrzesuniecie.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelPrzesuniecie.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.labelPrzesuniecie.Location = new System.Drawing.Point(5, 151);
+            this.labelPrzesuniecie.Location = new System.Drawing.Point(4, 151);
             this.labelPrzesuniecie.Name = "labelPrzesuniecie";
             this.labelPrzesuniecie.Size = new System.Drawing.Size(171, 15);
             this.labelPrzesuniecie.TabIndex = 1009;
@@ -1141,7 +1145,10 @@ namespace Intel8086
             // panelTrzeci
             // 
             this.panelTrzeci.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.panelTrzeci.Controls.Add(this.labelRejestrZapisu);
+            this.panelTrzeci.Controls.Add(this.labelXCHG2);
             this.panelTrzeci.Controls.Add(this.listBoxRejestZapisu);
+            this.panelTrzeci.Controls.Add(this.labelMOV2);
             this.panelTrzeci.Controls.Add(this.labelKierunek);
             this.panelTrzeci.Controls.Add(this.buttonXCHG2);
             this.panelTrzeci.Controls.Add(this.buttonMOV2);
@@ -1161,43 +1168,77 @@ namespace Intel8086
             this.panelTrzeci.Size = new System.Drawing.Size(280, 427);
             this.panelTrzeci.TabIndex = 1016;
             // 
+            // labelRejestrZapisu
+            // 
+            this.labelRejestrZapisu.AutoSize = true;
+            this.labelRejestrZapisu.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.labelRejestrZapisu.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelRejestrZapisu.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.labelRejestrZapisu.Location = new System.Drawing.Point(72, 256);
+            this.labelRejestrZapisu.Name = "labelRejestrZapisu";
+            this.labelRejestrZapisu.Size = new System.Drawing.Size(135, 15);
+            this.labelRejestrZapisu.TabIndex = 1012;
+            this.labelRejestrZapisu.Text = "Rejestr zapisu w pamięci";
+            // 
+            // labelXCHG2
+            // 
+            this.labelXCHG2.AutoSize = true;
+            this.labelXCHG2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelXCHG2.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.labelXCHG2.Location = new System.Drawing.Point(4, 225);
+            this.labelXCHG2.Name = "labelXCHG2";
+            this.labelXCHG2.Size = new System.Drawing.Size(94, 15);
+            this.labelXCHG2.TabIndex = 1005;
+            this.labelXCHG2.Text = "Zamień wartości";
+            // 
             // listBoxRejestZapisu
             // 
             this.listBoxRejestZapisu.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.listBoxRejestZapisu.FormattingEnabled = true;
             this.listBoxRejestZapisu.ItemHeight = 15;
-            this.listBoxRejestZapisu.Location = new System.Drawing.Point(24, 251);
+            this.listBoxRejestZapisu.Location = new System.Drawing.Point(24, 274);
             this.listBoxRejestZapisu.Name = "listBoxRejestZapisu";
-            this.listBoxRejestZapisu.Size = new System.Drawing.Size(237, 94);
+            this.listBoxRejestZapisu.Size = new System.Drawing.Size(237, 124);
             this.listBoxRejestZapisu.TabIndex = 1011;
             // 
-            // panel3
+            // labelMOV2
             // 
-            this.panel3.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.panel3.Controls.Add(this.textBoxWyswietlDo);
-            this.panel3.Controls.Add(this.textBoxWyswietlOd);
-            this.panel3.Controls.Add(this.listBoxPodgladPamieci);
-            this.panel3.Controls.Add(this.buttonPOKAZ);
-            this.panel3.Location = new System.Drawing.Point(868, 51);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(280, 427);
-            this.panel3.TabIndex = 1017;
+            this.labelMOV2.AutoSize = true;
+            this.labelMOV2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelMOV2.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.labelMOV2.Location = new System.Drawing.Point(4, 189);
+            this.labelMOV2.Name = "labelMOV2";
+            this.labelMOV2.Size = new System.Drawing.Size(97, 15);
+            this.labelMOV2.TabIndex = 1004;
+            this.labelMOV2.Text = "Przenieś wartości";
             // 
-            // textBoxWyswietlOd
+            // panelCzwarty
             // 
-            this.textBoxWyswietlOd.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBoxWyswietlOd.Location = new System.Drawing.Point(43, 274);
-            this.textBoxWyswietlOd.Name = "textBoxWyswietlOd";
-            this.textBoxWyswietlOd.Size = new System.Drawing.Size(54, 23);
-            this.textBoxWyswietlOd.TabIndex = 53;
+            this.panelCzwarty.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.panelCzwarty.Controls.Add(this.textBoxWyswietlDo);
+            this.panelCzwarty.Controls.Add(this.textBoxWyswietlOd);
+            this.panelCzwarty.Controls.Add(this.listBoxPodgladPamieci);
+            this.panelCzwarty.Controls.Add(this.buttonPOKAZ);
+            this.panelCzwarty.Location = new System.Drawing.Point(868, 51);
+            this.panelCzwarty.Name = "panelCzwarty";
+            this.panelCzwarty.Size = new System.Drawing.Size(280, 427);
+            this.panelCzwarty.TabIndex = 1017;
             // 
             // textBoxWyswietlDo
             // 
             this.textBoxWyswietlDo.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBoxWyswietlDo.Location = new System.Drawing.Point(170, 274);
+            this.textBoxWyswietlDo.Location = new System.Drawing.Point(226, 222);
             this.textBoxWyswietlDo.Name = "textBoxWyswietlDo";
             this.textBoxWyswietlDo.Size = new System.Drawing.Size(54, 23);
             this.textBoxWyswietlDo.TabIndex = 54;
+            // 
+            // textBoxWyswietlOd
+            // 
+            this.textBoxWyswietlOd.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBoxWyswietlOd.Location = new System.Drawing.Point(226, 255);
+            this.textBoxWyswietlOd.Name = "textBoxWyswietlOd";
+            this.textBoxWyswietlOd.Size = new System.Drawing.Size(54, 23);
+            this.textBoxWyswietlOd.TabIndex = 53;
             // 
             // Form1
             // 
@@ -1205,7 +1246,7 @@ namespace Intel8086
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.ClientSize = new System.Drawing.Size(1158, 485);
-            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.panelCzwarty);
             this.Controls.Add(this.panelTrzeci);
             this.Controls.Add(this.panelDrugi);
             this.Controls.Add(this.panelPierwszy);
@@ -1221,8 +1262,8 @@ namespace Intel8086
             this.panelDrugi.PerformLayout();
             this.panelTrzeci.ResumeLayout(false);
             this.panelTrzeci.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
+            this.panelCzwarty.ResumeLayout(false);
+            this.panelCzwarty.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1261,7 +1302,6 @@ namespace Intel8086
         private System.Windows.Forms.TextBox diView;
         private System.Windows.Forms.TextBox bpView;
         private System.Windows.Forms.TextBox bpText;
-        private System.Windows.Forms.Label labelDISP;
         private System.Windows.Forms.TextBox dispView;
         private System.Windows.Forms.TextBox dispText;
         private System.Windows.Forms.TextBox siText;
@@ -1278,7 +1318,6 @@ namespace Intel8086
         private System.Windows.Forms.Label labelKierunek;
         private System.Windows.Forms.ComboBox comboBoxKierunek;
         private System.Windows.Forms.ComboBox comboBoxWymiana;
-        private System.Windows.Forms.ListBox listBox2;
         private System.Windows.Forms.Button buttonPOKAZ;
         private System.Windows.Forms.Button buttonPrzypisz2;
         private System.Windows.Forms.Button buttonPrzypisz;
@@ -1297,9 +1336,6 @@ namespace Intel8086
         private System.Windows.Forms.Label labelRejestrOperacji;
         private System.Windows.Forms.Label labelTryb;
         private System.Windows.Forms.Label labelPrzypisz2;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label siLabel2;
         private System.Windows.Forms.Label diLabel2;
         private System.Windows.Forms.Label bpLabel2;
@@ -1307,22 +1343,21 @@ namespace Intel8086
         private System.Windows.Forms.Label dispLabel;
         private System.Windows.Forms.Label labelPrzesuniecie;
         private System.Windows.Forms.Label labelWyczysc2;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button buttonWyczysc2;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label labelReset2;
         private System.Windows.Forms.Panel panelPierwszy;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panelDrugi;
         private System.Windows.Forms.Panel panelTrzeci;
         private System.Windows.Forms.ListBox listBoxRejestZapisu;
         private System.Windows.Forms.ListBox listBoxPodgladPamieci;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBoxW;
+        private System.Windows.Forms.Panel panelCzwarty;
         private System.Windows.Forms.TextBox textBoxWyswietlDo;
         private System.Windows.Forms.TextBox textBoxWyswietlOd;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelMOV2;
+        private System.Windows.Forms.Label labelXCHG2;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label labelRejestrZapisu;
     }
 }
 

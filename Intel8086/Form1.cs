@@ -22,7 +22,7 @@ namespace Intel8086
         string starszyAdres, mlodszyAdres;
         int siDec, diDec, dispDec, sumDec;
         int bxDec, bpDec;
-        string sumHex, pobierz, odczyt;
+        string sumHex, pobierz, odczyt, zamiana;
 
         public Form1()
         {
@@ -58,6 +58,12 @@ namespace Intel8086
             comboBoxWymiana.Visible = false;
             labelAdresowanie.Visible = false;
             labelPrzesuniecie.Visible = false;
+            buttonMOV2.Visible = false;
+            buttonXCHG2.Visible = false;
+            listBoxRejestZapisu.Visible = false;
+            labelMOV2.Visible = false;
+            labelXCHG2.Visible = false;
+            labelRejestrZapisu.Visible = false;
 
             comboBoxFROM.SelectedIndex = 0;
             comboBoxTO.SelectedIndex = 0;
@@ -97,25 +103,61 @@ namespace Intel8086
             if (dxText.Text.IsHexString() != true)
                 return;
 
+
             if (axText.Text.Length == 4 && axText.Text.ToUpper() != axView.Text)
             {
                 axView.Text = axText.Text.ToUpper();
                 listBoxRejestrOperacji.Items.Insert(0, $"MOV AX, {axText.Text.ToUpper()}                     PRZYPISZ");
             }
+            else if (axText.Text.Length < 4)
+            {
+                // KOMENTARZ ZEBY WPROWADZIC DANE
+            }
+            else
+            {
+                // KOMENTARZ ZE WARTOSC JEST ZŁA, nie jest HEX
+            }
+
             if (bxText.Text.Length == 4 && bxText.Text.ToUpper() != bxView.Text)
             {
                 bxView.Text = bxText.Text.ToUpper();
                 listBoxRejestrOperacji.Items.Insert(0, $"MOV BX, {bxText.Text.ToUpper()}                     PRZYPISZ");
             }
+            else if (bxText.Text.Length < 4)
+            {
+                // KOMENTARZ ZEBY WPROWADZIC DANE
+            }
+            else
+            {
+                // KOMENTARZ ZE WARTOSC JEST ZŁA, nie jest HEX
+            }
+
             if (cxText.Text.Length == 4 && cxText.Text.ToUpper() != cxView.Text)
             {
                 cxView.Text = cxText.Text.ToUpper();
                 listBoxRejestrOperacji.Items.Insert(0, $"MOV CX, {cxText.Text.ToUpper()}                     PRZYPISZ");
             }
+            else if (cxText.Text.Length < 4)
+            {
+                // KOMENTARZ ZEBY WPROWADZIC DANE
+            }
+            else
+            {
+                // KOMENTARZ ZE WARTOSC JEST ZŁA, nie jest HEX
+            }
+
             if (dxText.Text.Length == 4 && dxText.Text.ToUpper() != dxView.Text)
             {
                 dxView.Text = dxText.Text.ToUpper();
                 listBoxRejestrOperacji.Items.Insert(0, $"MOV DX, {dxText.Text.ToUpper()}                     PRZYPISZ");
+            }
+            else if (dxText.Text.Length < 4)
+            {
+                // KOMENTARZ ZEBY WPROWADZIC DANE
+            }
+            else
+            {
+                // KOMENTARZ ZE WARTOSC JEST ZŁA, nie jest HEX
             }
         }
 
@@ -127,6 +169,7 @@ namespace Intel8086
             cxText.Text = "";
             dxText.Text = "";
         }
+
 
         // 3. PRZYCISK RANDOM
         private void buttonRandom_Click(object sender, EventArgs e)
@@ -449,6 +492,12 @@ namespace Intel8086
                 comboBoxWymiana.Visible = true;
                 labelAdresowanie.Visible = true;
                 labelPrzesuniecie.Visible = true;
+                buttonMOV2.Visible = true;
+                buttonXCHG2.Visible = true;
+                listBoxRejestZapisu.Visible = true;
+                labelMOV2.Visible = true;
+                labelXCHG2.Visible = true;
+                labelRejestrZapisu.Visible = true;
                 //labelAdresowanie.Text = "Adresowanie indeksowe";
                 //labelAdresowanie.Top = 206;
             }
@@ -465,6 +514,12 @@ namespace Intel8086
                 comboBoxWymiana.Visible = true;
                 labelAdresowanie.Visible = true;
                 labelPrzesuniecie.Visible = true;
+                buttonMOV2.Visible = true;
+                buttonXCHG2.Visible = true;
+                listBoxRejestZapisu.Visible = true;
+                labelMOV2.Visible = true;
+                labelXCHG2.Visible = true;
+                labelRejestrZapisu.Visible = true;
                 //labelAdresowanie.Text = "Adresowanie bazowe";
                 //labelAdresowanie.Top = 206;
             }
@@ -481,6 +536,12 @@ namespace Intel8086
                 comboBoxWymiana.Visible = true;
                 labelAdresowanie.Visible = true;
                 labelPrzesuniecie.Visible = true;
+                buttonMOV2.Visible = true;
+                buttonXCHG2.Visible = true;
+                listBoxRejestZapisu.Visible = true;
+                labelMOV2.Visible = true;
+                labelXCHG2.Visible = true;
+                labelRejestrZapisu.Visible = true;
                 //labelAdresowanie.Text = "Adresowanie indeksowo\n                          bazowe";
                 //labelAdresowanie.Top = 199;
             }
@@ -510,7 +571,7 @@ namespace Intel8086
                 return;
             if (dispText.Text.IsHexString() != true)
                 return;
-            
+
 
             if (siText.Text.Length == 4 && siText.Text.ToUpper() != siView.Text)
             {
@@ -541,7 +602,7 @@ namespace Intel8086
             bpText.Text = "";
             dispText.Text = "";
         }
-        
+
         // 13. BUTTON RESET 2
         private void buttonReset2_Click(object sender, EventArgs e)
         {
@@ -552,8 +613,8 @@ namespace Intel8086
             if (bpView.Text != "0000")
                 listBoxRejestrOperacji.Items.Insert(0, $"MOV BP, 0000                            RESET");
             if (dispView.Text != "0000")
-                listBoxRejestrOperacji.Items.Insert(0, $"MOV DISP, 0000                         RESET"); 
-            
+                listBoxRejestrOperacji.Items.Insert(0, $"MOV DISP, 0000                         RESET");
+
             siView.Text = "0000";
             diView.Text = "0000";
             bpView.Text = "0000";
@@ -665,7 +726,7 @@ namespace Intel8086
                         TABLICA[sumDec] = mlodszyAdres;
                         TABLICA[sumDec + 1] = starszyAdres;
 
-                        listBoxRejestrOperacji.Items.Insert(0, $"MOV [SI+BX+{dispView.Text}], {comboBoxWymiana.Text}                    MOV");
+                        listBoxRejestrOperacji.Items.Insert(0, $"MOV [SI+BX+{dispView.Text}], {comboBoxWymiana.Text}                MOV");
                     }
                     else if (comboBoxIndeksowoBazowy.SelectedIndex == 1) // SI + BP
                     {
@@ -679,7 +740,7 @@ namespace Intel8086
 
                         TABLICA[sumDec] = mlodszyAdres;
                         TABLICA[sumDec + 1] = starszyAdres;
-                        listBoxRejestrOperacji.Items.Insert(0, $"MOV [SI+BP+{dispView.Text}], {comboBoxWymiana.Text}                    MOV");
+                        listBoxRejestrOperacji.Items.Insert(0, $"MOV [SI+BP+{dispView.Text}], {comboBoxWymiana.Text}                MOV");
                     }
                     else if (comboBoxIndeksowoBazowy.SelectedIndex == 2) // DI + BX
                     {
@@ -694,7 +755,7 @@ namespace Intel8086
                         TABLICA[sumDec] = mlodszyAdres;
                         TABLICA[sumDec + 1] = starszyAdres;
 
-                        listBoxRejestrOperacji.Items.Insert(0, $"MOV [DI+BX+{dispView.Text}], {comboBoxWymiana.Text}                    MOV");
+                        listBoxRejestrOperacji.Items.Insert(0, $"MOV [DI+BX+{dispView.Text}], {comboBoxWymiana.Text}                MOV");
                     }
                     else if (comboBoxIndeksowoBazowy.SelectedIndex == 3) // DI + BP
                     {
@@ -709,19 +770,16 @@ namespace Intel8086
                         TABLICA[sumDec] = mlodszyAdres;
                         TABLICA[sumDec + 1] = starszyAdres;
 
-                        listBoxRejestrOperacji.Items.Insert(0, $"MOV [SI+BP+{dispView.Text}], {comboBoxWymiana.Text}                    MOV");
+                        listBoxRejestrOperacji.Items.Insert(0, $"MOV [DI+BP+{dispView.Text}], {comboBoxWymiana.Text}                MOV");
                     }
                     else
-                    {
                         return;
-                    }
                 }
                 else
-                {
                     return;
-                }
+
             }
-            else // z pamięci do rejestru
+            else // Z PAMIĘCI DO REJESTRU
             {
                 if (radioButtonIndeksowy.Checked == true)
                 {
@@ -734,114 +792,540 @@ namespace Intel8086
 
                         odczyt = TABLICA[sumDec + 1] + TABLICA[sumDec];
                         sumHex = sumDec.ToString("X");
-                        if (odczyt.Length == 4)
-                            switch (comboBoxWymiana.Text)
-                            {
-                                case "AX":
-                                    axView.Text = odczyt;
-                                    break;
-                                case "BX":
-                                    bxView.Text = odczyt;
-                                    break;
-                                case "CX":
-                                    cxView.Text = odczyt;
-                                    break;
-                                case "DX":
-                                    dxView.Text = odczyt;
-                                    break;
-                            }
+
+                        switch (comboBoxWymiana.Text)
+                        {
+                            case "AX":
+                                axView.Text = odczyt;
+                                break;
+                            case "BX":
+                                bxView.Text = odczyt;
+                                break;
+                            case "CX":
+                                cxView.Text = odczyt;
+                                break;
+                            case "DX":
+                                dxView.Text = odczyt;
+                                break;
+                        }
+
+                        listBoxRejestrOperacji.Items.Insert(0, $"MOV {comboBoxWymiana.Text}, [SI+{dispView.Text}]                MOV");
                     }
                     else // DI
                     {
-                        diDec = int.Parse(siView.Text, System.Globalization.NumberStyles.HexNumber);
+                        diDec = int.Parse(diView.Text, System.Globalization.NumberStyles.HexNumber);
                         dispDec = int.Parse(dispView.Text, System.Globalization.NumberStyles.HexNumber);
                         sumDec = (diDec + dispDec);
 
                         odczyt = TABLICA[sumDec + 1] + TABLICA[sumDec];
                         sumHex = sumDec.ToString("X");
-                        if (odczyt.Length == 4)
-                            switch (comboBoxWymiana.Text)
-                            {
-                                case "AX":
-                                    axView.Text = odczyt;
-                                    break;
-                                case "BX":
-                                    bxView.Text = odczyt;
-                                    break;
-                                case "CX":
-                                    cxView.Text = odczyt;
-                                    break;
-                                case "DX":
-                                    dxView.Text = odczyt;
-                                    break;
-                            }
+                        switch (comboBoxWymiana.Text)
+                        {
+                            case "AX":
+                                axView.Text = odczyt;
+                                break;
+                            case "BX":
+                                bxView.Text = odczyt;
+                                break;
+                            case "CX":
+                                cxView.Text = odczyt;
+                                break;
+                            case "DX":
+                                dxView.Text = odczyt;
+                                break;
+                        }
+                        listBoxRejestrOperacji.Items.Insert(0, $"MOV {comboBoxWymiana.Text}, [DI+{dispView.Text}]                MOV");
                     }
                 }
                 else if (radioButtonBazowy.Checked == true)
                 {
                     if (comboBoxBazowy.SelectedIndex == 0) // BX
                     {
+                        bxDec = int.Parse(bxView.Text, System.Globalization.NumberStyles.HexNumber);
+                        dispDec = int.Parse(dispView.Text, System.Globalization.NumberStyles.HexNumber);
+                        sumDec = (bxDec + dispDec);
 
+                        odczyt = TABLICA[sumDec + 1] + TABLICA[sumDec];
+                        sumHex = sumDec.ToString("X");
+                        switch (comboBoxWymiana.Text)
+                        {
+                            case "AX":
+                                axView.Text = odczyt;
+                                break;
+                            case "BX":
+                                bxView.Text = odczyt;
+                                break;
+                            case "CX":
+                                cxView.Text = odczyt;
+                                break;
+                            case "DX":
+                                dxView.Text = odczyt;
+                                break;
+                        }
+                        listBoxRejestrOperacji.Items.Insert(0, $"MOV {comboBoxWymiana.Text}, [BX+{dispView.Text}]                MOV");
                     }
                     else // BP
                     {
+                        bpDec = int.Parse(bpView.Text, System.Globalization.NumberStyles.HexNumber);
+                        dispDec = int.Parse(dispView.Text, System.Globalization.NumberStyles.HexNumber);
+                        sumDec = (bpDec + dispDec);
 
+                        odczyt = TABLICA[sumDec + 1] + TABLICA[sumDec];
+                        sumHex = sumDec.ToString("X");
+                        switch (comboBoxWymiana.Text)
+                        {
+                            case "AX":
+                                axView.Text = odczyt;
+                                break;
+                            case "BX":
+                                bxView.Text = odczyt;
+                                break;
+                            case "CX":
+                                cxView.Text = odczyt;
+                                break;
+                            case "DX":
+                                dxView.Text = odczyt;
+                                break;
+                        }
+                        listBoxRejestrOperacji.Items.Insert(0, $"MOV {comboBoxWymiana.Text}, [BP+{dispView.Text}]                MOV");
                     }
                 }
                 else if (radioButtonIndeksowoBazowy.Checked == true)
                 {
                     if (comboBoxIndeksowoBazowy.SelectedIndex == 0) // SI + BX
                     {
+                        siDec = int.Parse(siView.Text, System.Globalization.NumberStyles.HexNumber);
+                        bxDec = int.Parse(bxView.Text, System.Globalization.NumberStyles.HexNumber);
+                        dispDec = int.Parse(dispView.Text, System.Globalization.NumberStyles.HexNumber);
+                        sumDec = (siDec + bxDec + dispDec);
 
+                        odczyt = TABLICA[sumDec + 1] + TABLICA[sumDec];
+                        sumHex = sumDec.ToString("X");
+                        switch (comboBoxWymiana.Text)
+                        {
+                            case "AX":
+                                axView.Text = odczyt;
+                                break;
+                            case "BX":
+                                bxView.Text = odczyt;
+                                break;
+                            case "CX":
+                                cxView.Text = odczyt;
+                                break;
+                            case "DX":
+                                dxView.Text = odczyt;
+                                break;
+                        }
+                        listBoxRejestrOperacji.Items.Insert(0, $"MOV {comboBoxWymiana.Text}, [SI+BX+{dispView.Text}]                MOV");
                     }
                     else if (comboBoxIndeksowoBazowy.SelectedIndex == 1) // SI + BP
                     {
+                        siDec = int.Parse(siView.Text, System.Globalization.NumberStyles.HexNumber);
+                        bpDec = int.Parse(bpView.Text, System.Globalization.NumberStyles.HexNumber);
+                        dispDec = int.Parse(dispView.Text, System.Globalization.NumberStyles.HexNumber);
+                        sumDec = (siDec + bpDec + dispDec);
 
+                        odczyt = TABLICA[sumDec + 1] + TABLICA[sumDec];
+                        sumHex = sumDec.ToString("X");
+                        switch (comboBoxWymiana.Text)
+                        {
+                            case "AX":
+                                axView.Text = odczyt;
+                                break;
+                            case "BX":
+                                bxView.Text = odczyt;
+                                break;
+                            case "CX":
+                                cxView.Text = odczyt;
+                                break;
+                            case "DX":
+                                dxView.Text = odczyt;
+                                break;
+                        }
+                        listBoxRejestrOperacji.Items.Insert(0, $"MOV {comboBoxWymiana.Text}, [SI+BP+{dispView.Text}]                MOV");
                     }
                     else if (comboBoxIndeksowoBazowy.SelectedIndex == 2) // DI + BX
                     {
+                        diDec = int.Parse(diView.Text, System.Globalization.NumberStyles.HexNumber);
+                        bxDec = int.Parse(bxView.Text, System.Globalization.NumberStyles.HexNumber);
+                        dispDec = int.Parse(dispView.Text, System.Globalization.NumberStyles.HexNumber);
+                        sumDec = (diDec + bxDec + dispDec);
 
+                        odczyt = TABLICA[sumDec + 1] + TABLICA[sumDec];
+                        sumHex = sumDec.ToString("X");
+                        switch (comboBoxWymiana.Text)
+                        {
+                            case "AX":
+                                axView.Text = odczyt;
+                                break;
+                            case "BX":
+                                bxView.Text = odczyt;
+                                break;
+                            case "CX":
+                                cxView.Text = odczyt;
+                                break;
+                            case "DX":
+                                dxView.Text = odczyt;
+                                break;
+                        }
+                        listBoxRejestrOperacji.Items.Insert(0, $"MOV {comboBoxWymiana.Text}, [DI+BX+{dispView.Text}]                MOV");
                     }
-                    else // DI + BP
+                    else if (comboBoxIndeksowoBazowy.SelectedIndex == 3) // DI + BP
                     {
+                        diDec = int.Parse(diView.Text, System.Globalization.NumberStyles.HexNumber);
+                        bpDec = int.Parse(bpView.Text, System.Globalization.NumberStyles.HexNumber);
+                        dispDec = int.Parse(dispView.Text, System.Globalization.NumberStyles.HexNumber);
+                        sumDec = (diDec + bpDec + dispDec);
 
+                        odczyt = TABLICA[sumDec + 1] + TABLICA[sumDec];
+                        sumHex = sumDec.ToString("X");
+                        switch (comboBoxWymiana.Text)
+                        {
+                            case "AX":
+                                axView.Text = odczyt;
+                                break;
+                            case "BX":
+                                bxView.Text = odczyt;
+                                break;
+                            case "CX":
+                                cxView.Text = odczyt;
+                                break;
+                            case "DX":
+                                dxView.Text = odczyt;
+                                break;
+                        }
+                        listBoxRejestrOperacji.Items.Insert(0, $"MOV {comboBoxWymiana.Text}, [DI+BP+{dispView.Text}]                MOV");
                     }
+                    else
+                        return;
                 }
                 else
-                {
                     return;
+
+
+
+            }
+            if (comboBoxKierunek.SelectedIndex != 1)
+            {
+                if (!listBoxRejestZapisu.Items.Contains($"{sumDec.ToString("X")}: {TABLICA[sumDec]}"))
+                    listBoxRejestZapisu.Items.Insert(0, $"{sumDec.ToString("X")}: {TABLICA[sumDec]}");
+
+                if (!listBoxRejestZapisu.Items.Contains($"{(sumDec + 1).ToString("X")}: {TABLICA[sumDec + 1]}"))
+                    listBoxRejestZapisu.Items.Insert(1, $"{(sumDec + 1).ToString("X")}: {TABLICA[sumDec + 1]}");
+            }
+        }
+        // 15. BUTTON XCHG 2
+        private void buttonXCHG2_Click(object sender, EventArgs e)
+        {
+            switch (comboBoxWymiana.Text)
+            {
+                case "AX":
+                    pobierz = axView.Text;
+                    break;
+                case "BX":
+                    pobierz = bxView.Text;
+                    break;
+                case "CX":
+                    pobierz = cxView.Text;
+                    break;
+                case "DX":
+                    pobierz = dxView.Text;
+                    break;
+            }
+
+            // Z REJESTRU DO PAMIECI
+            if (radioButtonIndeksowy.Checked == true)
+            {
+                if (comboBoxIndeksowy.SelectedIndex == 0) // SI
+                {
+                    siDec = int.Parse(siView.Text, System.Globalization.NumberStyles.HexNumber);
+                    dispDec = int.Parse(dispView.Text, System.Globalization.NumberStyles.HexNumber);
+                    sumDec = (siDec + dispDec);
+                    zamiana = TABLICA[sumDec + 1] + TABLICA[sumDec];
+
+                    TABLICA[sumDec + 1] = pobierz.Substring(0, 2);
+                    TABLICA[sumDec] = pobierz.Substring(2, 2);
+
+                    switch (comboBoxWymiana.Text)
+                    {
+                        case "AX":
+                            axView.Text = zamiana;
+                            break;
+                        case "BX":
+                            bxView.Text = zamiana;
+                            break;
+                        case "CX":
+                            cxView.Text = zamiana;
+                            break;
+                        case "DX":
+                            dxView.Text = zamiana;
+                            break;
+                    }
+                    if (comboBoxKierunek.SelectedIndex == 0)
+                        listBoxRejestrOperacji.Items.Insert(0, $"XCHG [SI+{dispView.Text}], {comboBoxWymiana.Text}                   XCHG");
+                    else
+                        listBoxRejestrOperacji.Items.Insert(0, $"XCHG {comboBoxWymiana.Text}, [SI+{dispView.Text}]                   XCHG");
+                }
+                else // DI
+                {
+                    diDec = int.Parse(diView.Text, System.Globalization.NumberStyles.HexNumber);
+                    dispDec = int.Parse(dispView.Text, System.Globalization.NumberStyles.HexNumber);
+                    sumDec = (diDec + dispDec);
+                    zamiana = TABLICA[sumDec + 1] + TABLICA[sumDec];
+
+                    TABLICA[sumDec + 1] = pobierz.Substring(0, 2);
+                    TABLICA[sumDec] = pobierz.Substring(2, 2);
+
+                    switch (comboBoxWymiana.Text)
+                    {
+                        case "AX":
+                            axView.Text = zamiana;
+                            break;
+                        case "BX":
+                            bxView.Text = zamiana;
+                            break;
+                        case "CX":
+                            cxView.Text = zamiana;
+                            break;
+                        case "DX":
+                            dxView.Text = zamiana;
+                            break;
+                    }
+                    if (comboBoxKierunek.SelectedIndex == 0)
+                        listBoxRejestrOperacji.Items.Insert(0, $"XCHG [DI+{dispView.Text}], {comboBoxWymiana.Text}                   XCHG");
+                    else
+                        listBoxRejestrOperacji.Items.Insert(0, $"XCHG {comboBoxWymiana.Text}, [DI+{dispView.Text}]                   XCHG");
+
                 }
 
-
-               
             }
-            if (!listBoxRejestZapisu.Items.Contains($"{sumDec.ToString("X")}: {TABLICA[sumDec]}"))
-                listBoxRejestZapisu.Items.Insert(0, $"{sumDec.ToString("X")}: {TABLICA[sumDec]}");
+            else if (radioButtonBazowy.Checked == true)
+            {
+                if (comboBoxBazowy.SelectedIndex == 0) // BX
+                {
+                    bxDec = int.Parse(bxView.Text, System.Globalization.NumberStyles.HexNumber);
+                    dispDec = int.Parse(dispView.Text, System.Globalization.NumberStyles.HexNumber);
+                    sumDec = (bxDec + dispDec);
+                    zamiana = TABLICA[sumDec + 1] + TABLICA[sumDec];
 
-            if (!listBoxRejestZapisu.Items.Contains($"{(sumDec+1).ToString("X")}: {TABLICA[sumDec+1]}"))
-                listBoxRejestZapisu.Items.Insert(1, $"{(sumDec+1).ToString("X")}: {TABLICA[sumDec+1]}");
+                    TABLICA[sumDec + 1] = pobierz.Substring(0, 2);
+                    TABLICA[sumDec] = pobierz.Substring(2, 2);
+
+                    switch (comboBoxWymiana.Text)
+                    {
+                        case "AX":
+                            axView.Text = zamiana;
+                            break;
+                        case "BX":
+                            bxView.Text = zamiana;
+                            break;
+                        case "CX":
+                            cxView.Text = zamiana;
+                            break;
+                        case "DX":
+                            dxView.Text = zamiana;
+                            break;
+                    }
+                    if (comboBoxKierunek.SelectedIndex == 0)
+                        listBoxRejestrOperacji.Items.Insert(0, $"XCHG [BX+{dispView.Text}], {comboBoxWymiana.Text}                  XCHG");
+                    else
+                        listBoxRejestrOperacji.Items.Insert(0, $"XCHG {comboBoxWymiana.Text}, [BX+{dispView.Text}]                  XCHG");
+                }
+                else //BP
+                {
+                    bpDec = int.Parse(bpView.Text, System.Globalization.NumberStyles.HexNumber);
+                    dispDec = int.Parse(dispView.Text, System.Globalization.NumberStyles.HexNumber);
+                    sumDec = (bpDec + dispDec);
+                    zamiana = TABLICA[sumDec + 1] + TABLICA[sumDec];
+
+                    TABLICA[sumDec + 1] = pobierz.Substring(0, 2);
+                    TABLICA[sumDec] = pobierz.Substring(2, 2);
+
+                    switch (comboBoxWymiana.Text)
+                    {
+                        case "AX":
+                            axView.Text = zamiana;
+                            break;
+                        case "BX":
+                            bxView.Text = zamiana;
+                            break;
+                        case "CX":
+                            cxView.Text = zamiana;
+                            break;
+                        case "DX":
+                            dxView.Text = zamiana;
+                            break;
+                    }
+                    if (comboBoxKierunek.SelectedIndex == 0)
+                        listBoxRejestrOperacji.Items.Insert(0, $"XCHG [BP+{dispView.Text}], {comboBoxWymiana.Text}                  XCHG");
+                    else
+                        listBoxRejestrOperacji.Items.Insert(0, $"XCHG {comboBoxWymiana.Text}, [BP+{dispView.Text}]                  XCHG");
+                }
+            }
+            else if (radioButtonIndeksowoBazowy.Checked == true)
+            {
+                if (comboBoxIndeksowoBazowy.SelectedIndex == 0) // SI+BX
+                {
+                    siDec = int.Parse(siView.Text, System.Globalization.NumberStyles.HexNumber);
+                    bxDec = int.Parse(bxView.Text, System.Globalization.NumberStyles.HexNumber);
+                    dispDec = int.Parse(dispView.Text, System.Globalization.NumberStyles.HexNumber);
+                    sumDec = (siDec + bxDec + dispDec);
+                    zamiana = TABLICA[sumDec + 1] + TABLICA[sumDec];
+
+                    TABLICA[sumDec + 1] = pobierz.Substring(0, 2);
+                    TABLICA[sumDec] = pobierz.Substring(2, 2);
+
+                    switch (comboBoxWymiana.Text)
+                    {
+                        case "AX":
+                            axView.Text = zamiana;
+                            break;
+                        case "BX":
+                            bxView.Text = zamiana;
+                            break;
+                        case "CX":
+                            cxView.Text = zamiana;
+                            break;
+                        case "DX":
+                            dxView.Text = zamiana;
+                            break;
+                    }
+                    if (comboBoxKierunek.SelectedIndex == 0)
+                        listBoxRejestrOperacji.Items.Insert(0, $"XCHG [SI+BX+{dispView.Text}], {comboBoxWymiana.Text}            XCHG");
+                    else
+                        listBoxRejestrOperacji.Items.Insert(0, $"XCHG {comboBoxWymiana.Text}, [SI+BX+{dispView.Text}]            XCHG");
+                }
+                else if (comboBoxIndeksowoBazowy.SelectedIndex == 1) // SI+BP
+                {
+                    siDec = int.Parse(siView.Text, System.Globalization.NumberStyles.HexNumber);
+                    bpDec = int.Parse(bpView.Text, System.Globalization.NumberStyles.HexNumber);
+                    dispDec = int.Parse(dispView.Text, System.Globalization.NumberStyles.HexNumber);
+                    sumDec = (siDec + bpDec + dispDec);
+                    zamiana = TABLICA[sumDec + 1] + TABLICA[sumDec];
+
+                    TABLICA[sumDec + 1] = pobierz.Substring(0, 2);
+                    TABLICA[sumDec] = pobierz.Substring(2, 2);
+
+                    switch (comboBoxWymiana.Text)
+                    {
+                        case "AX":
+                            axView.Text = zamiana;
+                            break;
+                        case "BX":
+                            bxView.Text = zamiana;
+                            break;
+                        case "CX":
+                            cxView.Text = zamiana;
+                            break;
+                        case "DX":
+                            dxView.Text = zamiana;
+                            break;
+                    }
+                    if (comboBoxKierunek.SelectedIndex == 0)
+                        listBoxRejestrOperacji.Items.Insert(0, $"XCHG [SI+BP+{dispView.Text}], {comboBoxWymiana.Text}            XCHG");
+                    else
+                        listBoxRejestrOperacji.Items.Insert(0, $"XCHG {comboBoxWymiana.Text}, [SI+BP+{dispView.Text}]            XCHG");
+                }
+                else if (comboBoxIndeksowoBazowy.SelectedIndex == 2) // DI+BX
+                {
+                    diDec = int.Parse(diView.Text, System.Globalization.NumberStyles.HexNumber);
+                    bxDec = int.Parse(bxView.Text, System.Globalization.NumberStyles.HexNumber);
+                    dispDec = int.Parse(dispView.Text, System.Globalization.NumberStyles.HexNumber);
+                    sumDec = (diDec + bxDec + dispDec);
+                    zamiana = TABLICA[sumDec + 1] + TABLICA[sumDec];
+
+                    TABLICA[sumDec + 1] = pobierz.Substring(0, 2);
+                    TABLICA[sumDec] = pobierz.Substring(2, 2);
+
+                    switch (comboBoxWymiana.Text)
+                    {
+                        case "AX":
+                            axView.Text = zamiana;
+                            break;
+                        case "BX":
+                            bxView.Text = zamiana;
+                            break;
+                        case "CX":
+                            cxView.Text = zamiana;
+                            break;
+                        case "DX":
+                            dxView.Text = zamiana;
+                            break;
+                    }
+                    if (comboBoxKierunek.SelectedIndex == 0)
+                        listBoxRejestrOperacji.Items.Insert(0, $"XCHG [DI+BX+{dispView.Text}], {comboBoxWymiana.Text}            XCHG");
+                    else
+                        listBoxRejestrOperacji.Items.Insert(0, $"XCHG {comboBoxWymiana.Text}, [DI+BX+{dispView.Text}]            XCHG");
+                }
+                else // DI+BP
+                {
+                    diDec = int.Parse(diView.Text, System.Globalization.NumberStyles.HexNumber);
+                    bpDec = int.Parse(bpView.Text, System.Globalization.NumberStyles.HexNumber);
+                    dispDec = int.Parse(dispView.Text, System.Globalization.NumberStyles.HexNumber);
+                    sumDec = (diDec + bpDec + dispDec);
+                    zamiana = TABLICA[sumDec + 1] + TABLICA[sumDec];
+
+                    TABLICA[sumDec + 1] = pobierz.Substring(0, 2);
+                    TABLICA[sumDec] = pobierz.Substring(2, 2);
+
+                    switch (comboBoxWymiana.Text)
+                    {
+                        case "AX":
+                            axView.Text = zamiana;
+                            break;
+                        case "BX":
+                            bxView.Text = zamiana;
+                            break;
+                        case "CX":
+                            cxView.Text = zamiana;
+                            break;
+                        case "DX":
+                            dxView.Text = zamiana;
+                            break;
+                    }
+                    if (comboBoxKierunek.SelectedIndex == 0)
+                        listBoxRejestrOperacji.Items.Insert(0, $"XCHG [DI+BP+{dispView.Text}], {comboBoxWymiana.Text}            XCHG");
+                    else
+                        listBoxRejestrOperacji.Items.Insert(0, $"XCHG {comboBoxWymiana.Text}, [DI+BP+{dispView.Text}]            XCHG");
+                }
+            }
+            else
+                return;
         }
 
-
         private void button1_Click(object sender, EventArgs e)
-        {            
+        {
+            int licznik = 0;
+            if (textBoxWyswietlOd.Text == null)
+            {
+
+            }
+            else
+            {
+                licznik = sumDec;
+            }
+            listBoxPodgladPamieci.Items.Clear();
+            for (int i = licznik; i < licznik + 10; i++)
+            {
+                listBoxPodgladPamieci.Items.Add($"{i.ToString("X")}: {TABLICA[i]}");
+            }
+
             if (textBoxWyswietlOd.Text.IsHexString() != true && textBoxWyswietlOd.Text.Length != 4)
                 return;
             if (textBoxWyswietlDo.Text.IsHexString() != true && textBoxWyswietlDo.Text.Length != 4)
                 return;
 
-            int wyswietlOd = 0, wyswietlDo = 0;
-            if (textBoxWyswietlOd.Text != "" && textBoxWyswietlDo.Text != "")
-            {
-                wyswietlOd = int.Parse(textBoxWyswietlOd.Text);
-                wyswietlDo = int.Parse(textBoxWyswietlDo.Text);
-            }
 
-            listBoxPodgladPamieci.Items.Clear();
-            for (int i = wyswietlOd; i < wyswietlDo; i++)
-            {
-                listBoxPodgladPamieci.Items.Add($"{i.ToString("X")}: {TABLICA[i]}");
-            }
+            //int wyswietlOd = 0, wyswietlDo = 0;
+            //if (textBoxWyswietlOd.Text != "" && textBoxWyswietlDo.Text != "")
+            //{
+            //    wyswietlOd = int.Parse(textBoxWyswietlOd.Text);
+            //    wyswietlDo = int.Parse(textBoxWyswietlDo.Text);
+            //    string wyswietlOdHex = wyswietlOd.ToString("X");
+            //    string wyswietlDoHex = wyswietlDo.ToString("X");
+            //}
+
+
         }
 
 
