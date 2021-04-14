@@ -107,16 +107,21 @@ namespace Intel8086
             this.panelPierwszy = new System.Windows.Forms.Panel();
             this.panelDrugi = new System.Windows.Forms.Panel();
             this.panelTrzeci = new System.Windows.Forms.Panel();
-            this.labelRejestrZapisu = new System.Windows.Forms.Label();
+            this.labelPodgladPamieci = new System.Windows.Forms.Label();
             this.labelXCHG2 = new System.Windows.Forms.Label();
-            this.listBoxRejestZapisu = new System.Windows.Forms.ListBox();
             this.labelMOV2 = new System.Windows.Forms.Label();
+            this.listBoxPodgladStosu = new System.Windows.Forms.ListBox();
             this.panelCzwarty = new System.Windows.Forms.Panel();
             this.spLabel = new System.Windows.Forms.Label();
             this.buttonPop = new System.Windows.Forms.Button();
             this.spView = new System.Windows.Forms.TextBox();
             this.buttonPush = new System.Windows.Forms.Button();
             this.comboBoxStos = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.labelWskaznikStosu = new System.Windows.Forms.Label();
+            this.labelStos = new System.Windows.Forms.Label();
+            this.labelPush = new System.Windows.Forms.Label();
+            this.labelPop = new System.Windows.Forms.Label();
             this.panelPierwszy.SuspendLayout();
             this.panelDrugi.SuspendLayout();
             this.panelTrzeci.SuspendLayout();
@@ -779,10 +784,10 @@ namespace Intel8086
             this.listBoxPodgladPamieci.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.listBoxPodgladPamieci.FormattingEnabled = true;
             this.listBoxPodgladPamieci.ItemHeight = 15;
-            this.listBoxPodgladPamieci.Location = new System.Drawing.Point(194, 4);
+            this.listBoxPodgladPamieci.Location = new System.Drawing.Point(24, 296);
             this.listBoxPodgladPamieci.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.listBoxPodgladPamieci.Name = "listBoxPodgladPamieci";
-            this.listBoxPodgladPamieci.Size = new System.Drawing.Size(84, 169);
+            this.listBoxPodgladPamieci.Size = new System.Drawing.Size(227, 124);
             this.listBoxPodgladPamieci.TabIndex = 51;
             // 
             // buttonPOKAZ
@@ -939,7 +944,7 @@ namespace Intel8086
             this.listBoxRejestrOperacji.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.listBoxRejestrOperacji.FormattingEnabled = true;
             this.listBoxRejestrOperacji.ItemHeight = 15;
-            this.listBoxRejestrOperacji.Location = new System.Drawing.Point(28, 274);
+            this.listBoxRejestrOperacji.Location = new System.Drawing.Point(25, 296);
             this.listBoxRejestrOperacji.Name = "listBoxRejestrOperacji";
             this.listBoxRejestrOperacji.ScrollAlwaysVisible = true;
             this.listBoxRejestrOperacji.Size = new System.Drawing.Size(227, 124);
@@ -950,7 +955,7 @@ namespace Intel8086
             this.labelRejestrOperacji.AutoSize = true;
             this.labelRejestrOperacji.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelRejestrOperacji.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.labelRejestrOperacji.Location = new System.Drawing.Point(67, 255);
+            this.labelRejestrOperacji.Location = new System.Drawing.Point(67, 278);
             this.labelRejestrOperacji.Name = "labelRejestrOperacji";
             this.labelRejestrOperacji.Size = new System.Drawing.Size(149, 15);
             this.labelRejestrOperacji.TabIndex = 68;
@@ -1149,13 +1154,13 @@ namespace Intel8086
             // panelTrzeci
             // 
             this.panelTrzeci.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.panelTrzeci.Controls.Add(this.labelRejestrZapisu);
+            this.panelTrzeci.Controls.Add(this.labelPodgladPamieci);
             this.panelTrzeci.Controls.Add(this.labelXCHG2);
-            this.panelTrzeci.Controls.Add(this.listBoxRejestZapisu);
             this.panelTrzeci.Controls.Add(this.labelMOV2);
             this.panelTrzeci.Controls.Add(this.labelKierunek);
             this.panelTrzeci.Controls.Add(this.buttonXCHG2);
             this.panelTrzeci.Controls.Add(this.buttonMOV2);
+            this.panelTrzeci.Controls.Add(this.listBoxPodgladPamieci);
             this.panelTrzeci.Controls.Add(this.labelPrzesuniecie);
             this.panelTrzeci.Controls.Add(this.radioButtonIndeksowy);
             this.panelTrzeci.Controls.Add(this.labelAdresowanie);
@@ -1172,17 +1177,17 @@ namespace Intel8086
             this.panelTrzeci.Size = new System.Drawing.Size(280, 427);
             this.panelTrzeci.TabIndex = 1016;
             // 
-            // labelRejestrZapisu
+            // labelPodgladPamieci
             // 
-            this.labelRejestrZapisu.AutoSize = true;
-            this.labelRejestrZapisu.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.labelRejestrZapisu.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelRejestrZapisu.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.labelRejestrZapisu.Location = new System.Drawing.Point(72, 256);
-            this.labelRejestrZapisu.Name = "labelRejestrZapisu";
-            this.labelRejestrZapisu.Size = new System.Drawing.Size(135, 15);
-            this.labelRejestrZapisu.TabIndex = 1012;
-            this.labelRejestrZapisu.Text = "Rejestr zapisu w pamięci";
+            this.labelPodgladPamieci.AutoSize = true;
+            this.labelPodgladPamieci.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.labelPodgladPamieci.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelPodgladPamieci.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.labelPodgladPamieci.Location = new System.Drawing.Point(87, 278);
+            this.labelPodgladPamieci.Name = "labelPodgladPamieci";
+            this.labelPodgladPamieci.Size = new System.Drawing.Size(96, 15);
+            this.labelPodgladPamieci.TabIndex = 1012;
+            this.labelPodgladPamieci.Text = "Podglad pamięci";
             // 
             // labelXCHG2
             // 
@@ -1195,16 +1200,6 @@ namespace Intel8086
             this.labelXCHG2.TabIndex = 1005;
             this.labelXCHG2.Text = "Zamień wartości";
             // 
-            // listBoxRejestZapisu
-            // 
-            this.listBoxRejestZapisu.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.listBoxRejestZapisu.FormattingEnabled = true;
-            this.listBoxRejestZapisu.ItemHeight = 15;
-            this.listBoxRejestZapisu.Location = new System.Drawing.Point(24, 274);
-            this.listBoxRejestZapisu.Name = "listBoxRejestZapisu";
-            this.listBoxRejestZapisu.Size = new System.Drawing.Size(237, 124);
-            this.listBoxRejestZapisu.TabIndex = 1011;
-            // 
             // labelMOV2
             // 
             this.labelMOV2.AutoSize = true;
@@ -1216,15 +1211,30 @@ namespace Intel8086
             this.labelMOV2.TabIndex = 1004;
             this.labelMOV2.Text = "Przenieś wartości";
             // 
+            // listBoxPodgladStosu
+            // 
+            this.listBoxPodgladStosu.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.listBoxPodgladStosu.FormattingEnabled = true;
+            this.listBoxPodgladStosu.ItemHeight = 15;
+            this.listBoxPodgladStosu.Location = new System.Drawing.Point(28, 296);
+            this.listBoxPodgladStosu.Name = "listBoxPodgladStosu";
+            this.listBoxPodgladStosu.Size = new System.Drawing.Size(227, 124);
+            this.listBoxPodgladStosu.TabIndex = 1011;
+            // 
             // panelCzwarty
             // 
             this.panelCzwarty.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.panelCzwarty.Controls.Add(this.labelPop);
+            this.panelCzwarty.Controls.Add(this.labelPush);
+            this.panelCzwarty.Controls.Add(this.labelStos);
+            this.panelCzwarty.Controls.Add(this.labelWskaznikStosu);
+            this.panelCzwarty.Controls.Add(this.label3);
             this.panelCzwarty.Controls.Add(this.spLabel);
             this.panelCzwarty.Controls.Add(this.buttonPop);
+            this.panelCzwarty.Controls.Add(this.listBoxPodgladStosu);
             this.panelCzwarty.Controls.Add(this.spView);
             this.panelCzwarty.Controls.Add(this.buttonPush);
             this.panelCzwarty.Controls.Add(this.comboBoxStos);
-            this.panelCzwarty.Controls.Add(this.listBoxPodgladPamieci);
             this.panelCzwarty.Controls.Add(this.buttonPOKAZ);
             this.panelCzwarty.Location = new System.Drawing.Point(868, 51);
             this.panelCzwarty.Name = "panelCzwarty";
@@ -1238,7 +1248,7 @@ namespace Intel8086
             this.spLabel.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.spLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.spLabel.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.spLabel.Location = new System.Drawing.Point(28, 186);
+            this.spLabel.Location = new System.Drawing.Point(230, 8);
             this.spLabel.Name = "spLabel";
             this.spLabel.Size = new System.Drawing.Size(20, 15);
             this.spLabel.TabIndex = 1004;
@@ -1248,7 +1258,7 @@ namespace Intel8086
             // 
             this.buttonPop.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonPop.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonPop.Location = new System.Drawing.Point(12, 97);
+            this.buttonPop.Location = new System.Drawing.Point(190, 126);
             this.buttonPop.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonPop.Name = "buttonPop";
             this.buttonPop.Size = new System.Drawing.Size(78, 34);
@@ -1263,7 +1273,7 @@ namespace Intel8086
             this.spView.Cursor = System.Windows.Forms.Cursors.Default;
             this.spView.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.spView.ForeColor = System.Drawing.Color.Black;
-            this.spView.Location = new System.Drawing.Point(12, 204);
+            this.spView.Location = new System.Drawing.Point(214, 26);
             this.spView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.spView.Name = "spView";
             this.spView.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -1275,7 +1285,7 @@ namespace Intel8086
             // 
             this.buttonPush.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonPush.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonPush.Location = new System.Drawing.Point(12, 60);
+            this.buttonPush.Location = new System.Drawing.Point(190, 89);
             this.buttonPush.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonPush.Name = "buttonPush";
             this.buttonPush.Size = new System.Drawing.Size(78, 34);
@@ -1295,11 +1305,67 @@ namespace Intel8086
             "BX",
             "CX",
             "DX"});
-            this.comboBoxStos.Location = new System.Drawing.Point(12, 23);
+            this.comboBoxStos.Location = new System.Drawing.Point(214, 59);
             this.comboBoxStos.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboBoxStos.Name = "comboBoxStos";
             this.comboBoxStos.Size = new System.Drawing.Size(54, 23);
             this.comboBoxStos.TabIndex = 1004;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.label3.Location = new System.Drawing.Point(95, 278);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(96, 15);
+            this.label3.TabIndex = 1018;
+            this.label3.Text = "Podglad pamięci";
+            // 
+            // labelWskaznikStosu
+            // 
+            this.labelWskaznikStosu.AutoSize = true;
+            this.labelWskaznikStosu.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelWskaznikStosu.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.labelWskaznikStosu.Location = new System.Drawing.Point(13, 31);
+            this.labelWskaznikStosu.Name = "labelWskaznikStosu";
+            this.labelWskaznikStosu.Size = new System.Drawing.Size(97, 15);
+            this.labelWskaznikStosu.TabIndex = 1018;
+            this.labelWskaznikStosu.Text = "Przenieś wartości";
+            // 
+            // labelStos
+            // 
+            this.labelStos.AutoSize = true;
+            this.labelStos.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelStos.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.labelStos.Location = new System.Drawing.Point(13, 62);
+            this.labelStos.Name = "labelStos";
+            this.labelStos.Size = new System.Drawing.Size(97, 15);
+            this.labelStos.TabIndex = 1019;
+            this.labelStos.Text = "Przenieś wartości";
+            // 
+            // labelPush
+            // 
+            this.labelPush.AutoSize = true;
+            this.labelPush.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelPush.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.labelPush.Location = new System.Drawing.Point(13, 99);
+            this.labelPush.Name = "labelPush";
+            this.labelPush.Size = new System.Drawing.Size(97, 15);
+            this.labelPush.TabIndex = 1020;
+            this.labelPush.Text = "Przenieś wartości";
+            // 
+            // labelPop
+            // 
+            this.labelPop.AutoSize = true;
+            this.labelPop.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelPop.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.labelPop.Location = new System.Drawing.Point(13, 136);
+            this.labelPop.Name = "labelPop";
+            this.labelPop.Size = new System.Drawing.Size(97, 15);
+            this.labelPop.TabIndex = 1021;
+            this.labelPop.Text = "Przenieś wartości";
             // 
             // Form1
             // 
@@ -1416,7 +1482,7 @@ namespace Intel8086
         private System.Windows.Forms.Label labelMOV2;
         private System.Windows.Forms.Label labelXCHG2;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label labelRejestrZapisu;
+        private System.Windows.Forms.Label labelPodgladPamieci;
         private System.Windows.Forms.ComboBox comboBoxStos;
         private System.Windows.Forms.Button buttonPop;
         private System.Windows.Forms.Button buttonPush;
@@ -1424,6 +1490,15 @@ namespace Intel8086
         private System.Windows.Forms.TextBox spViewtextBox;
         private System.Windows.Forms.Label spLabel;
         private System.Windows.Forms.TextBox spView;
+        private System.Windows.Forms.ListBox listBoxPodgladStosu;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label labelWskaznikStosu;
+        private System.Windows.Forms.Label labelStos;
+        private System.Windows.Forms.Label labelPop;
+        private System.Windows.Forms.Label labelPush;
     }
 }
 

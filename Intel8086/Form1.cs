@@ -68,7 +68,7 @@ namespace Intel8086
             listBoxRejestZapisu.Visible = false;
             labelMOV2.Visible = false;
             labelXCHG2.Visible = false;
-            labelRejestrZapisu.Visible = false;
+            labelPodgladPamieci.Visible = false;
 
             comboBoxFROM.SelectedIndex = 0;
             comboBoxTO.SelectedIndex = 0;
@@ -495,7 +495,7 @@ namespace Intel8086
                 listBoxRejestZapisu.Visible = true;
                 labelMOV2.Visible = true;
                 labelXCHG2.Visible = true;
-                labelRejestrZapisu.Visible = true;
+                labelPodgladPamieci.Visible = true;
                 //labelAdresowanie.Text = "Adresowanie indeksowe";
                 //labelAdresowanie.Top = 206;
             }
@@ -517,7 +517,7 @@ namespace Intel8086
                 listBoxRejestZapisu.Visible = true;
                 labelMOV2.Visible = true;
                 labelXCHG2.Visible = true;
-                labelRejestrZapisu.Visible = true;
+                labelPodgladPamieci.Visible = true;
                 //labelAdresowanie.Text = "Adresowanie bazowe";
                 //labelAdresowanie.Top = 206;
             }
@@ -539,7 +539,7 @@ namespace Intel8086
                 listBoxRejestZapisu.Visible = true;
                 labelMOV2.Visible = true;
                 labelXCHG2.Visible = true;
-                labelRejestrZapisu.Visible = true;
+                labelPodgladPamieci.Visible = true;
                 //labelAdresowanie.Text = "Adresowanie indeksowo\n                          bazowe";
                 //labelAdresowanie.Top = 199;
             }
