@@ -112,16 +112,16 @@ namespace Intel8086
             this.labelMOV2 = new System.Windows.Forms.Label();
             this.listBoxPodgladStosu = new System.Windows.Forms.ListBox();
             this.panelCzwarty = new System.Windows.Forms.Panel();
+            this.labelPop = new System.Windows.Forms.Label();
+            this.labelPush = new System.Windows.Forms.Label();
+            this.labelStos = new System.Windows.Forms.Label();
+            this.labelWskaznikStosu = new System.Windows.Forms.Label();
+            this.labelPodgladStosu = new System.Windows.Forms.Label();
             this.spLabel = new System.Windows.Forms.Label();
             this.buttonPop = new System.Windows.Forms.Button();
             this.spView = new System.Windows.Forms.TextBox();
             this.buttonPush = new System.Windows.Forms.Button();
             this.comboBoxStos = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.labelWskaznikStosu = new System.Windows.Forms.Label();
-            this.labelStos = new System.Windows.Forms.Label();
-            this.labelPush = new System.Windows.Forms.Label();
-            this.labelPop = new System.Windows.Forms.Label();
             this.panelPierwszy.SuspendLayout();
             this.panelDrugi.SuspendLayout();
             this.panelTrzeci.SuspendLayout();
@@ -1228,7 +1228,7 @@ namespace Intel8086
             this.panelCzwarty.Controls.Add(this.labelPush);
             this.panelCzwarty.Controls.Add(this.labelStos);
             this.panelCzwarty.Controls.Add(this.labelWskaznikStosu);
-            this.panelCzwarty.Controls.Add(this.label3);
+            this.panelCzwarty.Controls.Add(this.labelPodgladStosu);
             this.panelCzwarty.Controls.Add(this.spLabel);
             this.panelCzwarty.Controls.Add(this.buttonPop);
             this.panelCzwarty.Controls.Add(this.listBoxPodgladStosu);
@@ -1240,7 +1240,62 @@ namespace Intel8086
             this.panelCzwarty.Name = "panelCzwarty";
             this.panelCzwarty.Size = new System.Drawing.Size(280, 427);
             this.panelCzwarty.TabIndex = 1017;
-            this.panelCzwarty.Paint += new System.Windows.Forms.PaintEventHandler(this.panelCzwarty_Paint);
+            // 
+            // labelPop
+            // 
+            this.labelPop.AutoSize = true;
+            this.labelPop.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelPop.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.labelPop.Location = new System.Drawing.Point(13, 136);
+            this.labelPop.Name = "labelPop";
+            this.labelPop.Size = new System.Drawing.Size(97, 15);
+            this.labelPop.TabIndex = 1021;
+            this.labelPop.Text = "Przenieś wartości";
+            // 
+            // labelPush
+            // 
+            this.labelPush.AutoSize = true;
+            this.labelPush.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelPush.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.labelPush.Location = new System.Drawing.Point(13, 99);
+            this.labelPush.Name = "labelPush";
+            this.labelPush.Size = new System.Drawing.Size(97, 15);
+            this.labelPush.TabIndex = 1020;
+            this.labelPush.Text = "Przenieś wartości";
+            // 
+            // labelStos
+            // 
+            this.labelStos.AutoSize = true;
+            this.labelStos.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelStos.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.labelStos.Location = new System.Drawing.Point(13, 62);
+            this.labelStos.Name = "labelStos";
+            this.labelStos.Size = new System.Drawing.Size(97, 15);
+            this.labelStos.TabIndex = 1019;
+            this.labelStos.Text = "Przenieś wartości";
+            // 
+            // labelWskaznikStosu
+            // 
+            this.labelWskaznikStosu.AutoSize = true;
+            this.labelWskaznikStosu.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelWskaznikStosu.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.labelWskaznikStosu.Location = new System.Drawing.Point(13, 31);
+            this.labelWskaznikStosu.Name = "labelWskaznikStosu";
+            this.labelWskaznikStosu.Size = new System.Drawing.Size(97, 15);
+            this.labelWskaznikStosu.TabIndex = 1018;
+            this.labelWskaznikStosu.Text = "Przenieś wartości";
+            // 
+            // labelPodgladStosu
+            // 
+            this.labelPodgladStosu.AutoSize = true;
+            this.labelPodgladStosu.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.labelPodgladStosu.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelPodgladStosu.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.labelPodgladStosu.Location = new System.Drawing.Point(95, 278);
+            this.labelPodgladStosu.Name = "labelPodgladStosu";
+            this.labelPodgladStosu.Size = new System.Drawing.Size(82, 15);
+            this.labelPodgladStosu.TabIndex = 1018;
+            this.labelPodgladStosu.Text = "Podgląd stosu";
             // 
             // spLabel
             // 
@@ -1310,62 +1365,6 @@ namespace Intel8086
             this.comboBoxStos.Name = "comboBoxStos";
             this.comboBoxStos.Size = new System.Drawing.Size(54, 23);
             this.comboBoxStos.TabIndex = 1004;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.label3.Location = new System.Drawing.Point(95, 278);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(96, 15);
-            this.label3.TabIndex = 1018;
-            this.label3.Text = "Podglad pamięci";
-            // 
-            // labelWskaznikStosu
-            // 
-            this.labelWskaznikStosu.AutoSize = true;
-            this.labelWskaznikStosu.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelWskaznikStosu.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.labelWskaznikStosu.Location = new System.Drawing.Point(13, 31);
-            this.labelWskaznikStosu.Name = "labelWskaznikStosu";
-            this.labelWskaznikStosu.Size = new System.Drawing.Size(97, 15);
-            this.labelWskaznikStosu.TabIndex = 1018;
-            this.labelWskaznikStosu.Text = "Przenieś wartości";
-            // 
-            // labelStos
-            // 
-            this.labelStos.AutoSize = true;
-            this.labelStos.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelStos.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.labelStos.Location = new System.Drawing.Point(13, 62);
-            this.labelStos.Name = "labelStos";
-            this.labelStos.Size = new System.Drawing.Size(97, 15);
-            this.labelStos.TabIndex = 1019;
-            this.labelStos.Text = "Przenieś wartości";
-            // 
-            // labelPush
-            // 
-            this.labelPush.AutoSize = true;
-            this.labelPush.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelPush.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.labelPush.Location = new System.Drawing.Point(13, 99);
-            this.labelPush.Name = "labelPush";
-            this.labelPush.Size = new System.Drawing.Size(97, 15);
-            this.labelPush.TabIndex = 1020;
-            this.labelPush.Text = "Przenieś wartości";
-            // 
-            // labelPop
-            // 
-            this.labelPop.AutoSize = true;
-            this.labelPop.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelPop.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.labelPop.Location = new System.Drawing.Point(13, 136);
-            this.labelPop.Name = "labelPop";
-            this.labelPop.Size = new System.Drawing.Size(97, 15);
-            this.labelPop.TabIndex = 1021;
-            this.labelPop.Text = "Przenieś wartości";
             // 
             // Form1
             // 
@@ -1491,7 +1490,7 @@ namespace Intel8086
         private System.Windows.Forms.Label spLabel;
         private System.Windows.Forms.TextBox spView;
         private System.Windows.Forms.ListBox listBoxPodgladStosu;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label labelPodgladStosu;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;

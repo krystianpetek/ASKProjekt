@@ -57,19 +57,6 @@ namespace Intel8086
 
             spView.Text = "0";
 
-            comboBoxBazowy.Visible = false;
-            comboBoxIndeksowy.Visible = false;
-            comboBoxIndeksowoBazowy.Visible = false;
-            comboBoxWymiana.Visible = false;
-            labelAdresowanie.Visible = false;
-            labelPrzesuniecie.Visible = false;
-            buttonMOV2.Visible = false;
-            buttonXCHG2.Visible = false;
-            listBoxRejestZapisu.Visible = false;
-            labelMOV2.Visible = false;
-            labelXCHG2.Visible = false;
-            labelPodgladPamieci.Visible = false;
-
             comboBoxFROM.SelectedIndex = 0;
             comboBoxTO.SelectedIndex = 0;
             comboBoxKierunek.SelectedIndex = 0;
@@ -78,6 +65,7 @@ namespace Intel8086
             comboBoxIndeksowoBazowy.SelectedIndex = 0;
             comboBoxWymiana.SelectedIndex = 0;
             comboBoxStos.SelectedIndex = 0;
+            radioButtonIndeksowy.Checked = true;
 
 
             this.MaximumSize = this.Size;
@@ -218,14 +206,25 @@ namespace Intel8086
         private void buttonReset_Click(object sender, EventArgs e)
         {
             if (axView.Text != "0000")
+            {
+                // REJESTR JEST WYZEROWANY
                 listBoxRejestrOperacji.Items.Insert(0, $"MOV AX, 0000                            RESET");
+            }
             if (bxView.Text != "0000")
+            {   
+                // REJESTR JEST WYZEROWANY
                 listBoxRejestrOperacji.Items.Insert(0, $"MOV BX, 0000                            RESET");
+            }
             if (cxView.Text != "0000")
+            {
+                // REJESTR JEST WYZEROWANY
                 listBoxRejestrOperacji.Items.Insert(0, $"MOV CX, 0000                            RESET");
+            }
             if (dxView.Text != "0000")
+            {
+                // REJESTR JEST WYZEROWANY
                 listBoxRejestrOperacji.Items.Insert(0, $"MOV DX, 0000                            RESET");
-
+            }
             axView.Text = "0000";
             bxView.Text = "0000";
             cxView.Text = "0000";
@@ -240,25 +239,25 @@ namespace Intel8086
                     switch (comboBoxTO.Text)
                     {
                         case "BX":
-                            if (bxView.Text != axView.Text)
-                            {
+                            //if (bxView.Text != axView.Text)
+                            //{
                                 bxView.Text = axView.Text;
                                 listBoxRejestrOperacji.Items.Insert(0, $"MOV BX, AX                               MOV");
-                            }
+                            //}
                             break;
                         case "CX":
-                            if (cxView.Text != axView.Text)
-                            {
+                            //if (cxView.Text != axView.Text)
+                            //{
                                 cxView.Text = axView.Text;
                                 listBoxRejestrOperacji.Items.Insert(0, $"MOV CX, AX                               MOV");
-                            }
+                            //}
                             break;
                         case "DX":
-                            if (dxView.Text != axView.Text)
-                            {
+                            //if (dxView.Text != axView.Text)
+                            //{
                                 dxView.Text = axView.Text;
                                 listBoxRejestrOperacji.Items.Insert(0, $"MOV DX, AX                               MOV");
-                            }
+                            //}
                             break;
                     }
                     break;
@@ -266,25 +265,25 @@ namespace Intel8086
                     switch (comboBoxTO.Text)
                     {
                         case "AX":
-                            if (axView.Text != bxView.Text)
-                            {
+                            //if (axView.Text != bxView.Text)
+                            //{
                                 axView.Text = bxView.Text;
                                 listBoxRejestrOperacji.Items.Insert(0, $"MOV AX, BX                               MOV");
-                            }
+                            //}
                             break;
                         case "CX":
-                            if (cxView.Text != bxView.Text)
-                            {
+                            //if (cxView.Text != bxView.Text)
+                            //{
                                 cxView.Text = bxView.Text;
                                 listBoxRejestrOperacji.Items.Insert(0, $"MOV CX, BX                               MOV");
-                            }
+                            //}
                             break;
                         case "DX":
-                            if (dxView.Text != bxView.Text)
-                            {
+                            //if (dxView.Text != bxView.Text)
+                            //{
                                 dxView.Text = bxView.Text;
                                 listBoxRejestrOperacji.Items.Insert(0, $"MOV DX, BX                               MOV");
-                            }
+                            //}
                             break;
                     }
                     break;
@@ -292,25 +291,25 @@ namespace Intel8086
                     switch (comboBoxTO.Text)
                     {
                         case "AX":
-                            if (axView.Text != cxView.Text)
-                            {
+                            //if (axView.Text != cxView.Text)
+                            //{
                                 axView.Text = cxView.Text;
                                 listBoxRejestrOperacji.Items.Insert(0, $"MOV AX, CX                               MOV");
-                            }
+                            //}
                             break;
                         case "BX":
-                            if (bxView.Text != cxView.Text)
-                            {
+                            //if (bxView.Text != cxView.Text)
+                            //{
                                 bxView.Text = cxView.Text;
                                 listBoxRejestrOperacji.Items.Insert(0, $"MOV BX, CX                               MOV");
-                            }
+                            //}
                             break;
                         case "DX":
-                            if (dxView.Text != cxView.Text)
-                            {
+                            //if (dxView.Text != cxView.Text)
+                            //{
                                 dxView.Text = cxView.Text;
                                 listBoxRejestrOperacji.Items.Insert(0, $"MOV DX, CX                               MOV");
-                            }
+                            //}
                             break;
                     }
                     break;
@@ -318,34 +317,29 @@ namespace Intel8086
                     switch (comboBoxTO.Text)
                     {
                         case "AX":
-                            if (axView.Text != dxView.Text)
-                            {
+                            //if (axView.Text != dxView.Text)
+                            //{
                                 axView.Text = dxView.Text;
                                 listBoxRejestrOperacji.Items.Insert(0, $"MOV AX, DX                               MOV");
-                            }
+                            //}
                             break;
                         case "BX":
-                            if (bxView.Text != dxView.Text)
-                            {
+                            //if (bxView.Text != dxView.Text)
+                            //{
                                 bxView.Text = dxView.Text;
                                 listBoxRejestrOperacji.Items.Insert(0, $"MOV BX, DX                               MOV");
-                            }
+                            //}
                             break;
                         case "CX":
-                            if (cxView.Text != dxView.Text)
-                            {
+                            //if (cxView.Text != dxView.Text)
+                            //{
                                 cxView.Text = dxView.Text;
                                 listBoxRejestrOperacji.Items.Insert(0, $"MOV CX, DX                               MOV");
-                            }
+                            //}
                             break;
                     }
                     break;
             }
-        }
-
-        private void panelCzwarty_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         // 6. PRZYCISK XCHG
@@ -484,20 +478,9 @@ namespace Intel8086
         {
             if (radioButtonIndeksowy.Checked)
             {
-                comboBoxBazowy.Visible = false;
                 comboBoxIndeksowy.Visible = true;
+                comboBoxBazowy.Visible = false;
                 comboBoxIndeksowoBazowy.Visible = false;
-                comboBoxWymiana.Visible = true;
-                labelAdresowanie.Visible = true;
-                labelPrzesuniecie.Visible = true;
-                buttonMOV2.Visible = true;
-                buttonXCHG2.Visible = true;
-                listBoxRejestZapisu.Visible = true;
-                labelMOV2.Visible = true;
-                labelXCHG2.Visible = true;
-                labelPodgladPamieci.Visible = true;
-                //labelAdresowanie.Text = "Adresowanie indeksowe";
-                //labelAdresowanie.Top = 206;
             }
 
         }
@@ -506,20 +489,9 @@ namespace Intel8086
         {
             if (radioButtonBazowy.Checked)
             {
-                comboBoxBazowy.Visible = true;
                 comboBoxIndeksowy.Visible = false;
+                comboBoxBazowy.Visible = true;
                 comboBoxIndeksowoBazowy.Visible = false;
-                comboBoxWymiana.Visible = true;
-                labelAdresowanie.Visible = true;
-                labelPrzesuniecie.Visible = true;
-                buttonMOV2.Visible = true;
-                buttonXCHG2.Visible = true;
-                listBoxRejestZapisu.Visible = true;
-                labelMOV2.Visible = true;
-                labelXCHG2.Visible = true;
-                labelPodgladPamieci.Visible = true;
-                //labelAdresowanie.Text = "Adresowanie bazowe";
-                //labelAdresowanie.Top = 206;
             }
 
         }
@@ -528,20 +500,9 @@ namespace Intel8086
         {
             if (radioButtonIndeksowoBazowy.Checked)
             {
-                comboBoxBazowy.Visible = false;
                 comboBoxIndeksowy.Visible = false;
+                comboBoxBazowy.Visible = false;
                 comboBoxIndeksowoBazowy.Visible = true;
-                comboBoxWymiana.Visible = true;
-                labelAdresowanie.Visible = true;
-                labelPrzesuniecie.Visible = true;
-                buttonMOV2.Visible = true;
-                buttonXCHG2.Visible = true;
-                listBoxRejestZapisu.Visible = true;
-                labelMOV2.Visible = true;
-                labelXCHG2.Visible = true;
-                labelPodgladPamieci.Visible = true;
-                //labelAdresowanie.Text = "Adresowanie indeksowo\n                          bazowe";
-                //labelAdresowanie.Top = 199;
             }
         }
         // 10. COMBOBOX KIERUNEK
@@ -605,14 +566,25 @@ namespace Intel8086
         private void buttonReset2_Click(object sender, EventArgs e)
         {
             if (siView.Text != "0000")
+            {
+                // REJESTR JEST WYZEROWANY
                 listBoxRejestrOperacji.Items.Insert(0, $"MOV SI, 0000                            RESET");
+            }
             if (diView.Text != "0000")
+            {
+                // REJESTR JEST WYZEROWANY
                 listBoxRejestrOperacji.Items.Insert(0, $"MOV DI, 0000                            RESET");
+            }
             if (bpView.Text != "0000")
+            {
+                // REJESTR JEST WYZEROWANY
                 listBoxRejestrOperacji.Items.Insert(0, $"MOV BP, 0000                            RESET");
+            }
             if (dispView.Text != "0000")
+            {
+                // REJESTR JEST WYZEROWANY
                 listBoxRejestrOperacji.Items.Insert(0, $"MOV DISP, 0000                         RESET");
-
+            }
             siView.Text = "0000";
             diView.Text = "0000";
             bpView.Text = "0000";
@@ -650,8 +622,8 @@ namespace Intel8086
                         dispDec = int.Parse(dispView.Text, System.Globalization.NumberStyles.HexNumber); // DISP decymalne
                         sumDec = (siDec + dispDec);
 
-                        TABLICA[sumDec] = mlodszyAdres;
-                        TABLICA[sumDec + 1] = starszyAdres;
+                        TABLICA[sumDec] = " "+mlodszyAdres;
+                        TABLICA[sumDec + 1] = " "+starszyAdres;
 
                         listBoxRejestrOperacji.Items.Insert(0, $"MOV [SI+{dispView.Text}], {comboBoxWymiana.Text}                      MOV");
                     }
@@ -664,8 +636,8 @@ namespace Intel8086
                         dispDec = int.Parse(dispView.Text, System.Globalization.NumberStyles.HexNumber);
                         sumDec = (diDec + dispDec);
 
-                        TABLICA[sumDec] = mlodszyAdres;
-                        TABLICA[sumDec + 1] = starszyAdres;
+                        TABLICA[sumDec] = " " + mlodszyAdres;
+                        TABLICA[sumDec + 1] = " " + starszyAdres;
 
                         listBoxRejestrOperacji.Items.Insert(0, $"MOV [DI+{dispView.Text}], {comboBoxWymiana.Text}                      MOV");
                     }
@@ -685,8 +657,8 @@ namespace Intel8086
                         dispDec = int.Parse(dispView.Text, System.Globalization.NumberStyles.HexNumber); // DISP decymalne
                         sumDec = (bxDec + dispDec);
 
-                        TABLICA[sumDec] = mlodszyAdres;
-                        TABLICA[sumDec + 1] = starszyAdres;
+                        TABLICA[sumDec] = " " + mlodszyAdres;
+                        TABLICA[sumDec + 1] = " " + starszyAdres;
 
                         listBoxRejestrOperacji.Items.Insert(0, $"MOV [BX+{dispView.Text}], {comboBoxWymiana.Text}                      MOV");
                     }
@@ -699,8 +671,8 @@ namespace Intel8086
                         dispDec = int.Parse(dispView.Text, System.Globalization.NumberStyles.HexNumber); // DISP decymalne
                         sumDec = (bpDec + dispDec);
 
-                        TABLICA[sumDec] = mlodszyAdres;
-                        TABLICA[sumDec + 1] = starszyAdres;
+                        TABLICA[sumDec] = " " + mlodszyAdres;
+                        TABLICA[sumDec + 1] = " " + starszyAdres;
 
                         listBoxRejestrOperacji.Items.Insert(0, $"MOV [BP+{dispView.Text}], {comboBoxWymiana.Text}                      MOV");
                     }
@@ -721,8 +693,8 @@ namespace Intel8086
                         dispDec = int.Parse(dispView.Text, System.Globalization.NumberStyles.HexNumber); // DISP decymalne
                         sumDec = (siDec + bxDec + dispDec);
 
-                        TABLICA[sumDec] = mlodszyAdres;
-                        TABLICA[sumDec + 1] = starszyAdres;
+                        TABLICA[sumDec] = " " + mlodszyAdres;
+                        TABLICA[sumDec + 1] = " " + starszyAdres;
 
                         listBoxRejestrOperacji.Items.Insert(0, $"MOV [SI+BX+{dispView.Text}], {comboBoxWymiana.Text}                MOV");
                     }
@@ -736,8 +708,8 @@ namespace Intel8086
                         dispDec = int.Parse(dispView.Text, System.Globalization.NumberStyles.HexNumber); // DISP decymalne
                         sumDec = (siDec + bpDec + dispDec);
 
-                        TABLICA[sumDec] = mlodszyAdres;
-                        TABLICA[sumDec + 1] = starszyAdres;
+                        TABLICA[sumDec] = " " + mlodszyAdres;
+                        TABLICA[sumDec + 1] = " " + starszyAdres;
                         listBoxRejestrOperacji.Items.Insert(0, $"MOV [SI+BP+{dispView.Text}], {comboBoxWymiana.Text}                MOV");
                     }
                     else if (comboBoxIndeksowoBazowy.SelectedIndex == 2) // DI + BX
@@ -750,8 +722,8 @@ namespace Intel8086
                         dispDec = int.Parse(dispView.Text, System.Globalization.NumberStyles.HexNumber); // DISP decymalne
                         sumDec = (diDec + bxDec + dispDec);
 
-                        TABLICA[sumDec] = mlodszyAdres;
-                        TABLICA[sumDec + 1] = starszyAdres;
+                        TABLICA[sumDec] = " " + mlodszyAdres;
+                        TABLICA[sumDec + 1] = " " + starszyAdres;
 
                         listBoxRejestrOperacji.Items.Insert(0, $"MOV [DI+BX+{dispView.Text}], {comboBoxWymiana.Text}                MOV");
                     }
@@ -765,16 +737,24 @@ namespace Intel8086
                         dispDec = int.Parse(dispView.Text, System.Globalization.NumberStyles.HexNumber); // DISP decymalne
                         sumDec = (diDec + bpDec + dispDec);
 
-                        TABLICA[sumDec] = mlodszyAdres;
-                        TABLICA[sumDec + 1] = starszyAdres;
+                        TABLICA[sumDec] = " " + mlodszyAdres;
+                        TABLICA[sumDec + 1] = " " + starszyAdres;
 
                         listBoxRejestrOperacji.Items.Insert(0, $"MOV [DI+BP+{dispView.Text}], {comboBoxWymiana.Text}                MOV");
                     }
                     else
                         return;
+
                 }
                 else
                     return;
+
+                listBoxPodgladPamieci.Items.Clear();
+                for (int i = 0; i < TABLICA.Length; i++)
+                {
+                    if (TABLICA[i] != "00")
+                        listBoxPodgladPamieci.Items.Add($"{i.ToString("X")}: {TABLICA[i]}");
+                }
 
             }
             else // Z PAMIĘCI DO REJESTRU
@@ -788,7 +768,7 @@ namespace Intel8086
                         dispDec = int.Parse(dispView.Text, System.Globalization.NumberStyles.HexNumber);
                         sumDec = (siDec + dispDec);
 
-                        odczyt = TABLICA[sumDec + 1] + TABLICA[sumDec];
+                        odczyt = TABLICA[sumDec + 1].Trim() + TABLICA[sumDec].Trim();
                         sumHex = sumDec.ToString("X");
 
                         switch (comboBoxWymiana.Text)
@@ -815,7 +795,7 @@ namespace Intel8086
                         dispDec = int.Parse(dispView.Text, System.Globalization.NumberStyles.HexNumber);
                         sumDec = (diDec + dispDec);
 
-                        odczyt = TABLICA[sumDec + 1] + TABLICA[sumDec];
+                        odczyt = TABLICA[sumDec + 1].Trim() + TABLICA[sumDec].Trim();
                         sumHex = sumDec.ToString("X");
                         switch (comboBoxWymiana.Text)
                         {
@@ -843,7 +823,7 @@ namespace Intel8086
                         dispDec = int.Parse(dispView.Text, System.Globalization.NumberStyles.HexNumber);
                         sumDec = (bxDec + dispDec);
 
-                        odczyt = TABLICA[sumDec + 1] + TABLICA[sumDec];
+                        odczyt = TABLICA[sumDec + 1].Trim() + TABLICA[sumDec].Trim();
                         sumHex = sumDec.ToString("X");
                         switch (comboBoxWymiana.Text)
                         {
@@ -868,7 +848,7 @@ namespace Intel8086
                         dispDec = int.Parse(dispView.Text, System.Globalization.NumberStyles.HexNumber);
                         sumDec = (bpDec + dispDec);
 
-                        odczyt = TABLICA[sumDec + 1] + TABLICA[sumDec];
+                        odczyt = TABLICA[sumDec + 1].Trim() + TABLICA[sumDec].Trim();
                         sumHex = sumDec.ToString("X");
                         switch (comboBoxWymiana.Text)
                         {
@@ -897,7 +877,7 @@ namespace Intel8086
                         dispDec = int.Parse(dispView.Text, System.Globalization.NumberStyles.HexNumber);
                         sumDec = (siDec + bxDec + dispDec);
 
-                        odczyt = TABLICA[sumDec + 1] + TABLICA[sumDec];
+                        odczyt = TABLICA[sumDec + 1].Trim() + TABLICA[sumDec].Trim();
                         sumHex = sumDec.ToString("X");
                         switch (comboBoxWymiana.Text)
                         {
@@ -923,7 +903,7 @@ namespace Intel8086
                         dispDec = int.Parse(dispView.Text, System.Globalization.NumberStyles.HexNumber);
                         sumDec = (siDec + bpDec + dispDec);
 
-                        odczyt = TABLICA[sumDec + 1] + TABLICA[sumDec];
+                        odczyt = TABLICA[sumDec + 1].Trim() + TABLICA[sumDec].Trim();
                         sumHex = sumDec.ToString("X");
                         switch (comboBoxWymiana.Text)
                         {
@@ -949,7 +929,7 @@ namespace Intel8086
                         dispDec = int.Parse(dispView.Text, System.Globalization.NumberStyles.HexNumber);
                         sumDec = (diDec + bxDec + dispDec);
 
-                        odczyt = TABLICA[sumDec + 1] + TABLICA[sumDec];
+                        odczyt = TABLICA[sumDec + 1].Trim() + TABLICA[sumDec].Trim();
                         sumHex = sumDec.ToString("X");
                         switch (comboBoxWymiana.Text)
                         {
@@ -975,7 +955,7 @@ namespace Intel8086
                         dispDec = int.Parse(dispView.Text, System.Globalization.NumberStyles.HexNumber);
                         sumDec = (diDec + bpDec + dispDec);
 
-                        odczyt = TABLICA[sumDec + 1] + TABLICA[sumDec];
+                        odczyt = TABLICA[sumDec + 1].Trim() + TABLICA[sumDec].Trim();
                         sumHex = sumDec.ToString("X");
                         switch (comboBoxWymiana.Text)
                         {
@@ -1000,16 +980,12 @@ namespace Intel8086
                 else
                     return;
 
-
-
-            }
-            if (comboBoxKierunek.SelectedIndex != 1)
-            {
-                if (!listBoxRejestZapisu.Items.Contains($"{sumDec.ToString("X")}: {TABLICA[sumDec]}"))
-                    listBoxRejestZapisu.Items.Insert(0, $"{sumDec.ToString("X")}: {TABLICA[sumDec]}");
-
-                if (!listBoxRejestZapisu.Items.Contains($"{(sumDec + 1).ToString("X")}: {TABLICA[sumDec + 1]}"))
-                    listBoxRejestZapisu.Items.Insert(1, $"{(sumDec + 1).ToString("X")}: {TABLICA[sumDec + 1]}");
+                listBoxPodgladPamieci.Items.Clear();
+                for (int i = 0; i < TABLICA.Length; i++)
+                {
+                    if (TABLICA[i] != "00")
+                        listBoxPodgladPamieci.Items.Add($"{i.ToString("X")}: {TABLICA[i]}");
+                }
             }
         }
         // 15. BUTTON XCHG 2
@@ -1031,7 +1007,6 @@ namespace Intel8086
                     break;
             }
 
-            // Z REJESTRU DO PAMIECI
             if (radioButtonIndeksowy.Checked == true)
             {
                 if (comboBoxIndeksowy.SelectedIndex == 0) // SI
@@ -1039,10 +1014,10 @@ namespace Intel8086
                     siDec = int.Parse(siView.Text, System.Globalization.NumberStyles.HexNumber);
                     dispDec = int.Parse(dispView.Text, System.Globalization.NumberStyles.HexNumber);
                     sumDec = (siDec + dispDec);
-                    zamiana = TABLICA[sumDec + 1] + TABLICA[sumDec];
+                    zamiana = TABLICA[sumDec + 1].Trim() + TABLICA[sumDec].Trim();
 
-                    TABLICA[sumDec + 1] = pobierz.Substring(0, 2);
-                    TABLICA[sumDec] = pobierz.Substring(2, 2);
+                    TABLICA[sumDec + 1] = " "+pobierz.Substring(0, 2);
+                    TABLICA[sumDec] = " " + pobierz.Substring(2, 2);
 
                     switch (comboBoxWymiana.Text)
                     {
@@ -1069,10 +1044,10 @@ namespace Intel8086
                     diDec = int.Parse(diView.Text, System.Globalization.NumberStyles.HexNumber);
                     dispDec = int.Parse(dispView.Text, System.Globalization.NumberStyles.HexNumber);
                     sumDec = (diDec + dispDec);
-                    zamiana = TABLICA[sumDec + 1] + TABLICA[sumDec];
+                    zamiana = TABLICA[sumDec + 1].Trim() + TABLICA[sumDec].Trim();
 
-                    TABLICA[sumDec + 1] = pobierz.Substring(0, 2);
-                    TABLICA[sumDec] = pobierz.Substring(2, 2);
+                    TABLICA[sumDec + 1] = " " + pobierz.Substring(0, 2);
+                    TABLICA[sumDec] = " " + pobierz.Substring(2, 2);
 
                     switch (comboBoxWymiana.Text)
                     {
@@ -1104,10 +1079,10 @@ namespace Intel8086
                     bxDec = int.Parse(bxView.Text, System.Globalization.NumberStyles.HexNumber);
                     dispDec = int.Parse(dispView.Text, System.Globalization.NumberStyles.HexNumber);
                     sumDec = (bxDec + dispDec);
-                    zamiana = TABLICA[sumDec + 1] + TABLICA[sumDec];
+                    zamiana = TABLICA[sumDec + 1].Trim() + TABLICA[sumDec].Trim();
 
-                    TABLICA[sumDec + 1] = pobierz.Substring(0, 2);
-                    TABLICA[sumDec] = pobierz.Substring(2, 2);
+                    TABLICA[sumDec + 1] = " " + pobierz.Substring(0, 2);
+                    TABLICA[sumDec] = " " + pobierz.Substring(2, 2);
 
                     switch (comboBoxWymiana.Text)
                     {
@@ -1134,10 +1109,10 @@ namespace Intel8086
                     bpDec = int.Parse(bpView.Text, System.Globalization.NumberStyles.HexNumber);
                     dispDec = int.Parse(dispView.Text, System.Globalization.NumberStyles.HexNumber);
                     sumDec = (bpDec + dispDec);
-                    zamiana = TABLICA[sumDec + 1] + TABLICA[sumDec];
+                    zamiana = TABLICA[sumDec + 1].Trim() + TABLICA[sumDec].Trim();
 
-                    TABLICA[sumDec + 1] = pobierz.Substring(0, 2);
-                    TABLICA[sumDec] = pobierz.Substring(2, 2);
+                    TABLICA[sumDec + 1] = " " + pobierz.Substring(0, 2);
+                    TABLICA[sumDec] = " " + pobierz.Substring(2, 2);
 
                     switch (comboBoxWymiana.Text)
                     {
@@ -1168,10 +1143,10 @@ namespace Intel8086
                     bxDec = int.Parse(bxView.Text, System.Globalization.NumberStyles.HexNumber);
                     dispDec = int.Parse(dispView.Text, System.Globalization.NumberStyles.HexNumber);
                     sumDec = (siDec + bxDec + dispDec);
-                    zamiana = TABLICA[sumDec + 1] + TABLICA[sumDec];
+                    zamiana = TABLICA[sumDec + 1].Trim() + TABLICA[sumDec].Trim();
 
-                    TABLICA[sumDec + 1] = pobierz.Substring(0, 2);
-                    TABLICA[sumDec] = pobierz.Substring(2, 2);
+                    TABLICA[sumDec + 1] = " " + pobierz.Substring(0, 2);
+                    TABLICA[sumDec] = " " + pobierz.Substring(2, 2);
 
                     switch (comboBoxWymiana.Text)
                     {
@@ -1199,10 +1174,10 @@ namespace Intel8086
                     bpDec = int.Parse(bpView.Text, System.Globalization.NumberStyles.HexNumber);
                     dispDec = int.Parse(dispView.Text, System.Globalization.NumberStyles.HexNumber);
                     sumDec = (siDec + bpDec + dispDec);
-                    zamiana = TABLICA[sumDec + 1] + TABLICA[sumDec];
+                    zamiana = TABLICA[sumDec + 1].Trim() + TABLICA[sumDec].Trim();
 
-                    TABLICA[sumDec + 1] = pobierz.Substring(0, 2);
-                    TABLICA[sumDec] = pobierz.Substring(2, 2);
+                    TABLICA[sumDec + 1] = " " + pobierz.Substring(0, 2);
+                    TABLICA[sumDec] = " " + pobierz.Substring(2, 2);
 
                     switch (comboBoxWymiana.Text)
                     {
@@ -1230,10 +1205,10 @@ namespace Intel8086
                     bxDec = int.Parse(bxView.Text, System.Globalization.NumberStyles.HexNumber);
                     dispDec = int.Parse(dispView.Text, System.Globalization.NumberStyles.HexNumber);
                     sumDec = (diDec + bxDec + dispDec);
-                    zamiana = TABLICA[sumDec + 1] + TABLICA[sumDec];
+                    zamiana = TABLICA[sumDec + 1].Trim() + TABLICA[sumDec].Trim();
 
-                    TABLICA[sumDec + 1] = pobierz.Substring(0, 2);
-                    TABLICA[sumDec] = pobierz.Substring(2, 2);
+                    TABLICA[sumDec + 1] = " " + pobierz.Substring(0, 2);
+                    TABLICA[sumDec] = " " + pobierz.Substring(2, 2);
 
                     switch (comboBoxWymiana.Text)
                     {
@@ -1261,10 +1236,10 @@ namespace Intel8086
                     bpDec = int.Parse(bpView.Text, System.Globalization.NumberStyles.HexNumber);
                     dispDec = int.Parse(dispView.Text, System.Globalization.NumberStyles.HexNumber);
                     sumDec = (diDec + bpDec + dispDec);
-                    zamiana = TABLICA[sumDec + 1] + TABLICA[sumDec];
+                    zamiana = TABLICA[sumDec + 1].Trim() + TABLICA[sumDec].Trim();
 
-                    TABLICA[sumDec + 1] = pobierz.Substring(0, 2);
-                    TABLICA[sumDec] = pobierz.Substring(2, 2);
+                    TABLICA[sumDec + 1] = " " + pobierz.Substring(0, 2);
+                    TABLICA[sumDec] = " " + pobierz.Substring(2, 2);
 
                     switch (comboBoxWymiana.Text)
                     {
@@ -1289,6 +1264,12 @@ namespace Intel8086
             }
             else
                 return;
+            listBoxPodgladPamieci.Items.Clear();
+            for (int i = 0; i < TABLICA.Length; i++)
+            {
+                if (TABLICA[i] != "00")
+                    listBoxPodgladPamieci.Items.Add($"{i.ToString("X")}: {TABLICA[i]}");
+            }
         }
         // COMBO BOX TO
         private void comboBoxFROM_SelectedIndexChanged(object sender, EventArgs e)
@@ -1328,57 +1309,52 @@ namespace Intel8086
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            listBoxPodgladPamieci.Items.Clear();
-            for (int i = 0; i < TABLICA.Length; i++)
-            {
-                if (TABLICA[i] != "00")
-                    listBoxPodgladPamieci.Items.Add($"{i.ToString("X")}: {TABLICA[i]}");
-            }
+
         }
 
 
         private void buttonPush_Click(object sender, EventArgs e)
         {
-                if (comboBoxStos.SelectedIndex == 0)
-                {
-                    string pierwszaPolowa = axView.Text.Substring(0, 2);
-                    string drugaPolowa = axView.Text.Substring(2, 2);
-                    STOS[wskaznikStosu] = drugaPolowa;
-                    wskaznikStosu++;
-                    STOS[wskaznikStosu] = pierwszaPolowa;
-                    wskaznikStosu++;
-                    spView.Text = wskaznikStosu.ToString();
-                }
-                else if (comboBoxStos.SelectedIndex == 1)
-                {
-                    string pierwszaPolowa = bxView.Text.Substring(0, 2);
-                    string drugaPolowa = bxView.Text.Substring(2, 2);
-                    STOS[wskaznikStosu] = drugaPolowa;
-                    wskaznikStosu++;
-                    STOS[wskaznikStosu] = pierwszaPolowa;
-                    wskaznikStosu++;
-                    spView.Text = wskaznikStosu.ToString();
-                }
-                else if (comboBoxStos.SelectedIndex == 2)
-                {
-                    string pierwszaPolowa = cxView.Text.Substring(0, 2);
-                    string drugaPolowa = cxView.Text.Substring(2, 2);
-                    STOS[wskaznikStosu] = drugaPolowa;
-                    wskaznikStosu++;
-                    STOS[wskaznikStosu] = pierwszaPolowa;
-                    wskaznikStosu++;
-                    spView.Text = wskaznikStosu.ToString();
-                }
-                else
-                {
-                    string pierwszaPolowa = dxView.Text.Substring(0, 2);
-                    string drugaPolowa = dxView.Text.Substring(2, 2);
-                    STOS[wskaznikStosu] = drugaPolowa;
-                    wskaznikStosu++;
-                    STOS[wskaznikStosu] = pierwszaPolowa;
-                    wskaznikStosu++;
-                    spView.Text = wskaznikStosu.ToString();
-                }
+            if (comboBoxStos.SelectedIndex == 0)
+            {
+                string pierwszaPolowa = axView.Text.Substring(0, 2);
+                string drugaPolowa = axView.Text.Substring(2, 2);
+                STOS[wskaznikStosu] = drugaPolowa;
+                wskaznikStosu++;
+                STOS[wskaznikStosu] = pierwszaPolowa;
+                wskaznikStosu++;
+                spView.Text = wskaznikStosu.ToString();
+            }
+            else if (comboBoxStos.SelectedIndex == 1)
+            {
+                string pierwszaPolowa = bxView.Text.Substring(0, 2);
+                string drugaPolowa = bxView.Text.Substring(2, 2);
+                STOS[wskaznikStosu] = drugaPolowa;
+                wskaznikStosu++;
+                STOS[wskaznikStosu] = pierwszaPolowa;
+                wskaznikStosu++;
+                spView.Text = wskaznikStosu.ToString();
+            }
+            else if (comboBoxStos.SelectedIndex == 2)
+            {
+                string pierwszaPolowa = cxView.Text.Substring(0, 2);
+                string drugaPolowa = cxView.Text.Substring(2, 2);
+                STOS[wskaznikStosu] = drugaPolowa;
+                wskaznikStosu++;
+                STOS[wskaznikStosu] = pierwszaPolowa;
+                wskaznikStosu++;
+                spView.Text = wskaznikStosu.ToString();
+            }
+            else
+            {
+                string pierwszaPolowa = dxView.Text.Substring(0, 2);
+                string drugaPolowa = dxView.Text.Substring(2, 2);
+                STOS[wskaznikStosu] = drugaPolowa;
+                wskaznikStosu++;
+                STOS[wskaznikStosu] = pierwszaPolowa;
+                wskaznikStosu++;
+                spView.Text = wskaznikStosu.ToString();
+            }
         }
 
         private void buttonPop_Click(object sender, EventArgs e)
@@ -1421,7 +1397,7 @@ namespace Intel8086
                     spView.Text = wskaznikStosu.ToString();
                 }
             else
-                return;        
+                return;
         }
 
 
