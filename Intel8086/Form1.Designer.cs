@@ -753,8 +753,8 @@ namespace Intel8086
             this.comboBoxKierunek.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.comboBoxKierunek.FormattingEnabled = true;
             this.comboBoxKierunek.Items.AddRange(new object[] {
-            "Z rejestru do pamięci",
-            "Z pamięci do rejestru"});
+            "---> z REJESTRU do PAMIĘCI",
+            "<--- z PAMIĘCI do REJESTRU"});
             this.comboBoxKierunek.Location = new System.Drawing.Point(25, 23);
             this.comboBoxKierunek.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboBoxKierunek.Name = "comboBoxKierunek";
