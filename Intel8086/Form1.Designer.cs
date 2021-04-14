@@ -755,10 +755,10 @@ namespace Intel8086
             this.comboBoxKierunek.Items.AddRange(new object[] {
             "Z rejestru do pamięci",
             "Z pamięci do rejestru"});
-            this.comboBoxKierunek.Location = new System.Drawing.Point(119, 23);
+            this.comboBoxKierunek.Location = new System.Drawing.Point(25, 23);
             this.comboBoxKierunek.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboBoxKierunek.Name = "comboBoxKierunek";
-            this.comboBoxKierunek.Size = new System.Drawing.Size(146, 23);
+            this.comboBoxKierunek.Size = new System.Drawing.Size(227, 23);
             this.comboBoxKierunek.TabIndex = 49;
             this.comboBoxKierunek.SelectedIndexChanged += new System.EventHandler(this.comboBoxKierunek_SelectedIndexChanged);
             // 
@@ -784,7 +784,7 @@ namespace Intel8086
             this.listBoxPodgladPamieci.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.listBoxPodgladPamieci.FormattingEnabled = true;
             this.listBoxPodgladPamieci.ItemHeight = 15;
-            this.listBoxPodgladPamieci.Location = new System.Drawing.Point(24, 296);
+            this.listBoxPodgladPamieci.Location = new System.Drawing.Point(25, 296);
             this.listBoxPodgladPamieci.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.listBoxPodgladPamieci.Name = "listBoxPodgladPamieci";
             this.listBoxPodgladPamieci.Size = new System.Drawing.Size(227, 124);
@@ -793,7 +793,7 @@ namespace Intel8086
             // buttonZerowanie
             // 
             this.buttonZerowanie.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonZerowanie.Location = new System.Drawing.Point(194, 181);
+            this.buttonZerowanie.Location = new System.Drawing.Point(184, 226);
             this.buttonZerowanie.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonZerowanie.Name = "buttonZerowanie";
             this.buttonZerowanie.Size = new System.Drawing.Size(84, 44);
@@ -944,7 +944,7 @@ namespace Intel8086
             this.listBoxRejestrOperacji.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.listBoxRejestrOperacji.FormattingEnabled = true;
             this.listBoxRejestrOperacji.ItemHeight = 15;
-            this.listBoxRejestrOperacji.Location = new System.Drawing.Point(25, 296);
+            this.listBoxRejestrOperacji.Location = new System.Drawing.Point(30, 296);
             this.listBoxRejestrOperacji.Name = "listBoxRejestrOperacji";
             this.listBoxRejestrOperacji.ScrollAlwaysVisible = true;
             this.listBoxRejestrOperacji.Size = new System.Drawing.Size(227, 124);
@@ -1216,7 +1216,7 @@ namespace Intel8086
             this.listBoxPodgladStosu.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.listBoxPodgladStosu.FormattingEnabled = true;
             this.listBoxPodgladStosu.ItemHeight = 15;
-            this.listBoxPodgladStosu.Location = new System.Drawing.Point(28, 296);
+            this.listBoxPodgladStosu.Location = new System.Drawing.Point(27, 296);
             this.listBoxPodgladStosu.Name = "listBoxPodgladStosu";
             this.listBoxPodgladStosu.Size = new System.Drawing.Size(227, 124);
             this.listBoxPodgladStosu.TabIndex = 1011;
@@ -1248,9 +1248,9 @@ namespace Intel8086
             this.labelPop.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.labelPop.Location = new System.Drawing.Point(13, 136);
             this.labelPop.Name = "labelPop";
-            this.labelPop.Size = new System.Drawing.Size(97, 15);
+            this.labelPop.Size = new System.Drawing.Size(138, 15);
             this.labelPop.TabIndex = 1021;
-            this.labelPop.Text = "Przenieś wartości";
+            this.labelPop.Text = "Pobierz wartości ze stosu";
             // 
             // labelPush
             // 
@@ -1259,9 +1259,9 @@ namespace Intel8086
             this.labelPush.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.labelPush.Location = new System.Drawing.Point(13, 99);
             this.labelPush.Name = "labelPush";
-            this.labelPush.Size = new System.Drawing.Size(97, 15);
+            this.labelPush.Size = new System.Drawing.Size(137, 15);
             this.labelPush.TabIndex = 1020;
-            this.labelPush.Text = "Przenieś wartości";
+            this.labelPush.Text = "Przenieś wartości na stos";
             // 
             // labelStos
             // 
@@ -1270,9 +1270,9 @@ namespace Intel8086
             this.labelStos.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.labelStos.Location = new System.Drawing.Point(13, 62);
             this.labelStos.Name = "labelStos";
-            this.labelStos.Size = new System.Drawing.Size(97, 15);
+            this.labelStos.Size = new System.Drawing.Size(84, 15);
             this.labelStos.TabIndex = 1019;
-            this.labelStos.Text = "Przenieś wartości";
+            this.labelStos.Text = "Wybierz rejestr";
             // 
             // labelWskaznikStosu
             // 
@@ -1281,9 +1281,9 @@ namespace Intel8086
             this.labelWskaznikStosu.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.labelWskaznikStosu.Location = new System.Drawing.Point(13, 31);
             this.labelWskaznikStosu.Name = "labelWskaznikStosu";
-            this.labelWskaznikStosu.Size = new System.Drawing.Size(97, 15);
+            this.labelWskaznikStosu.Size = new System.Drawing.Size(87, 15);
             this.labelWskaznikStosu.TabIndex = 1018;
-            this.labelWskaznikStosu.Text = "Przenieś wartości";
+            this.labelWskaznikStosu.Text = "Wskaźnik stosu";
             // 
             // labelPodgladStosu
             // 
@@ -1291,7 +1291,7 @@ namespace Intel8086
             this.labelPodgladStosu.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.labelPodgladStosu.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelPodgladStosu.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.labelPodgladStosu.Location = new System.Drawing.Point(95, 278);
+            this.labelPodgladStosu.Location = new System.Drawing.Point(101, 278);
             this.labelPodgladStosu.Name = "labelPodgladStosu";
             this.labelPodgladStosu.Size = new System.Drawing.Size(82, 15);
             this.labelPodgladStosu.TabIndex = 1018;
@@ -1371,7 +1371,7 @@ namespace Intel8086
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.ClientSize = new System.Drawing.Size(1158, 485);
+            this.ClientSize = new System.Drawing.Size(1158, 486);
             this.Controls.Add(this.panelCzwarty);
             this.Controls.Add(this.panelTrzeci);
             this.Controls.Add(this.panelDrugi);

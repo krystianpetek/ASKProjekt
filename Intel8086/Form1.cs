@@ -1309,9 +1309,30 @@ namespace Intel8086
         }
         private void buttonZerowanie_Click(object sender, EventArgs e)
         {
+            axText.Text = bxText.Text = cxText.Text = dxText.Text = "0000";
+            siText.Text = diText.Text = bpText.Text = dispText.Text = "0000";
+            axView.Text = bxView.Text = cxView.Text = dxView.Text = "0000";
+            siView.Text = diView.Text = bpView.Text = dispView.Text = "0000";
+            comboBoxFROM.SelectedIndex = comboBoxTO.SelectedIndex = 0;
+            listBoxRejestrOperacji.Items.Clear();
+            comboBoxKierunek.SelectedIndex = comboBoxWymiana.SelectedIndex = 0;
+            radioButtonIndeksowy.Checked = true;
+            comboBoxIndeksowy.SelectedIndex = comboBoxBazowy.SelectedIndex = comboBoxIndeksowoBazowy.SelectedIndex = 0;
+            for (int i = 0; i < TABLICA.Length; i++)
+            {
+                TABLICA[i] = "00";
+            }
+            listBoxRejestrOperacji.Items.Insert(0, $"                             RESET");
+            listBoxRejestrOperacji.SetSelected(0,true);
+            listBoxPodgladPamieci.Items.Clear();
 
+            spView.Text = "0";
+            comboBoxStos.SelectedIndex = 0;
+            listBoxPodgladStosu.Items.Clear();
+
+            Array.Clear(STOS, 0, wskaznikStosu);
+            wskaznikStosu = 0;
         }
-
 
         private void buttonPush_Click(object sender, EventArgs e)
         {
@@ -1320,40 +1341,52 @@ namespace Intel8086
                 string pierwszaPolowa = axView.Text.Substring(0, 2);
                 string drugaPolowa = axView.Text.Substring(2, 2);
                 STOS[wskaznikStosu] = drugaPolowa;
+                listBoxPodgladStosu.Items.Insert(0, $"{wskaznikStosu}: {STOS[wskaznikStosu]}");
                 wskaznikStosu++;
                 STOS[wskaznikStosu] = pierwszaPolowa;
+                listBoxPodgladStosu.Items.Insert(0, $"{wskaznikStosu}: {STOS[wskaznikStosu]}");
                 wskaznikStosu++;
                 spView.Text = wskaznikStosu.ToString();
+                listBoxRejestrOperacji.Items.Insert(0, $"PUSH AX                                       PUSH");
             }
             else if (comboBoxStos.SelectedIndex == 1)
             {
                 string pierwszaPolowa = bxView.Text.Substring(0, 2);
                 string drugaPolowa = bxView.Text.Substring(2, 2);
                 STOS[wskaznikStosu] = drugaPolowa;
+                listBoxPodgladStosu.Items.Insert(0, $"{wskaznikStosu}: {STOS[wskaznikStosu]}");
                 wskaznikStosu++;
                 STOS[wskaznikStosu] = pierwszaPolowa;
+                listBoxPodgladStosu.Items.Insert(0, $"{wskaznikStosu}: {STOS[wskaznikStosu]}");
                 wskaznikStosu++;
-                spView.Text = wskaznikStosu.ToString();
+                spView.Text = wskaznikStosu.ToString(); 
+                listBoxRejestrOperacji.Items.Insert(0, $"PUSH BX                                       PUSH");
             }
             else if (comboBoxStos.SelectedIndex == 2)
             {
                 string pierwszaPolowa = cxView.Text.Substring(0, 2);
                 string drugaPolowa = cxView.Text.Substring(2, 2);
                 STOS[wskaznikStosu] = drugaPolowa;
+                listBoxPodgladStosu.Items.Insert(0, $"{wskaznikStosu}: {STOS[wskaznikStosu]}");
                 wskaznikStosu++;
                 STOS[wskaznikStosu] = pierwszaPolowa;
+                listBoxPodgladStosu.Items.Insert(0, $"{wskaznikStosu}: {STOS[wskaznikStosu]}");
                 wskaznikStosu++;
                 spView.Text = wskaznikStosu.ToString();
+                listBoxRejestrOperacji.Items.Insert(0, $"PUSH CX                                       PUSH");
             }
             else
             {
                 string pierwszaPolowa = dxView.Text.Substring(0, 2);
                 string drugaPolowa = dxView.Text.Substring(2, 2);
                 STOS[wskaznikStosu] = drugaPolowa;
+                listBoxPodgladStosu.Items.Insert(0, $"{wskaznikStosu}: {STOS[wskaznikStosu]}");
                 wskaznikStosu++;
                 STOS[wskaznikStosu] = pierwszaPolowa;
+                listBoxPodgladStosu.Items.Insert(0, $"{wskaznikStosu}: {STOS[wskaznikStosu]}");
                 wskaznikStosu++;
                 spView.Text = wskaznikStosu.ToString();
+                listBoxRejestrOperacji.Items.Insert(0, $"PUSH DX                                       PUSH");
             }
         }
 
@@ -1368,6 +1401,7 @@ namespace Intel8086
                     string pierwszaPolowa = STOS[wskaznikStosu];
                     axView.Text = drugaPolowa + pierwszaPolowa;
                     spView.Text = wskaznikStosu.ToString();
+                    listBoxRejestrOperacji.Items.Insert(0, $"POP AX                                          POP");
                 }
                 else if (comboBoxStos.SelectedIndex == 1)
                 {
@@ -1377,6 +1411,7 @@ namespace Intel8086
                     string pierwszaPolowa = STOS[wskaznikStosu];
                     bxView.Text = drugaPolowa + pierwszaPolowa;
                     spView.Text = wskaznikStosu.ToString();
+                    listBoxRejestrOperacji.Items.Insert(0, $"POP BX                                          POP");
                 }
                 else if (comboBoxStos.SelectedIndex == 2)
                 {
@@ -1386,6 +1421,7 @@ namespace Intel8086
                     string pierwszaPolowa = STOS[wskaznikStosu];
                     cxView.Text = drugaPolowa + pierwszaPolowa;
                     spView.Text = wskaznikStosu.ToString();
+                    listBoxRejestrOperacji.Items.Insert(0, $"POP CX                                          POP");
                 }
                 else
                 {
@@ -1395,22 +1431,17 @@ namespace Intel8086
                     string pierwszaPolowa = STOS[wskaznikStosu];
                     dxView.Text = drugaPolowa + pierwszaPolowa;
                     spView.Text = wskaznikStosu.ToString();
+                    listBoxRejestrOperacji.Items.Insert(0, $"POP DX                                          POP");
                 }
             else
                 return;
+
+
+            listBoxPodgladStosu.Items.RemoveAt(0);
+            listBoxPodgladStosu.Items.RemoveAt(0);
         }
 
-
-
     }
-    /*private void buttonCLEAR2_Click(object sender, EventArgs e)
-        {
-            siText.Text = "";
-            diText.Text = "";
-            bpText.Text = "";
-            dispText.Text = "";
-            Array.Clear(TABLICA, 0, TABLICA.Length - 1);
-        }*/
     public static class StringExtensions
     {
         public static bool IsHexString(this string str)
