@@ -1307,7 +1307,7 @@ namespace Intel8086
                 comboBoxTO.SelectedIndex = 0;
             }
         }
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonZerowanie_Click(object sender, EventArgs e)
         {
 
         }

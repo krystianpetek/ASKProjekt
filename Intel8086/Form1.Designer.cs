@@ -79,7 +79,7 @@ namespace Intel8086
             this.comboBoxKierunek = new System.Windows.Forms.ComboBox();
             this.comboBoxWymiana = new System.Windows.Forms.ComboBox();
             this.listBoxPodgladPamieci = new System.Windows.Forms.ListBox();
-            this.buttonPOKAZ = new System.Windows.Forms.Button();
+            this.buttonZerowanie = new System.Windows.Forms.Button();
             this.labelZRejestru = new System.Windows.Forms.Label();
             this.labelDoRejestru = new System.Windows.Forms.Label();
             this.labelRandom = new System.Windows.Forms.Label();
@@ -790,17 +790,17 @@ namespace Intel8086
             this.listBoxPodgladPamieci.Size = new System.Drawing.Size(227, 124);
             this.listBoxPodgladPamieci.TabIndex = 51;
             // 
-            // buttonPOKAZ
+            // buttonZerowanie
             // 
-            this.buttonPOKAZ.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonPOKAZ.Location = new System.Drawing.Point(194, 181);
-            this.buttonPOKAZ.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.buttonPOKAZ.Name = "buttonPOKAZ";
-            this.buttonPOKAZ.Size = new System.Drawing.Size(84, 34);
-            this.buttonPOKAZ.TabIndex = 52;
-            this.buttonPOKAZ.Text = "POKAŻ";
-            this.buttonPOKAZ.UseVisualStyleBackColor = true;
-            this.buttonPOKAZ.Click += new System.EventHandler(this.button1_Click);
+            this.buttonZerowanie.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonZerowanie.Location = new System.Drawing.Point(194, 181);
+            this.buttonZerowanie.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.buttonZerowanie.Name = "buttonZerowanie";
+            this.buttonZerowanie.Size = new System.Drawing.Size(84, 44);
+            this.buttonZerowanie.TabIndex = 52;
+            this.buttonZerowanie.Text = "RESETUJ SYMULATOR";
+            this.buttonZerowanie.UseVisualStyleBackColor = true;
+            this.buttonZerowanie.Click += new System.EventHandler(this.buttonZerowanie_Click);
             // 
             // labelZRejestru
             // 
@@ -1235,7 +1235,7 @@ namespace Intel8086
             this.panelCzwarty.Controls.Add(this.spView);
             this.panelCzwarty.Controls.Add(this.buttonPush);
             this.panelCzwarty.Controls.Add(this.comboBoxStos);
-            this.panelCzwarty.Controls.Add(this.buttonPOKAZ);
+            this.panelCzwarty.Controls.Add(this.buttonZerowanie);
             this.panelCzwarty.Location = new System.Drawing.Point(868, 51);
             this.panelCzwarty.Name = "panelCzwarty";
             this.panelCzwarty.Size = new System.Drawing.Size(280, 427);
@@ -1444,7 +1444,7 @@ namespace Intel8086
         private System.Windows.Forms.Label labelKierunek;
         private System.Windows.Forms.ComboBox comboBoxKierunek;
         private System.Windows.Forms.ComboBox comboBoxWymiana;
-        private System.Windows.Forms.Button buttonPOKAZ;
+        private System.Windows.Forms.Button buttonZerowanie;
         private System.Windows.Forms.Button buttonPrzypisz2;
         private System.Windows.Forms.Button buttonPrzypisz;
         private System.Windows.Forms.Label labelXCHG;
@@ -1474,26 +1474,18 @@ namespace Intel8086
         private System.Windows.Forms.Panel panelPierwszy;
         private System.Windows.Forms.Panel panelDrugi;
         private System.Windows.Forms.Panel panelTrzeci;
-        private System.Windows.Forms.ListBox listBoxRejestZapisu;
         private System.Windows.Forms.ListBox listBoxPodgladPamieci;
         private System.Windows.Forms.Panel panelCzwarty;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label labelMOV2;
         private System.Windows.Forms.Label labelXCHG2;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label labelPodgladPamieci;
         private System.Windows.Forms.ComboBox comboBoxStos;
         private System.Windows.Forms.Button buttonPop;
         private System.Windows.Forms.Button buttonPush;
-        private System.Windows.Forms.Label labelSP;
-        private System.Windows.Forms.TextBox spViewtextBox;
         private System.Windows.Forms.Label spLabel;
         private System.Windows.Forms.TextBox spView;
         private System.Windows.Forms.ListBox listBoxPodgladStosu;
         private System.Windows.Forms.Label labelPodgladStosu;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label labelWskaznikStosu;
         private System.Windows.Forms.Label labelStos;
         private System.Windows.Forms.Label labelPop;
