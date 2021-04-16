@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -341,6 +343,17 @@ namespace Intel8086
                     break;
             }
         }
+
+        private void Label_MouseLeave(object sender, EventArgs e)
+        {
+            Cursor = Cursors.Default;
+        }
+
+        private void Label_MouseEnter(object sender, EventArgs e)
+        {
+            Cursor = Cursors.Help;
+        }
+
 
         // 6. PRZYCISK XCHG
         private void buttonXCHG_Click(object sender, EventArgs e)
