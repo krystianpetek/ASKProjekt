@@ -134,7 +134,7 @@ namespace Intel8086
             // 
             this.axLabel.AutoSize = true;
             this.axLabel.BackColor = System.Drawing.Color.Transparent;
-            this.axLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.axLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.axLabel.ForeColor = System.Drawing.Color.Black;
             this.axLabel.Location = new System.Drawing.Point(55, 144);
             this.axLabel.Name = "axLabel";
@@ -149,7 +149,7 @@ namespace Intel8086
             // 
             this.bxLabel.AutoSize = true;
             this.bxLabel.BackColor = System.Drawing.Color.Transparent;
-            this.bxLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.bxLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.bxLabel.ForeColor = System.Drawing.Color.Black;
             this.bxLabel.Location = new System.Drawing.Point(114, 144);
             this.bxLabel.Name = "bxLabel";
@@ -164,11 +164,11 @@ namespace Intel8086
             // 
             this.cxLabel.AutoSize = true;
             this.cxLabel.BackColor = System.Drawing.Color.Transparent;
-            this.cxLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cxLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.cxLabel.ForeColor = System.Drawing.Color.Black;
             this.cxLabel.Location = new System.Drawing.Point(174, 144);
             this.cxLabel.Name = "cxLabel";
-            this.cxLabel.Size = new System.Drawing.Size(22, 15);
+            this.cxLabel.Size = new System.Drawing.Size(21, 15);
             this.cxLabel.TabIndex = 2;
             this.cxLabel.Text = "CX";
             this.toolTipOpisy.SetToolTip(this.cxLabel, "CX - rejestr licznikowy");
@@ -179,11 +179,11 @@ namespace Intel8086
             // 
             this.dxLabel.AutoSize = true;
             this.dxLabel.BackColor = System.Drawing.Color.Transparent;
-            this.dxLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dxLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.dxLabel.ForeColor = System.Drawing.Color.Black;
             this.dxLabel.Location = new System.Drawing.Point(234, 144);
             this.dxLabel.Name = "dxLabel";
-            this.dxLabel.Size = new System.Drawing.Size(22, 15);
+            this.dxLabel.Size = new System.Drawing.Size(23, 15);
             this.dxLabel.TabIndex = 3;
             this.dxLabel.Text = "DX";
             this.toolTipOpisy.SetToolTip(this.dxLabel, "DX - rejestr danych");
@@ -250,6 +250,7 @@ namespace Intel8086
             // dxText
             // 
             this.dxText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dxText.ForeColor = System.Drawing.Color.Black;
             this.dxText.Location = new System.Drawing.Point(219, 21);
             this.dxText.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dxText.MaxLength = 4;
@@ -262,6 +263,7 @@ namespace Intel8086
             // cxText
             // 
             this.cxText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cxText.ForeColor = System.Drawing.Color.Black;
             this.cxText.Location = new System.Drawing.Point(159, 21);
             this.cxText.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cxText.MaxLength = 4;
@@ -274,6 +276,7 @@ namespace Intel8086
             // bxText
             // 
             this.bxText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.bxText.ForeColor = System.Drawing.Color.Black;
             this.bxText.Location = new System.Drawing.Point(99, 21);
             this.bxText.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.bxText.MaxLength = 4;
@@ -286,6 +289,7 @@ namespace Intel8086
             // axText
             // 
             this.axText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.axText.ForeColor = System.Drawing.Color.Black;
             this.axText.Location = new System.Drawing.Point(39, 21);
             this.axText.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.axText.MaxLength = 4;
@@ -308,7 +312,7 @@ namespace Intel8086
             this.buttonMOV.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonMOV.Name = "buttonMOV";
             this.buttonMOV.Size = new System.Drawing.Size(80, 34);
-            this.buttonMOV.TabIndex = 12;
+            this.buttonMOV.TabIndex = 9;
             this.buttonMOV.Text = "MOV";
             this.buttonMOV.UseVisualStyleBackColor = false;
             this.buttonMOV.Click += new System.EventHandler(this.buttonMOV_Click);
@@ -318,6 +322,7 @@ namespace Intel8086
             this.comboBoxTO.Cursor = System.Windows.Forms.Cursors.Hand;
             this.comboBoxTO.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxTO.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.comboBoxTO.ForeColor = System.Drawing.Color.Black;
             this.comboBoxTO.FormattingEnabled = true;
             this.comboBoxTO.Items.AddRange(new object[] {
             "AX",
@@ -328,13 +333,16 @@ namespace Intel8086
             this.comboBoxTO.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboBoxTO.Name = "comboBoxTO";
             this.comboBoxTO.Size = new System.Drawing.Size(54, 23);
-            this.comboBoxTO.TabIndex = 13;
+            this.comboBoxTO.TabIndex = 8;
             // 
             // comboBoxFROM
             // 
+            this.comboBoxFROM.BackColor = System.Drawing.SystemColors.Window;
             this.comboBoxFROM.Cursor = System.Windows.Forms.Cursors.Hand;
             this.comboBoxFROM.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxFROM.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.comboBoxFROM.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.comboBoxFROM.ForeColor = System.Drawing.Color.Black;
             this.comboBoxFROM.FormattingEnabled = true;
             this.comboBoxFROM.Items.AddRange(new object[] {
             "AX",
@@ -345,7 +353,7 @@ namespace Intel8086
             this.comboBoxFROM.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboBoxFROM.Name = "comboBoxFROM";
             this.comboBoxFROM.Size = new System.Drawing.Size(54, 23);
-            this.comboBoxFROM.TabIndex = 14;
+            this.comboBoxFROM.TabIndex = 7;
             this.comboBoxFROM.SelectedIndexChanged += new System.EventHandler(this.comboBoxFROM_SelectedIndexChanged);
             // 
             // buttonWyczysc
@@ -377,7 +385,7 @@ namespace Intel8086
             this.buttonXCHG.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonXCHG.Name = "buttonXCHG";
             this.buttonXCHG.Size = new System.Drawing.Size(80, 34);
-            this.buttonXCHG.TabIndex = 17;
+            this.buttonXCHG.TabIndex = 10;
             this.buttonXCHG.Text = "XCHG";
             this.buttonXCHG.UseVisualStyleBackColor = false;
             this.buttonXCHG.Click += new System.EventHandler(this.buttonXCHG_Click);
@@ -407,7 +415,7 @@ namespace Intel8086
             this.buttonRandom.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonRandom.Name = "buttonRandom";
             this.buttonRandom.Size = new System.Drawing.Size(80, 34);
-            this.buttonRandom.TabIndex = 19;
+            this.buttonRandom.TabIndex = 6;
             this.buttonRandom.Text = "RANDOM";
             this.buttonRandom.UseVisualStyleBackColor = false;
             this.buttonRandom.Click += new System.EventHandler(this.buttonRandom_Click);
@@ -470,11 +478,11 @@ namespace Intel8086
             // 
             this.siLabel.AutoSize = true;
             this.siLabel.BackColor = System.Drawing.Color.Transparent;
-            this.siLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.siLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.siLabel.ForeColor = System.Drawing.Color.Black;
             this.siLabel.Location = new System.Drawing.Point(27, 140);
             this.siLabel.Name = "siLabel";
-            this.siLabel.Size = new System.Drawing.Size(16, 15);
+            this.siLabel.Size = new System.Drawing.Size(18, 15);
             this.siLabel.TabIndex = 23;
             this.siLabel.Text = "SI";
             this.toolTipOpisy.SetToolTip(this.siLabel, "SI - rejestr indeksowy źródła");
@@ -484,13 +492,14 @@ namespace Intel8086
             // diText
             // 
             this.diText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.diText.ForeColor = System.Drawing.Color.Black;
             this.diText.Location = new System.Drawing.Point(67, 21);
             this.diText.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.diText.MaxLength = 4;
             this.diText.Name = "diText";
             this.diText.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.diText.Size = new System.Drawing.Size(54, 23);
-            this.diText.TabIndex = 28;
+            this.diText.TabIndex = 2;
             this.diText.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.toolTipOpisy.SetToolTip(this.diText, "DI - rejestr indeksowy przeznaczenia");
             // 
@@ -513,11 +522,11 @@ namespace Intel8086
             // 
             this.diLabel.AutoSize = true;
             this.diLabel.BackColor = System.Drawing.Color.Transparent;
-            this.diLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.diLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.diLabel.ForeColor = System.Drawing.Color.Black;
             this.diLabel.Location = new System.Drawing.Point(85, 140);
             this.diLabel.Name = "diLabel";
-            this.diLabel.Size = new System.Drawing.Size(18, 15);
+            this.diLabel.Size = new System.Drawing.Size(20, 15);
             this.diLabel.TabIndex = 26;
             this.diLabel.Text = "DI";
             this.toolTipOpisy.SetToolTip(this.diLabel, "DI - rejestr indeksowy przeznaczenia");
@@ -527,13 +536,14 @@ namespace Intel8086
             // bpText
             // 
             this.bpText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.bpText.ForeColor = System.Drawing.Color.Black;
             this.bpText.Location = new System.Drawing.Point(127, 21);
             this.bpText.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.bpText.MaxLength = 4;
             this.bpText.Name = "bpText";
             this.bpText.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.bpText.Size = new System.Drawing.Size(54, 23);
-            this.bpText.TabIndex = 31;
+            this.bpText.TabIndex = 3;
             this.bpText.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.toolTipOpisy.SetToolTip(this.bpText, "BP - rejestr bazowy");
             // 
@@ -556,7 +566,7 @@ namespace Intel8086
             // 
             this.bpLabel.AutoSize = true;
             this.bpLabel.BackColor = System.Drawing.Color.Transparent;
-            this.bpLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.bpLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.bpLabel.ForeColor = System.Drawing.Color.Black;
             this.bpLabel.Location = new System.Drawing.Point(143, 140);
             this.bpLabel.Name = "bpLabel";
@@ -579,7 +589,7 @@ namespace Intel8086
             this.buttonPrzypisz2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonPrzypisz2.Name = "buttonPrzypisz2";
             this.buttonPrzypisz2.Size = new System.Drawing.Size(80, 34);
-            this.buttonPrzypisz2.TabIndex = 32;
+            this.buttonPrzypisz2.TabIndex = 5;
             this.buttonPrzypisz2.Text = "PRZYPISZ";
             this.buttonPrzypisz2.UseVisualStyleBackColor = false;
             this.buttonPrzypisz2.Click += new System.EventHandler(this.buttonPrzypisz2_Click);
@@ -598,7 +608,7 @@ namespace Intel8086
             this.buttonPrzypisz.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonPrzypisz.Name = "buttonPrzypisz";
             this.buttonPrzypisz.Size = new System.Drawing.Size(80, 34);
-            this.buttonPrzypisz.TabIndex = 53;
+            this.buttonPrzypisz.TabIndex = 5;
             this.buttonPrzypisz.Text = "PRZYPISZ";
             this.buttonPrzypisz.UseVisualStyleBackColor = false;
             this.buttonPrzypisz.Click += new System.EventHandler(this.buttonPrzypisz_Click);
@@ -606,13 +616,14 @@ namespace Intel8086
             // dispText
             // 
             this.dispText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dispText.ForeColor = System.Drawing.Color.Black;
             this.dispText.Location = new System.Drawing.Point(215, 21);
             this.dispText.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dispText.MaxLength = 4;
             this.dispText.Name = "dispText";
             this.dispText.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.dispText.Size = new System.Drawing.Size(54, 23);
-            this.dispText.TabIndex = 35;
+            this.dispText.TabIndex = 4;
             this.dispText.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.toolTipOpisy.SetToolTip(this.dispText, "DISP - przemieszczenie");
             // 
@@ -635,11 +646,11 @@ namespace Intel8086
             // 
             this.dispLabel.AutoSize = true;
             this.dispLabel.BackColor = System.Drawing.Color.Transparent;
-            this.dispLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dispLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.dispLabel.ForeColor = System.Drawing.Color.Black;
             this.dispLabel.Location = new System.Drawing.Point(226, 139);
             this.dispLabel.Name = "dispLabel";
-            this.dispLabel.Size = new System.Drawing.Size(31, 15);
+            this.dispLabel.Size = new System.Drawing.Size(34, 15);
             this.dispLabel.TabIndex = 33;
             this.dispLabel.Text = "DISP";
             this.toolTipOpisy.SetToolTip(this.dispLabel, "DISP - przemieszczenie");
@@ -649,13 +660,14 @@ namespace Intel8086
             // siText
             // 
             this.siText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.siText.ForeColor = System.Drawing.Color.Black;
             this.siText.Location = new System.Drawing.Point(7, 21);
             this.siText.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.siText.MaxLength = 4;
             this.siText.Name = "siText";
             this.siText.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.siText.Size = new System.Drawing.Size(54, 23);
-            this.siText.TabIndex = 25;
+            this.siText.TabIndex = 1;
             this.siText.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.toolTipOpisy.SetToolTip(this.siText, "SI - rejestr indeksowy źródła");
             // 
@@ -671,7 +683,7 @@ namespace Intel8086
             this.buttonXCHG2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonXCHG2.Name = "buttonXCHG2";
             this.buttonXCHG2.Size = new System.Drawing.Size(80, 34);
-            this.buttonXCHG2.TabIndex = 38;
+            this.buttonXCHG2.TabIndex = 8;
             this.buttonXCHG2.Text = "XCHG";
             this.buttonXCHG2.UseVisualStyleBackColor = false;
             this.buttonXCHG2.Click += new System.EventHandler(this.buttonXCHG2_Click);
@@ -688,7 +700,7 @@ namespace Intel8086
             this.buttonReset2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonReset2.Name = "buttonReset2";
             this.buttonReset2.Size = new System.Drawing.Size(80, 34);
-            this.buttonReset2.TabIndex = 39;
+            this.buttonReset2.TabIndex = 6;
             this.buttonReset2.Text = "RESET";
             this.buttonReset2.UseVisualStyleBackColor = false;
             this.buttonReset2.Click += new System.EventHandler(this.buttonReset2_Click);
@@ -705,7 +717,7 @@ namespace Intel8086
             this.buttonMOV2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonMOV2.Name = "buttonMOV2";
             this.buttonMOV2.Size = new System.Drawing.Size(80, 34);
-            this.buttonMOV2.TabIndex = 40;
+            this.buttonMOV2.TabIndex = 7;
             this.buttonMOV2.Text = "MOV";
             this.buttonMOV2.UseVisualStyleBackColor = false;
             this.buttonMOV2.Click += new System.EventHandler(this.buttonMOV2_Click);
@@ -720,7 +732,7 @@ namespace Intel8086
             this.radioButtonIndeksowy.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.radioButtonIndeksowy.Name = "radioButtonIndeksowy";
             this.radioButtonIndeksowy.Size = new System.Drawing.Size(81, 19);
-            this.radioButtonIndeksowy.TabIndex = 41;
+            this.radioButtonIndeksowy.TabIndex = 2;
             this.radioButtonIndeksowy.TabStop = true;
             this.radioButtonIndeksowy.Text = "indeksowy";
             this.radioButtonIndeksowy.UseVisualStyleBackColor = false;
@@ -736,7 +748,7 @@ namespace Intel8086
             this.radioButtonBazowy.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.radioButtonBazowy.Name = "radioButtonBazowy";
             this.radioButtonBazowy.Size = new System.Drawing.Size(65, 19);
-            this.radioButtonBazowy.TabIndex = 42;
+            this.radioButtonBazowy.TabIndex = 3;
             this.radioButtonBazowy.TabStop = true;
             this.radioButtonBazowy.Text = "bazowy";
             this.radioButtonBazowy.UseVisualStyleBackColor = false;
@@ -747,11 +759,12 @@ namespace Intel8086
             this.radioButtonIndeksowoBazowy.AutoSize = true;
             this.radioButtonIndeksowoBazowy.BackColor = System.Drawing.Color.Transparent;
             this.radioButtonIndeksowoBazowy.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.radioButtonIndeksowoBazowy.ForeColor = System.Drawing.Color.Black;
             this.radioButtonIndeksowoBazowy.Location = new System.Drawing.Point(134, 88);
             this.radioButtonIndeksowoBazowy.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.radioButtonIndeksowoBazowy.Name = "radioButtonIndeksowoBazowy";
             this.radioButtonIndeksowoBazowy.Size = new System.Drawing.Size(127, 19);
-            this.radioButtonIndeksowoBazowy.TabIndex = 43;
+            this.radioButtonIndeksowoBazowy.TabIndex = 4;
             this.radioButtonIndeksowoBazowy.TabStop = true;
             this.radioButtonIndeksowoBazowy.Text = "indeksowo-bazowy";
             this.radioButtonIndeksowoBazowy.UseVisualStyleBackColor = false;
@@ -775,7 +788,7 @@ namespace Intel8086
             this.comboBoxIndeksowy.Cursor = System.Windows.Forms.Cursors.Hand;
             this.comboBoxIndeksowy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxIndeksowy.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.comboBoxIndeksowy.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.comboBoxIndeksowy.ForeColor = System.Drawing.Color.Black;
             this.comboBoxIndeksowy.FormattingEnabled = true;
             this.comboBoxIndeksowy.Items.AddRange(new object[] {
             "SI",
@@ -784,7 +797,7 @@ namespace Intel8086
             this.comboBoxIndeksowy.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboBoxIndeksowy.Name = "comboBoxIndeksowy";
             this.comboBoxIndeksowy.Size = new System.Drawing.Size(57, 23);
-            this.comboBoxIndeksowy.TabIndex = 45;
+            this.comboBoxIndeksowy.TabIndex = 6;
             // 
             // comboBoxBazowy
             // 
@@ -792,7 +805,7 @@ namespace Intel8086
             this.comboBoxBazowy.Cursor = System.Windows.Forms.Cursors.Hand;
             this.comboBoxBazowy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxBazowy.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.comboBoxBazowy.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.comboBoxBazowy.ForeColor = System.Drawing.Color.Black;
             this.comboBoxBazowy.FormattingEnabled = true;
             this.comboBoxBazowy.Items.AddRange(new object[] {
             "BX",
@@ -811,7 +824,7 @@ namespace Intel8086
             this.comboBoxIndeksowoBazowy.Cursor = System.Windows.Forms.Cursors.Hand;
             this.comboBoxIndeksowoBazowy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxIndeksowoBazowy.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.comboBoxIndeksowoBazowy.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.comboBoxIndeksowoBazowy.ForeColor = System.Drawing.Color.Black;
             this.comboBoxIndeksowoBazowy.FormattingEnabled = true;
             this.comboBoxIndeksowoBazowy.Items.AddRange(new object[] {
             "SI+BX",
@@ -841,8 +854,9 @@ namespace Intel8086
             this.comboBoxKierunek.BackColor = System.Drawing.SystemColors.Window;
             this.comboBoxKierunek.Cursor = System.Windows.Forms.Cursors.Hand;
             this.comboBoxKierunek.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxKierunek.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.comboBoxKierunek.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.comboBoxKierunek.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.comboBoxKierunek.ForeColor = System.Drawing.Color.Black;
             this.comboBoxKierunek.FormattingEnabled = true;
             this.comboBoxKierunek.Items.AddRange(new object[] {
             "---> z REJESTRU do PAMIĘCI",
@@ -851,7 +865,7 @@ namespace Intel8086
             this.comboBoxKierunek.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboBoxKierunek.Name = "comboBoxKierunek";
             this.comboBoxKierunek.Size = new System.Drawing.Size(227, 23);
-            this.comboBoxKierunek.TabIndex = 49;
+            this.comboBoxKierunek.TabIndex = 1;
             this.comboBoxKierunek.SelectedIndexChanged += new System.EventHandler(this.comboBoxKierunek_SelectedIndexChanged);
             // 
             // comboBoxWymiana
@@ -860,7 +874,7 @@ namespace Intel8086
             this.comboBoxWymiana.Cursor = System.Windows.Forms.Cursors.Hand;
             this.comboBoxWymiana.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxWymiana.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.comboBoxWymiana.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.comboBoxWymiana.ForeColor = System.Drawing.Color.Black;
             this.comboBoxWymiana.FormattingEnabled = true;
             this.comboBoxWymiana.Items.AddRange(new object[] {
             "AX",
@@ -871,13 +885,13 @@ namespace Intel8086
             this.comboBoxWymiana.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboBoxWymiana.Name = "comboBoxWymiana";
             this.comboBoxWymiana.Size = new System.Drawing.Size(57, 23);
-            this.comboBoxWymiana.TabIndex = 50;
+            this.comboBoxWymiana.TabIndex = 5;
             // 
             // listBoxPodgladPamieci
             // 
             this.listBoxPodgladPamieci.BackColor = System.Drawing.SystemColors.Window;
             this.listBoxPodgladPamieci.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.listBoxPodgladPamieci.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.listBoxPodgladPamieci.ForeColor = System.Drawing.Color.Black;
             this.listBoxPodgladPamieci.FormattingEnabled = true;
             this.listBoxPodgladPamieci.ItemHeight = 15;
             this.listBoxPodgladPamieci.Location = new System.Drawing.Point(25, 296);
@@ -898,7 +912,7 @@ namespace Intel8086
             this.buttonZerowanie.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonZerowanie.Name = "buttonZerowanie";
             this.buttonZerowanie.Size = new System.Drawing.Size(89, 44);
-            this.buttonZerowanie.TabIndex = 52;
+            this.buttonZerowanie.TabIndex = 10;
             this.buttonZerowanie.Text = "RESETUJ SYMULATOR";
             this.buttonZerowanie.UseVisualStyleBackColor = false;
             this.buttonZerowanie.Click += new System.EventHandler(this.buttonZerowanie_Click);
@@ -1063,6 +1077,7 @@ namespace Intel8086
             // 
             this.listBoxRejestrOperacji.BackColor = System.Drawing.SystemColors.Window;
             this.listBoxRejestrOperacji.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.listBoxRejestrOperacji.ForeColor = System.Drawing.Color.Black;
             this.listBoxRejestrOperacji.FormattingEnabled = true;
             this.listBoxRejestrOperacji.ItemHeight = 15;
             this.listBoxRejestrOperacji.Location = new System.Drawing.Point(30, 296);
@@ -1203,7 +1218,7 @@ namespace Intel8086
             this.buttonWyczysc2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonWyczysc2.Name = "buttonWyczysc2";
             this.buttonWyczysc2.Size = new System.Drawing.Size(80, 34);
-            this.buttonWyczysc2.TabIndex = 1011;
+            this.buttonWyczysc2.TabIndex = 7;
             this.buttonWyczysc2.Text = "WYCZYŚĆ";
             this.buttonWyczysc2.UseVisualStyleBackColor = false;
             this.buttonWyczysc2.Click += new System.EventHandler(this.buttonWyczysc2_Click);
@@ -1255,12 +1270,12 @@ namespace Intel8086
             this.panelPierwszy.Controls.Add(this.labelReset);
             this.panelPierwszy.Controls.Add(this.labelDoRejestru);
             this.panelPierwszy.Controls.Add(this.labelRandom);
-            this.panelPierwszy.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.panelPierwszy.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.panelPierwszy.ForeColor = System.Drawing.Color.Black;
             this.panelPierwszy.Location = new System.Drawing.Point(10, 51);
             this.panelPierwszy.Name = "panelPierwszy";
             this.panelPierwszy.Size = new System.Drawing.Size(280, 427);
-            this.panelPierwszy.TabIndex = 1014;
+            this.panelPierwszy.TabIndex = 0;
             // 
             // panelDrugi
             // 
@@ -1289,12 +1304,12 @@ namespace Intel8086
             this.panelDrugi.Controls.Add(this.listBoxRejestrOperacji);
             this.panelDrugi.Controls.Add(this.dispText);
             this.panelDrugi.Controls.Add(this.buttonReset2);
+            this.panelDrugi.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.panelDrugi.ForeColor = System.Drawing.Color.Black;
             this.panelDrugi.Location = new System.Drawing.Point(296, 51);
             this.panelDrugi.Name = "panelDrugi";
             this.panelDrugi.Size = new System.Drawing.Size(280, 427);
             this.panelDrugi.TabIndex = 1015;
-            this.panelDrugi.MouseEnter += new System.EventHandler(this.Label_MouseEnter);
-            this.panelDrugi.MouseLeave += new System.EventHandler(this.Label_MouseLeave);
             // 
             // panelTrzeci
             // 
@@ -1361,12 +1376,13 @@ namespace Intel8086
             // listBoxPodgladStosu
             // 
             this.listBoxPodgladStosu.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.listBoxPodgladStosu.ForeColor = System.Drawing.Color.Black;
             this.listBoxPodgladStosu.FormattingEnabled = true;
             this.listBoxPodgladStosu.ItemHeight = 15;
             this.listBoxPodgladStosu.Location = new System.Drawing.Point(27, 296);
             this.listBoxPodgladStosu.Name = "listBoxPodgladStosu";
             this.listBoxPodgladStosu.Size = new System.Drawing.Size(227, 124);
-            this.listBoxPodgladStosu.TabIndex = 1011;
+            this.listBoxPodgladStosu.TabIndex = 5;
             // 
             // panelCzwarty
             // 
@@ -1476,7 +1492,7 @@ namespace Intel8086
             this.buttonPop.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonPop.Name = "buttonPop";
             this.buttonPop.Size = new System.Drawing.Size(80, 34);
-            this.buttonPop.TabIndex = 1005;
+            this.buttonPop.TabIndex = 4;
             this.buttonPop.Text = "POP";
             this.buttonPop.UseVisualStyleBackColor = false;
             this.buttonPop.Click += new System.EventHandler(this.buttonPop_Click);
@@ -1492,7 +1508,7 @@ namespace Intel8086
             this.spView.Name = "spView";
             this.spView.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.spView.Size = new System.Drawing.Size(54, 25);
-            this.spView.TabIndex = 1005;
+            this.spView.TabIndex = 1;
             this.spView.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.toolTipOpisy.SetToolTip(this.spView, "SP - wskaźnik stosu");
             // 
@@ -1508,7 +1524,7 @@ namespace Intel8086
             this.buttonPush.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonPush.Name = "buttonPush";
             this.buttonPush.Size = new System.Drawing.Size(80, 34);
-            this.buttonPush.TabIndex = 1004;
+            this.buttonPush.TabIndex = 3;
             this.buttonPush.Text = "PUSH";
             this.buttonPush.UseVisualStyleBackColor = false;
             this.buttonPush.Click += new System.EventHandler(this.buttonPush_Click);
@@ -1518,6 +1534,7 @@ namespace Intel8086
             this.comboBoxStos.Cursor = System.Windows.Forms.Cursors.Hand;
             this.comboBoxStos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxStos.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.comboBoxStos.ForeColor = System.Drawing.Color.Black;
             this.comboBoxStos.FormattingEnabled = true;
             this.comboBoxStos.Items.AddRange(new object[] {
             "AX",
@@ -1528,7 +1545,7 @@ namespace Intel8086
             this.comboBoxStos.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboBoxStos.Name = "comboBoxStos";
             this.comboBoxStos.Size = new System.Drawing.Size(54, 23);
-            this.comboBoxStos.TabIndex = 1004;
+            this.comboBoxStos.TabIndex = 2;
             // 
             // Form1
             // 
