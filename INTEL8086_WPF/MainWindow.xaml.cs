@@ -24,5 +24,11 @@ namespace INTEL8086_WPF
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
     }
 }
