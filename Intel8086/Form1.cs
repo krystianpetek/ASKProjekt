@@ -634,6 +634,8 @@ namespace Intel8086
                         siDec = int.Parse(siView.Text, System.Globalization.NumberStyles.HexNumber); // SI decymalne
                         dispDec = int.Parse(dispView.Text, System.Globalization.NumberStyles.HexNumber); // DISP decymalne
                         sumDec = (siDec + dispDec);
+                        if (sumDec > 65534)
+                            sumDec = 65534;
 
                         TABLICA[sumDec] = " "+mlodszyAdres;
                         TABLICA[sumDec + 1] = " "+starszyAdres;
@@ -648,7 +650,8 @@ namespace Intel8086
                         diDec = int.Parse(diView.Text, System.Globalization.NumberStyles.HexNumber);
                         dispDec = int.Parse(dispView.Text, System.Globalization.NumberStyles.HexNumber);
                         sumDec = (diDec + dispDec);
-
+                        if (sumDec > 65534)
+                            sumDec = 65534;
                         TABLICA[sumDec] = " " + mlodszyAdres;
                         TABLICA[sumDec + 1] = " " + starszyAdres;
 
@@ -669,7 +672,8 @@ namespace Intel8086
                         bxDec = int.Parse(bxView.Text, System.Globalization.NumberStyles.HexNumber); // BX decymalne
                         dispDec = int.Parse(dispView.Text, System.Globalization.NumberStyles.HexNumber); // DISP decymalne
                         sumDec = (bxDec + dispDec);
-
+                        if (sumDec > 65534)
+                            sumDec = 65534;
                         TABLICA[sumDec] = " " + mlodszyAdres;
                         TABLICA[sumDec + 1] = " " + starszyAdres;
 
@@ -683,7 +687,8 @@ namespace Intel8086
                         bpDec = int.Parse(bpView.Text, System.Globalization.NumberStyles.HexNumber); // BP decymalne
                         dispDec = int.Parse(dispView.Text, System.Globalization.NumberStyles.HexNumber); // DISP decymalne
                         sumDec = (bpDec + dispDec);
-
+                        if (sumDec > 65534)
+                            sumDec = 65534;
                         TABLICA[sumDec] = " " + mlodszyAdres;
                         TABLICA[sumDec + 1] = " " + starszyAdres;
 
@@ -704,8 +709,10 @@ namespace Intel8086
                         siDec = int.Parse(siView.Text, System.Globalization.NumberStyles.HexNumber); // SI decymalne
                         bxDec = int.Parse(bxView.Text, System.Globalization.NumberStyles.HexNumber); // BX decymalne
                         dispDec = int.Parse(dispView.Text, System.Globalization.NumberStyles.HexNumber); // DISP decymalne
-                        sumDec = (siDec + bxDec + dispDec);
 
+                        sumDec = (siDec + bxDec + dispDec);
+                        if (sumDec > 65534)
+                            sumDec = 65534;
                         TABLICA[sumDec] = " " + mlodszyAdres;
                         TABLICA[sumDec + 1] = " " + starszyAdres;
 
@@ -720,7 +727,8 @@ namespace Intel8086
                         bpDec = int.Parse(bpView.Text, System.Globalization.NumberStyles.HexNumber); // BX decymalne
                         dispDec = int.Parse(dispView.Text, System.Globalization.NumberStyles.HexNumber); // DISP decymalne
                         sumDec = (siDec + bpDec + dispDec);
-
+                        if (sumDec > 65534)
+                            sumDec = 65534;
                         TABLICA[sumDec] = " " + mlodszyAdres;
                         TABLICA[sumDec + 1] = " " + starszyAdres;
                         listBoxRejestrOperacji.Items.Insert(0, $"MOV [SI+BP+{dispView.Text}], {comboBoxWymiana.Text}                MOV");
@@ -734,7 +742,8 @@ namespace Intel8086
                         bxDec = int.Parse(bxView.Text, System.Globalization.NumberStyles.HexNumber); // BX decymalne
                         dispDec = int.Parse(dispView.Text, System.Globalization.NumberStyles.HexNumber); // DISP decymalne
                         sumDec = (diDec + bxDec + dispDec);
-
+                        if (sumDec > 65534)
+                            sumDec = 65534;
                         TABLICA[sumDec] = " " + mlodszyAdres;
                         TABLICA[sumDec + 1] = " " + starszyAdres;
 
@@ -749,7 +758,8 @@ namespace Intel8086
                         bpDec = int.Parse(bpView.Text, System.Globalization.NumberStyles.HexNumber); // BX decymalne
                         dispDec = int.Parse(dispView.Text, System.Globalization.NumberStyles.HexNumber); // DISP decymalne
                         sumDec = (diDec + bpDec + dispDec);
-
+                        if (sumDec > 65534)
+                            sumDec = 65534;
                         TABLICA[sumDec] = " " + mlodszyAdres;
                         TABLICA[sumDec + 1] = " " + starszyAdres;
 
@@ -780,7 +790,8 @@ namespace Intel8086
                         siDec = int.Parse(siView.Text, System.Globalization.NumberStyles.HexNumber);
                         dispDec = int.Parse(dispView.Text, System.Globalization.NumberStyles.HexNumber);
                         sumDec = (siDec + dispDec);
-
+                        if (sumDec > 65534)
+                            sumDec = 65534;
                         odczyt = TABLICA[sumDec + 1].Trim() + TABLICA[sumDec].Trim();
                         sumHex = sumDec.ToString("X");
 
@@ -807,7 +818,8 @@ namespace Intel8086
                         diDec = int.Parse(diView.Text, System.Globalization.NumberStyles.HexNumber);
                         dispDec = int.Parse(dispView.Text, System.Globalization.NumberStyles.HexNumber);
                         sumDec = (diDec + dispDec);
-
+                        if (sumDec > 65534)
+                            sumDec = 65534;
                         odczyt = TABLICA[sumDec + 1].Trim() + TABLICA[sumDec].Trim();
                         sumHex = sumDec.ToString("X");
                         switch (comboBoxWymiana.Text)
@@ -835,7 +847,8 @@ namespace Intel8086
                         bxDec = int.Parse(bxView.Text, System.Globalization.NumberStyles.HexNumber);
                         dispDec = int.Parse(dispView.Text, System.Globalization.NumberStyles.HexNumber);
                         sumDec = (bxDec + dispDec);
-
+                        if (sumDec > 65534)
+                            sumDec = 65534;
                         odczyt = TABLICA[sumDec + 1].Trim() + TABLICA[sumDec].Trim();
                         sumHex = sumDec.ToString("X");
                         switch (comboBoxWymiana.Text)
@@ -860,7 +873,8 @@ namespace Intel8086
                         bpDec = int.Parse(bpView.Text, System.Globalization.NumberStyles.HexNumber);
                         dispDec = int.Parse(dispView.Text, System.Globalization.NumberStyles.HexNumber);
                         sumDec = (bpDec + dispDec);
-
+                        if (sumDec > 65534)
+                            sumDec = 65534;
                         odczyt = TABLICA[sumDec + 1].Trim() + TABLICA[sumDec].Trim();
                         sumHex = sumDec.ToString("X");
                         switch (comboBoxWymiana.Text)
@@ -889,7 +903,8 @@ namespace Intel8086
                         bxDec = int.Parse(bxView.Text, System.Globalization.NumberStyles.HexNumber);
                         dispDec = int.Parse(dispView.Text, System.Globalization.NumberStyles.HexNumber);
                         sumDec = (siDec + bxDec + dispDec);
-
+                        if (sumDec > 65534)
+                            sumDec = 65534;
                         odczyt = TABLICA[sumDec + 1].Trim() + TABLICA[sumDec].Trim();
                         sumHex = sumDec.ToString("X");
                         switch (comboBoxWymiana.Text)
@@ -915,7 +930,8 @@ namespace Intel8086
                         bpDec = int.Parse(bpView.Text, System.Globalization.NumberStyles.HexNumber);
                         dispDec = int.Parse(dispView.Text, System.Globalization.NumberStyles.HexNumber);
                         sumDec = (siDec + bpDec + dispDec);
-
+                        if (sumDec > 65534)
+                            sumDec = 65534;
                         odczyt = TABLICA[sumDec + 1].Trim() + TABLICA[sumDec].Trim();
                         sumHex = sumDec.ToString("X");
                         switch (comboBoxWymiana.Text)
@@ -941,7 +957,8 @@ namespace Intel8086
                         bxDec = int.Parse(bxView.Text, System.Globalization.NumberStyles.HexNumber);
                         dispDec = int.Parse(dispView.Text, System.Globalization.NumberStyles.HexNumber);
                         sumDec = (diDec + bxDec + dispDec);
-
+                        if (sumDec > 65534)
+                            sumDec = 65534;
                         odczyt = TABLICA[sumDec + 1].Trim() + TABLICA[sumDec].Trim();
                         sumHex = sumDec.ToString("X");
                         switch (comboBoxWymiana.Text)
@@ -967,7 +984,8 @@ namespace Intel8086
                         bpDec = int.Parse(bpView.Text, System.Globalization.NumberStyles.HexNumber);
                         dispDec = int.Parse(dispView.Text, System.Globalization.NumberStyles.HexNumber);
                         sumDec = (diDec + bpDec + dispDec);
-
+                        if (sumDec > 65534)
+                            sumDec = 65534;
                         odczyt = TABLICA[sumDec + 1].Trim() + TABLICA[sumDec].Trim();
                         sumHex = sumDec.ToString("X");
                         switch (comboBoxWymiana.Text)
@@ -1026,7 +1044,9 @@ namespace Intel8086
                 {
                     siDec = int.Parse(siView.Text, System.Globalization.NumberStyles.HexNumber);
                     dispDec = int.Parse(dispView.Text, System.Globalization.NumberStyles.HexNumber);
-                    sumDec = (siDec + dispDec);
+                    sumDec = (siDec + dispDec); 
+                    if (sumDec > 65534)
+                        sumDec = 65534;
                     zamiana = TABLICA[sumDec + 1].Trim() + TABLICA[sumDec].Trim();
 
                     TABLICA[sumDec + 1] = " "+pobierz.Substring(0, 2);
@@ -1057,6 +1077,8 @@ namespace Intel8086
                     diDec = int.Parse(diView.Text, System.Globalization.NumberStyles.HexNumber);
                     dispDec = int.Parse(dispView.Text, System.Globalization.NumberStyles.HexNumber);
                     sumDec = (diDec + dispDec);
+                    if (sumDec > 65534)
+                        sumDec = 65534;
                     zamiana = TABLICA[sumDec + 1].Trim() + TABLICA[sumDec].Trim();
 
                     TABLICA[sumDec + 1] = " " + pobierz.Substring(0, 2);
@@ -1092,6 +1114,8 @@ namespace Intel8086
                     bxDec = int.Parse(bxView.Text, System.Globalization.NumberStyles.HexNumber);
                     dispDec = int.Parse(dispView.Text, System.Globalization.NumberStyles.HexNumber);
                     sumDec = (bxDec + dispDec);
+                    if (sumDec > 65534)
+                        sumDec = 65534;
                     zamiana = TABLICA[sumDec + 1].Trim() + TABLICA[sumDec].Trim();
 
                     TABLICA[sumDec + 1] = " " + pobierz.Substring(0, 2);
@@ -1122,6 +1146,8 @@ namespace Intel8086
                     bpDec = int.Parse(bpView.Text, System.Globalization.NumberStyles.HexNumber);
                     dispDec = int.Parse(dispView.Text, System.Globalization.NumberStyles.HexNumber);
                     sumDec = (bpDec + dispDec);
+                    if (sumDec > 65534)
+                        sumDec = 65534;
                     zamiana = TABLICA[sumDec + 1].Trim() + TABLICA[sumDec].Trim();
 
                     TABLICA[sumDec + 1] = " " + pobierz.Substring(0, 2);
@@ -1156,6 +1182,8 @@ namespace Intel8086
                     bxDec = int.Parse(bxView.Text, System.Globalization.NumberStyles.HexNumber);
                     dispDec = int.Parse(dispView.Text, System.Globalization.NumberStyles.HexNumber);
                     sumDec = (siDec + bxDec + dispDec);
+                    if (sumDec > 65534)
+                        sumDec = 65534;
                     zamiana = TABLICA[sumDec + 1].Trim() + TABLICA[sumDec].Trim();
 
                     TABLICA[sumDec + 1] = " " + pobierz.Substring(0, 2);
@@ -1187,6 +1215,8 @@ namespace Intel8086
                     bpDec = int.Parse(bpView.Text, System.Globalization.NumberStyles.HexNumber);
                     dispDec = int.Parse(dispView.Text, System.Globalization.NumberStyles.HexNumber);
                     sumDec = (siDec + bpDec + dispDec);
+                    if (sumDec > 65534)
+                        sumDec = 65534;
                     zamiana = TABLICA[sumDec + 1].Trim() + TABLICA[sumDec].Trim();
 
                     TABLICA[sumDec + 1] = " " + pobierz.Substring(0, 2);
@@ -1218,6 +1248,8 @@ namespace Intel8086
                     bxDec = int.Parse(bxView.Text, System.Globalization.NumberStyles.HexNumber);
                     dispDec = int.Parse(dispView.Text, System.Globalization.NumberStyles.HexNumber);
                     sumDec = (diDec + bxDec + dispDec);
+                    if (sumDec > 65534)
+                        sumDec = 65534;
                     zamiana = TABLICA[sumDec + 1].Trim() + TABLICA[sumDec].Trim();
 
                     TABLICA[sumDec + 1] = " " + pobierz.Substring(0, 2);
@@ -1249,6 +1281,8 @@ namespace Intel8086
                     bpDec = int.Parse(bpView.Text, System.Globalization.NumberStyles.HexNumber);
                     dispDec = int.Parse(dispView.Text, System.Globalization.NumberStyles.HexNumber);
                     sumDec = (diDec + bpDec + dispDec);
+                    if (sumDec > 65534)
+                        sumDec = 65534;
                     zamiana = TABLICA[sumDec + 1].Trim() + TABLICA[sumDec].Trim();
 
                     TABLICA[sumDec + 1] = " " + pobierz.Substring(0, 2);
