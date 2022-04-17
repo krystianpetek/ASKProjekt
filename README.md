@@ -18,6 +18,7 @@ Program możliwia także zresetowanie całej symulacji i posiada także podgląd
 * Podgląd wartości na stosie
 
 Autor: Krystian Petek
+
 Projekt zrealizowałem na ocenę 5.
 
 Był to mój pierwszy projekt, podczas nauki języka C#, zrealizowany w technologii WinForms.
